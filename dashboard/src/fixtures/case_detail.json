@@ -1,0 +1,225 @@
+{
+ "case": {
+  "case_id": "CS-0002",
+  "merchant_id": "M-003",
+  "lead_id": null,
+  "playbook_id": "S3_SETTLEMENT_DELAY",
+  "state": "WAITING",
+  "lane": "SUPPORT",
+  "language": "hinglish",
+  "step": null,
+  "touches": 2,
+  "opened_at": "2026-03-09T10:00:00+05:30",
+  "closed_at": null,
+  "resume_note": null
+ },
+ "timeline": [
+  {
+   "seq": 1,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "actor": "SYSTEM",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "event": "signup_stalled"
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000001"
+  },
+  {
+   "seq": 2,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:02:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "decision": "replace_device",
+    "why": "device fault reported"
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000002"
+  },
+  {
+   "seq": 3,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:03:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "action": "order_device_replacement",
+    "key": "idem-dev-0002",
+    "cls": "R2"
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000003"
+  },
+  {
+   "seq": 4,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:04:00+05:30",
+   "actor": "POLICY",
+   "role": null,
+   "kind": "POLICY",
+   "payload": {
+    "action": "order_device_replacement",
+    "allow": true,
+    "rule_ids": []
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000004"
+  },
+  {
+   "seq": 5,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:05:00+05:30",
+   "actor": "SYSTEM",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "action": "order_device_replacement",
+    "key": "idem-dev-0002",
+    "status": "OK"
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000005"
+  },
+  {
+   "seq": 6,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:06:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "claims": []
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000006"
+  }
+ ],
+ "actions": [
+  {
+   "action_id": "A-1",
+   "name": "order_device_replacement",
+   "cls": "R2",
+   "status": "DONE",
+   "idempotency_key": "idem-dev-0002",
+   "compensable_until": "2026-03-10T18:00:00+05:30",
+   "undoable": true
+  },
+  {
+   "action_id": "A-2",
+   "name": "send_message",
+   "cls": "R1",
+   "status": "DONE",
+   "idempotency_key": "idem-msg-0002",
+   "compensable_until": "2026-03-10T12:00:00+05:30",
+   "undoable": false
+  },
+  {
+   "action_id": "A-3",
+   "name": "waive_fee",
+   "cls": "R2",
+   "status": "DONE",
+   "idempotency_key": "idem-wv-0002",
+   "compensable_until": null,
+   "undoable": false
+  }
+ ],
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Your replacement device is ordered.",
+   "source": "actions:A-1",
+   "level": "CORROBORATED",
+   "color": "green",
+   "reason": null,
+   "rule_id": null,
+   "verify_seq": 5,
+   "nli_label": "ENTAILMENT",
+   "nli_score": 0.98,
+   "snippet": "Device replacements item 1 status is ORDERED.",
+   "corroborated_by": [
+    "kb:device_faults#replacement@v1"
+   ]
+  },
+  {
+   "id": "c2",
+   "text": "It will arrive tomorrow.",
+   "source": "none",
+   "level": "UNSUPPORTED",
+   "color": "amber",
+   "reason": "no delivery date in system",
+   "rule_id": "GROUND-002",
+   "verify_seq": 5,
+   "nli_label": "NEUTRAL",
+   "nli_score": 0.71,
+   "snippet": null,
+   "corroborated_by": []
+  },
+  {
+   "id": "c3",
+   "text": "No charge will ever apply.",
+   "source": "pricing",
+   "level": "CONTRADICTED",
+   "color": "red",
+   "reason": "rental fee exists",
+   "rule_id": "GROUND-003",
+   "verify_seq": 5,
+   "nli_label": "CONTRADICTION",
+   "nli_score": 0.93,
+   "snippet": "Pricing rental fee is 199 rupees.",
+   "corroborated_by": []
+  }
+ ],
+ "messages": [
+  {
+   "ts_sim": "2026-03-10T13:00:00+05:30",
+   "direction": "IN",
+   "language": "hinglish",
+   "text": "Mera device kaam nahi kar raha."
+  },
+  {
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "direction": "OUT",
+   "language": "hinglish",
+   "text": "Maine naya device order kar diya hai."
+  }
+ ],
+ "renders": [
+  {
+   "verify_seq": 5,
+   "status": "SEND",
+   "language": "hinglish",
+   "sentences": [
+    {
+     "kind": "claim",
+     "text": "Maine naya device order kar diya hai.",
+     "claim_ids": [
+      "c1"
+     ],
+     "ok": true,
+     "back_translation": "I have ordered a new device."
+    }
+   ]
+  }
+ ],
+ "receipts": [
+  {
+   "action_id": "A-1",
+   "action": "create_device_replacement",
+   "label": "Replacement order ho gaya",
+   "cancel": "cancel until 6:00 PM",
+   "compensable_until": "2026-03-10T18:00:00+05:30"
+  }
+ ]
+}

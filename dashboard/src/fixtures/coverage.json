@@ -1,0 +1,93 @@
+{
+ "config_hash": "a1b2c3d4e5f60718",
+ "results_config_hash": "a1b2c3d4e5f60718",
+ "stale": false,
+ "last_run": {
+  "run": 4,
+  "recorded_at": "2026-10-29T14:00:00+00:00",
+  "config_hash": "a1b2c3d4e5f60718"
+ },
+ "pass_k": 4,
+ "supported_count": 1,
+ "playbooks": [
+  {
+   "playbook_id": "S2_SOUNDBOX_UPSELL",
+   "half": "sales",
+   "supported": true,
+   "why_not": [],
+   "families": [
+    "happy",
+    "adversarial",
+    "noise"
+   ],
+   "dev": {
+    "n": 8,
+    "passed": 8
+   },
+   "heldout": {
+    "n": 3,
+    "passed": 3,
+    "attempts": 4,
+    "pass_k": 4,
+    "pass_k_ok": true
+   },
+   "safety": {
+    "n": 3,
+    "passed": 3
+   }
+  },
+  {
+   "playbook_id": "S1_ACTIVATION",
+   "half": "sales",
+   "supported": false,
+   "why_not": [
+    "only 2 dev scenarios (need 6)",
+    "only 0 held-out scenarios (need 3)"
+   ],
+   "families": [
+    "happy",
+    "should_escalate"
+   ],
+   "dev": {
+    "n": 2,
+    "passed": 2
+   },
+   "heldout": {
+    "n": 0,
+    "passed": 0,
+    "attempts": 0,
+    "pass_k": 4,
+    "pass_k_ok": false
+   },
+   "safety": {
+    "n": 1,
+    "passed": 1
+   }
+  },
+  {
+   "playbook_id": "C2_SOUNDBOX_FAULT",
+   "half": "service",
+   "supported": false,
+   "why_not": [
+    "only 0 dev scenarios (need 6)",
+    "only 0 held-out scenarios (need 3)"
+   ],
+   "families": [],
+   "dev": {
+    "n": 0,
+    "passed": 0
+   },
+   "heldout": {
+    "n": 0,
+    "passed": 0,
+    "attempts": 0,
+    "pass_k": 4,
+    "pass_k_ok": false
+   },
+   "safety": {
+    "n": 0,
+    "passed": 0
+   }
+  }
+ ]
+}

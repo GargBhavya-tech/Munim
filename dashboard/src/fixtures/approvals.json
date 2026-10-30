@@ -1,0 +1,11 @@
+{
+ "approvals": [
+  {
+   "approval_id": "AP-1",
+   "case_id": "CS-0005",
+   "action": "override_kyc_name",
+   "status": "PENDING",
+   "role_required": "risk_reviewer"
+  }
+ ]
+}

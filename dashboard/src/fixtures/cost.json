@@ -1,0 +1,16 @@
+{
+ "ai_inr": 1.84,
+ "human_baseline_inr": {
+  "low": 18,
+  "mid": 35,
+  "high": 60
+ },
+ "assumptions": [
+  "Sarvam token price: configured, illustrative",
+  "Human baseline: 6 to 12 minutes at INR 3 to 5 per minute loaded cost"
+ ],
+ "usage": {
+  "tokens_in": 5200,
+  "tokens_out": 900
+ }
+}

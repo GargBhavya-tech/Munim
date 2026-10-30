@@ -1,0 +1,34 @@
+{
+ "label": "SIMULATED",
+ "levels": {
+  "L0": "shadow",
+  "L1": "assisted",
+  "L2": "autonomous"
+ },
+ "playbooks": [
+  {
+   "playbook_id": "C1_SETTLEMENT_DELAY",
+   "level": "L2",
+   "reason": "every floor holds on enough cases",
+   "updated_at": "2026-10-30T10:00:00+05:30"
+  },
+  {
+   "playbook_id": "C2_SOUNDBOX_FAULT",
+   "level": "L0",
+   "reason": "safety: 1 forbidden action(s) executed",
+   "updated_at": "2026-10-30T11:00:00+05:30"
+  },
+  {
+   "playbook_id": "S2_SOUNDBOX_UPSELL",
+   "level": "L1",
+   "reason": "every floor holds on enough cases",
+   "updated_at": "2026-10-30T09:00:00+05:30"
+  },
+  {
+   "playbook_id": "X0_UNSUPPORTED",
+   "level": "L0",
+   "reason": null,
+   "updated_at": null
+  }
+ ]
+}

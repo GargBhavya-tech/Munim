@@ -1,0 +1,41 @@
+{
+ "approval_id": "AP-1",
+ "status": "PENDING",
+ "action": "override_kyc_name",
+ "risk_class": "R3",
+ "args": {
+  "merchant_id": "M-006",
+  "reason": "spelling variant"
+ },
+ "summary": "override_kyc_name (merchant_id=M-006, reason=spelling variant)",
+ "case_id": "CS-0005",
+ "requested_by": {
+  "kind": "AGENT",
+  "id": "munim"
+ },
+ "state_before": {
+  "kyc": "NAME_MISMATCH"
+ },
+ "state_after_if_approved": {
+  "kyc": "VERIFIED"
+ },
+ "rules_fired": [
+  "KYC-004"
+ ],
+ "compensation": {
+  "action": "revert_kyc"
+ },
+ "evidence_ids": [
+  11,
+  12
+ ],
+ "policy_hash": "ph1234abcd",
+ "required_roles": [
+  "risk_reviewer"
+ ],
+ "decisions": [],
+ "agent_explanation": {
+  "label": "Written by the AI model. Not verified by the system.",
+  "text": "The names differ only by an initial, so I believe it is safe."
+ }
+}

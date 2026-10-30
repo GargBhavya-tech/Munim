@@ -1,0 +1,34 @@
+{
+ "handoffs": [
+  {
+   "handoff_id": "H-2",
+   "case_id": "CS-0005",
+   "packet": {
+    "summary": "Name mismatch between PAN and bank",
+    "evidence": [
+     "kyc:1",
+     "bank:1"
+    ],
+    "ask": "Approve manual KYC override?"
+   },
+   "status": "OPEN",
+   "owner_role": "risk_reviewer",
+   "deadline": "2026-03-10T16:00:00+05:30",
+   "created_at": "2026-03-10T12:00:00+05:30",
+   "verdict": null
+  },
+  {
+   "handoff_id": "H-1",
+   "case_id": "CS-0002",
+   "packet": {
+    "summary": "Merchant angry about fee",
+    "ask": "Call back"
+   },
+   "status": "OPEN",
+   "owner_role": "support_executive",
+   "deadline": "2026-03-10T14:30:00+05:30",
+   "created_at": "2026-03-10T11:00:00+05:30",
+   "verdict": null
+  }
+ ]
+}
