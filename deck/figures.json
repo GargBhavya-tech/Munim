@@ -1,0 +1,76 @@
+{
+ "meta": {
+  "ticket": 153,
+  "checked_on": "2026-10-30",
+  "rule": "Only figures with status VERIFIED can appear on a slide. Everything else stays in the Bible, tagged.",
+  "how": "Read from Paytm's own investor pages and results releases on the date above. The Q1 FY27 earnings datapack (an XLS) was NOT read, so every figure that only the datapack carries is UNVERIFIED."
+ },
+ "figures": {
+  "subscription_merchants_q2": {
+   "text": "1.64 crore merchants on subscription plans",
+   "status": "VERIFIED",
+   "source": "https://paytm.com/blog/investor-relations/paytm-q2-fy27-results-pat-225-crore-ebitda-rises-90-to-270-crore/",
+   "note": "Quarter ending September 2026. Up 27 lakh over the past year, per the same page."
+  },
+  "total_revenue_q2": {
+   "text": "₹2,648 crore total revenue",
+   "status": "VERIFIED",
+   "source": "https://paytm.com/blog/investor-relations/paytm-q2-fy27-results-pat-225-crore-ebitda-rises-90-to-270-crore/",
+   "note": "CORRECTION: the Bible called this 'operating revenue'. The Paytm page states it as TOTAL revenue (up 28% year on year); operating revenue is not given separately on that page."
+  },
+  "registered_merchants_q1": {
+   "text": "5.0 crore registered merchants",
+   "status": "VERIFIED",
+   "source": "https://paytm.com/document/ir/financial-results/Paytm_Earning-Release_Q1-FY-2027.pdf",
+   "note": "End of June 2026, from the release's KPI table (4.5 crore a year earlier). The Q2 page does not restate it."
+  },
+  "subscription_merchants_q1": {
+   "text": "1.57 crore merchants paying for devices",
+   "status": "VERIFIED",
+   "source": "https://paytm.com/document/ir/financial-results/Paytm_Earning-Release_Q1-FY-2027.pdf",
+   "note": "End of June 2026. Superseded by the Q2 figure for any current statement."
+  },
+  "operating_revenue_q1": {
+   "text": "₹2,448 crore operating revenue",
+   "status": "VERIFIED",
+   "source": "https://paytm.com/support/investor-relations/paytm-q1-fy27-results-revenue-grows-28-to-2448-crore-highest-ever-quarterly-ebitda-at-203-crore",
+   "note": "Quarter ending June 2026, up 28% year on year."
+  },
+  "avg_sales_employees": {
+   "text": "43,715 average sales employees",
+   "status": "UNVERIFIED",
+   "source": "Q1 FY27 earnings datapack (XLS), not read",
+   "note": "Keep in the Bible only."
+  },
+  "sales_service_employee_cost": {
+   "text": "sales and service employee costs up 27%, ₹266 crore to ₹339 crore",
+   "status": "UNVERIFIED",
+   "source": "Q1 FY27 earnings datapack (XLS), not read",
+   "note": "Keep in the Bible only."
+  },
+  "distribution_revenue": {
+   "text": "₹814 crore distribution revenue, up 45%",
+   "status": "UNVERIFIED",
+   "source": "Q1 FY27 earnings datapack (XLS), not read",
+   "note": "Keep in the Bible only."
+  },
+  "ai_queries": {
+   "text": "10M+ AI-handled queries a month and $11M+ yearly support saving",
+   "status": "SECONDARY",
+   "source": "news reports citing Bloomberg",
+   "note": "Not on any Paytm page that was read. Keep out of slides."
+  },
+  "registered_without_device": {
+   "text": "about 3.4 crore registered merchants without a device",
+   "status": "UNVERIFIED",
+   "source": "derived: registered merchants minus subscription merchants",
+   "note": "An estimate, and the two counts are defined differently (registered vs paying for devices). Keep out of slides."
+  },
+  "soundbox_launch_date": {
+   "text": "AI Soundbox launch date (Oct 2025 vs early Oct 2026)",
+   "status": "UNVERIFIED",
+   "source": "neither Paytm page that was read states a launch date",
+   "note": "The date conflict is NOT resolved. Do not put a date on a slide."
+  }
+ }
+}

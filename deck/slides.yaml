@@ -1,0 +1,74 @@
+# The finals deck (Build Map #156): eight slides mapped to the Stage 1 sections, plus backups. Source: Bible "Finals deck".
+# RULE: no digit appears in this file outside a {token}. A number is one of
+#   {fig:key}     a Paytm figure from deck/figures.json, allowed only when its status is VERIFIED;
+#   {metric:key}  a result from the ONE held-out run for the current configuration (core/eval/gate4.py);
+#   {repo:key}    a count read from the repository (levels, rules, playbooks).
+# core/eval/deck.py refuses a slide with any other number, so nothing can be typed from memory.
+slides:
+  - n: one
+    title: "Every merchant case, finished. Every word, proven."
+    section: Title
+    bullets:
+      - "One AI teammate that finishes Paytm merchant cases across sales, customer service and field operations, in Hindi, Kannada, Hinglish and English."
+      - "[TEAM NAMES: add before submission]"
+  - n: two
+    title: "The problem in Paytm's terms"
+    section: Problem
+    bullets:
+      - "{fig:subscription_merchants_q2}, and the cases arrive mixed: a silent Soundbox, a late settlement and a loan question in one message."
+      - "Answering is mostly solved. Finishing is not: a real fix is an action across systems."
+      - "The fake-screenshot scam: a customer shows a payment that never arrived."
+      - "[MERCHANT QUOTE: pending the shopkeeper interviews]"
+  - n: three
+    title: "What Munim does"
+    section: Solution
+    bullets:
+      - "The case catalogue, across {repo:playbooks} playbooks in the merchant pack. One merchant with a silent Soundbox, a late settlement and a loan question: every case finished."
+      - "Growth: a lead map, an account brief with every number sourced, a consented first contact."
+      - "Field: routes for reps and technicians, re-planned live when a shop closes."
+  - n: four
+    title: "How it decides"
+    section: Tech stack
+    bullets:
+      - "Who decides: the model reads and proposes; code enforces. Every number a merchant sees comes from a system read."
+      - "The pipeline: understand, decide, policy, act through one executor, say only what is proven."
+      - "Sarvam end to end for speech, language and translation; the gate checks Hindi and Kannada by back-translation."
+  - n: five
+    title: "Watch it, try it"
+    section: USP
+    bullets:
+      - "Judge Mode on your own phone: try to break it, or talk it into promising a free loan."
+      - "Claim chips show the source of every sentence; the systems panel shows what really changed."
+      - "The guard-off twin shows what the same attempt does without the guards."
+      - "Scam Shield checks a payment screenshot against the merchant's own transactions."
+  - n: six
+    title: "Safe to deploy"
+    section: USP
+    bullets:
+      - "{repo:policy_rules} policy rules, each with an ID you can read, default-deny, no admin bypass."
+      - "Undo for reversible and compensable actions; server-built approval views; roles; a hash-chained ledger anyone can verify."
+      - "A rollout ladder per playbook with automatic demotion."
+  - n: seven
+    title: "Measured, honestly"
+    section: Impact
+    bullets:
+      - "Unsupported claims sent: {metric:unsupported_claim_rate}."
+      - "True replies wrongly blocked: {metric:grounding_false_block}."
+      - "Forbidden actions executed: {metric:forbidden_executed}."
+      - "Escalation recall on cases that needed a person: {metric:escalation_recall}."
+      - "Scenarios resolved, held-out: {metric:resolution_rate}; every held-out scenario passes in all runs: {metric:pass_k}."
+      - "All of it is simulated data, labelled, and every figure is from one frozen held-out run."
+  - n: eight
+    title: "Business model and Pi"
+    section: Business model
+    bullets:
+      - "Who pays and outcome pricing: paid when a case is finished, not per message."
+      - "Munim Core for Paytm Intelligence: the same safe layer for banks, lenders and insurers."
+      - "Every merchant case, finished. Every word, proven."
+backups:
+  - {title: "Privacy and data handling", bullets: ["What is never collected, what is masked, what is logged. Synthetic data only in the demo."]}
+  - {title: "Coverage matrix", bullets: ["Per playbook: supported or not, with the reason. Computed from the held-out run."]}
+  - {title: "Decision rules", bullets: ["The policy rules, their IDs and sources."]}
+  - {title: "Ablation table", bullets: ["Each guard removed in turn: what then goes wrong."]}
+  - {title: "Regulatory register", bullets: ["What was read in the primary texts and what is still generic."]}
+  - {title: "Competitive table", bullets: ["Where Munim differs from answering bots and cold-outreach agents."]}
