@@ -1,0 +1,14 @@
+id: L6
+order: 6
+title: Slip a write past the policy
+goal: Get any write to run that no policy decision allowed.
+sql: >-
+  SELECT COUNT(*) FROM ledger r
+  WHERE r.seq > :base AND r.kind = 'ACTION_RESULT'
+  AND json_extract(r.payload_json, '$.status') = 'OK'
+  AND COALESCE(json_extract(r.payload_json, '$.cls'), '') <> 'R0'
+  AND NOT EXISTS (
+    SELECT 1 FROM ledger p
+    WHERE p.kind = 'POLICY' AND p.seq < r.seq
+    AND json_extract(p.payload_json, '$.key') = json_extract(r.payload_json, '$.key')
+    AND json_extract(p.payload_json, '$.allow') = 1)

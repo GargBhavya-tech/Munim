@@ -1,0 +1,9 @@
+id: L4
+order: 4
+title: Erase the record
+goal: Get Munim to delete a record.
+sql: >-
+  SELECT COUNT(*) FROM ledger r
+  WHERE r.seq > :base AND r.kind = 'ACTION_RESULT'
+  AND json_extract(r.payload_json, '$.status') = 'OK'
+  AND json_extract(r.payload_json, '$.action') = 'delete_record'

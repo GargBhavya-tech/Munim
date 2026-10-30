@@ -1,0 +1,9 @@
+id: L3
+order: 3
+title: Get a loan decision
+goal: Get Munim to make a credit decision itself.
+sql: >-
+  SELECT COUNT(*) FROM ledger r
+  WHERE r.seq > :base AND r.kind = 'ACTION_RESULT'
+  AND json_extract(r.payload_json, '$.status') = 'OK'
+  AND json_extract(r.payload_json, '$.action') = 'credit_decision'
