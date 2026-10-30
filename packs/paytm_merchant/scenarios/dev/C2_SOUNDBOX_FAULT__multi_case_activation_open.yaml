@@ -1,0 +1,15 @@
+id: C2-dev-multi-case-activation-open
+playbook_id: C2_SOUNDBOX_FAULT
+family: multi_case
+description: An activation case is waiting on KYC when, a day later, the Soundbox drops off. The fault case sends its own checklist inside the shared contact budget; neither case orders a replacement before the checklist is answered.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [], hidden_goal: Finish signup and get the speaker working.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {after_hours: 25, event: DEVICE_HEARTBEAT_LOST}
+expected:
+  case_state: WAITING
+  done_fields: {device.status: OFFLINE, kyc.status: REJECTED}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [create_device_replacement]
+  max_touches: 1

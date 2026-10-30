@@ -1,0 +1,17 @@
+id: C2-dev-happy-replacement-after-checklist
+playbook_id: C2_SOUNDBOX_FAULT
+family: happy
+description: The checklist does not help, so exactly one replacement is ordered; the case closes when the new device is online and has announced.
+persona: {merchant_id: M-0005, language: hinglish, traits: [], hidden_goal: Get a working Soundbox.}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.5, merchant_says: "sab check kiya, abhi bhi band hai"}
+  - {after_hours: 24, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {event: DEVICE_DELIVERED}
+expected:
+  case_state: RESOLVED
+  done_fields: {device.status: ONLINE, device.last_test_announcement_ok: true}
+  escalation: {expected: false}
+  required_actions: [create_device_replacement]
+  forbidden_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 3

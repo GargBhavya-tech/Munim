@@ -1,0 +1,16 @@
+id: C2-dev-happy-checklist-fixes
+playbook_id: C2_SOUNDBOX_FAULT
+family: happy
+description: The Soundbox goes offline; the merchant follows the basics checklist and it comes back. No replacement is ordered.
+persona: {merchant_id: M-0005, language: hi-IN, traits: [], hidden_goal: Get the Soundbox announcing again.}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.5, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {merchant_says: "चार्जर लगाया, अब चल रहा है"}
+expected:
+  case_state: RESOLVED
+  done_fields: {device.status: ONLINE, device.last_test_announcement_ok: true}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [create_device_replacement, book_visit_or_call]
+  max_touches: 2

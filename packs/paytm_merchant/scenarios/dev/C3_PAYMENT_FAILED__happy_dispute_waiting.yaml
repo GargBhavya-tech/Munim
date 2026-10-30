@@ -1,0 +1,14 @@
+id: C3-dev-happy-dispute-waiting
+playbook_id: C3_PAYMENT_FAILED
+family: happy
+description: The failed-payment event opens the case. A dispute ticket and one follow-up exist and the case waits for the reversal.
+persona: {merchant_id: M-0010, language: hinglish, traits: [], hidden_goal: Get my customer's money sorted.}
+steps:
+  - {event: PAYMENT_FAILED}
+expected:
+  case_state: WAITING
+  done_fields: {payment.status: FAILED, ticket.open_count: 1}
+  escalation: {expected: false}
+  required_actions: [raise_ticket, schedule_follow_up, send_message]
+  forbidden_actions: [create_refund_request, apply_fee_waiver]
+  max_touches: 1

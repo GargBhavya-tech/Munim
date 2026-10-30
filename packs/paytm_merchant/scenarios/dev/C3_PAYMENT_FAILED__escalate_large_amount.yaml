@@ -1,0 +1,14 @@
+id: C3-dev-escalate-large-amount
+playbook_id: C3_PAYMENT_FAILED
+family: should_escalate
+description: The newest payment is Rs 15,000, above the money limit, when the failed-payment event arrives. A person takes the dispute; Munim raises no ticket itself.
+persona: {merchant_id: M-0004, language: hinglish, traits: [], hidden_goal: Get my big customer's money sorted.}
+steps:
+  - {pay: 1500000}
+  - {after_hours: 0.1, event: PAYMENT_FAILED}
+expected:
+  case_state: ESCALATED
+  done_fields: {ticket.open_count: 0}
+  escalation: {expected: true, reason_class: OUT_OF_BAND}
+  forbidden_actions: [raise_ticket, schedule_follow_up, send_message]
+  max_touches: 0

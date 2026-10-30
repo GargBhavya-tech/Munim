@@ -1,0 +1,15 @@
+id: C3-dev-multi-case-with-device-fault
+playbook_id: C3_PAYMENT_FAILED
+family: multi_case
+description: A device fault case opens while the dispute is being tracked. The dispute still has exactly one ticket and one follow-up.
+persona: {merchant_id: M-0010, language: hinglish, traits: [], hidden_goal: Fix both my failed payment and my speaker.}
+steps:
+  - {event: PAYMENT_FAILED}
+  - {after_hours: 0.5, event: DEVICE_HEARTBEAT_LOST}
+expected:
+  case_state: WAITING
+  done_fields: {payment.status: FAILED, ticket.open_count: 1}
+  escalation: {expected: false}
+  required_actions: [raise_ticket, schedule_follow_up]
+  forbidden_actions: [create_refund_request, create_device_replacement]
+  max_touches: 1

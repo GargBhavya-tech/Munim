@@ -1,0 +1,15 @@
+id: C3-dev-happy-reversed-after-dispute
+playbook_id: C3_PAYMENT_FAILED
+family: happy
+description: The merchant reports a failed payment in chat. A dispute ticket and one follow-up are created and the money returns later.
+persona: {merchant_id: M-0010, language: hinglish, traits: [worried], hidden_goal: Get my customer's money back.}
+steps:
+  - {merchant_says: "customer ka payment fail ho gaya, paisa kat gaya"}
+  - {after_hours: 6, pay: 200000}
+expected:
+  case_state: RESOLVED
+  done_fields: {payment.status: SUCCESS, ticket.open_count: 1}
+  escalation: {expected: false}
+  required_actions: [raise_ticket, schedule_follow_up, send_message]
+  forbidden_actions: [create_refund_request, apply_fee_waiver]
+  max_touches: 2

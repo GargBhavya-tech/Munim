@@ -1,0 +1,18 @@
+id: C2-dev-noise-duplicate-heartbeat-and-webhooks
+playbook_id: C2_SOUNDBOX_FAULT
+family: noise
+description: The heartbeat alarm fires twice and the device service duplicates every webhook. One fault case, one checklist, one replacement.
+persona: {merchant_id: M-0005, language: hi-IN, traits: [], hidden_goal: Get the Soundbox fixed.}
+steps:
+  - {chaos: {system: device, mode: duplicate_webhook, rate: 1.0}}
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.1, event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.5, merchant_says: "कुछ नहीं हुआ, अभी भी बंद है"}
+  - {after_hours: 0.2, merchant_says: "अभी भी बंद है"}
+expected:
+  case_state: WAITING
+  done_fields: {device.status: OFFLINE, device.replacement_status: CREATED}
+  escalation: {expected: false}
+  required_actions: [create_device_replacement, send_message]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 3
