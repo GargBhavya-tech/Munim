@@ -1,0 +1,22 @@
+id: C6-heldout-happy-d2c-two-months-billed-twice
+playbook_id: C6_CHARGE_DISPUTE
+family: happy
+description: A D2C brand billed twice asks for 2 months, which is in its band of 2.
+persona:
+  merchant_id: M-0015
+  language: en-IN
+  traits: []
+  hidden_goal: Two months back for a double charge.
+steps:
+- merchant_says: I was billed twice for the plan. Please waive 2 months.
+expected:
+  case_state: RESOLVED
+  done_fields:
+    offer.latest_status: APPLIED
+  escalation:
+    expected: false
+  forbidden_actions:
+  - raise_ticket
+  required_actions:
+  - apply_fee_waiver
+  max_touches: 2

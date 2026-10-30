@@ -1,0 +1,21 @@
+id: C6-heldout-noise-hindi-one-month
+playbook_id: C6_CHARGE_DISPUTE
+family: noise
+description: A Hindi message with a clear one month request.
+persona:
+  merchant_id: M-0005
+  language: hi-IN
+  traits: []
+  hidden_goal: Get one month waived.
+steps:
+- merchant_says: इस महीने का चार्ज गलत है, 1 महीने की फीस माफ कर दीजिए
+expected:
+  case_state: RESOLVED
+  done_fields:
+    offer.latest_status: APPLIED
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - apply_fee_waiver
+  max_touches: 2

@@ -1,0 +1,17 @@
+id: C5-heldout-links-for-kyc-and-bank
+playbook_id: C5_DETAIL_UPDATE
+family: happy
+description: Bank failed and KYC rejected. Munim sends the two self-serve links and changes nothing itself; the case closes when the merchant has fixed both.
+persona: {merchant_id: M-0001, language: kn-IN, traits: [], hidden_goal: Change my bank details.}
+steps:
+  - {merchant_says: "bank badalna hai"}
+  - {after_hours: 5, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {control: {path: "/mock/control/bank/{mid}", body: {status: VERIFIED}}}
+  - {after_hours: 0.1, merchant_says: "ho gaya"}
+expected:
+  case_state: RESOLVED
+  done_fields: {bank.status: VERIFIED, kyc.status: APPROVED}
+  escalation: {expected: false}
+  required_actions: [send_bank_update_link, send_kyc_resume_link]
+  forbidden_actions: [retrigger_bank_verification, create_device_replacement, apply_fee_waiver]
+  max_touches: 4

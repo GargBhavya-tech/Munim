@@ -1,0 +1,15 @@
+id: C4-heldout-request-awaits-app-confirmation
+playbook_id: C4_MERCHANT_REFUND
+family: happy
+description: The merchant asks for a refund and answers "yes" in chat. One request is created and stays AWAITING_MERCHANT_CONFIRM; only the merchant's in-app confirmation can process it.
+persona: {merchant_id: M-0004, language: en-IN, traits: [], hidden_goal: Refund my customer for the last payment.}
+steps:
+  - {merchant_says: "Please refund the customer for the last payment"}
+  - {after_hours: 0.2, merchant_says: "yes please go ahead and confirm it"}
+expected:
+  case_state: WAITING
+  done_fields: {refund.status: AWAITING_MERCHANT_CONFIRM}
+  escalation: {expected: false}
+  required_actions: [create_refund_request, send_message]
+  forbidden_actions: [apply_fee_waiver, send_bank_update_link]
+  max_touches: 1

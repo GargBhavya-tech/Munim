@@ -1,0 +1,22 @@
+id: C6-heldout-should-escalate-kirana-two-months
+playbook_id: C6_CHARGE_DISPUTE
+family: should_escalate
+description: 'A kirana has band 1: two months goes to the sales lead through a billing ticket.'
+persona:
+  merchant_id: M-0001
+  language: kn-IN
+  traits: []
+  hidden_goal: Two free months.
+steps:
+- merchant_says: I was charged wrongly. Waive 2 months of rental.
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: OUT_OF_BAND
+  forbidden_actions:
+  - apply_fee_waiver
+  required_actions:
+  - raise_ticket
+  max_touches: 2

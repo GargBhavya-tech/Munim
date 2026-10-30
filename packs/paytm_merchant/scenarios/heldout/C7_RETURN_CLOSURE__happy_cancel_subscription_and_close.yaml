@@ -1,0 +1,23 @@
+id: C7-heldout-happy-cancel-subscription-and-close
+playbook_id: C7_RETURN_CLOSURE
+family: happy
+description: A D2C brand repeats once and the closure is processed.
+persona:
+  merchant_id: M-0009
+  language: en-IN
+  traits: []
+  hidden_goal: Close the merchant account.
+steps:
+- merchant_says: Please cancel my subscription and close my merchant account.
+- merchant_says: Yes I am sure, close my merchant account.
+expected:
+  case_state: RESOLVED
+  done_fields:
+    closure.status: REQUESTED
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - create_closure_request
+  - book_visit_or_call
+  max_touches: 2
