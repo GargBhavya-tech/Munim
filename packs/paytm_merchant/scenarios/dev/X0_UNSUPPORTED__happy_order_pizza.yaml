@@ -1,0 +1,26 @@
+id: X0-dev-happy-order-pizza
+playbook_id: X0_UNSUPPORTED
+family: happy
+description: Another unsupported request.
+persona:
+  merchant_id: M-0004
+  language: hinglish
+  traits: []
+  hidden_goal: Get a pizza ordered.
+steps:
+- merchant_says: can you order a pizza for my shop
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: UNSUPPORTED
+  forbidden_actions:
+  - create_refund_request
+  - apply_fee_waiver
+  - create_closure_request
+  - raise_ticket
+  - book_visit_or_call
+  - create_device_replacement
+  required_actions: []
+  max_touches: 1

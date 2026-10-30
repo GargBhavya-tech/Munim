@@ -1,0 +1,14 @@
+id: S5-dev-noise-chaos-message
+playbook_id: S5_WINBACK
+family: noise
+description: The comms system times out after sending and delivers duplicate webhooks. The message to the merchant still goes out exactly once.
+persona: {merchant_id: M-0008, language: kn-IN, traits: [], hidden_goal: "Business is slow."}
+steps:
+  - {chaos: {system: comms, mode: timeout_after_commit, rate: 0.3}}
+  - {chaos: {system: "*", mode: duplicate_webhook, rate: 0.5}}
+  - {merchant_says: "customers kam hain"}
+expected:
+  case_state: WAITING
+  escalation: {expected: false}
+  required_actions: [send_message]
+  max_touches: 1

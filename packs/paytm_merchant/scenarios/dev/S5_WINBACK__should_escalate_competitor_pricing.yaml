@@ -1,0 +1,12 @@
+id: S5-dev-should-escalate-competitor-pricing
+playbook_id: S5_WINBACK
+family: should_escalate
+description: The merchant has moved to a competitor and asks for a better price from a person.
+persona: {merchant_id: M-0008, language: hinglish, traits: [], hidden_goal: "A lower price or I stay with the competitor."}
+steps:
+  - {merchant_says: "dusre ne sasta diya hai, agent se baat karao"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [apply_fee_waiver, send_message]
+  max_touches: 0

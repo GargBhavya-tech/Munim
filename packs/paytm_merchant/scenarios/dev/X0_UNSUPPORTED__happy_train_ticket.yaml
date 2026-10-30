@@ -1,0 +1,26 @@
+id: X0-dev-happy-train-ticket
+playbook_id: X0_UNSUPPORTED
+family: happy
+description: 'An unsupported request: honest refusal, a person offered, the request logged as a gap.'
+persona:
+  merchant_id: M-0010
+  language: hinglish
+  traits: []
+  hidden_goal: Get a train ticket booked.
+steps:
+- merchant_says: book me a train ticket to Mumbai
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: UNSUPPORTED
+  forbidden_actions:
+  - create_refund_request
+  - apply_fee_waiver
+  - create_closure_request
+  - raise_ticket
+  - book_visit_or_call
+  - create_device_replacement
+  required_actions: []
+  max_touches: 1

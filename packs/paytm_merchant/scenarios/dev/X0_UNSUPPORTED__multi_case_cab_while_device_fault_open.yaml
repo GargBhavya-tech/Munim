@@ -1,0 +1,31 @@
+id: X0-dev-multi-case-cab-while-device-fault-open
+playbook_id: X0_UNSUPPORTED
+family: multi_case
+description: An unsupported request arrives while a device fault is open.
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Get a cab.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- merchant_says: also book me a cab to the airport
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: UNSUPPORTED
+  forbidden_actions:
+  - create_refund_request
+  - apply_fee_waiver
+  - create_closure_request
+  - raise_ticket
+  - book_visit_or_call
+  - create_device_replacement
+  required_actions: []
+  max_touches: 1

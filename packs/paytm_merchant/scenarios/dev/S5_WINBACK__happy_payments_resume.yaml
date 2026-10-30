@@ -1,0 +1,15 @@
+id: S5-dev-happy-payments-resume
+playbook_id: S5_WINBACK
+family: happy
+description: A dormant restaurant with an online Soundbox is asked what changed, and then customer payments resume. The case closes on a SUCCESS payment, not on the merchant's word.
+persona: {merchant_id: M-0008, language: kn-IN, traits: [], hidden_goal: "Business was slow and is picking up."}
+steps:
+  - {merchant_says: "kuch din se customers kam hain"}
+  - {after_hours: 24, pay: 18000}
+expected:
+  case_state: RESOLVED
+  done_fields: {device.status: ONLINE, payment.status: SUCCESS}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 2

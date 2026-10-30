@@ -1,0 +1,13 @@
+id: S5-dev-noise-duplicate-message
+playbook_id: S5_WINBACK
+family: noise
+description: The same message is delivered twice. Munim asks once.
+persona: {merchant_id: M-0008, language: kn-IN, traits: [], hidden_goal: "Business is slow."}
+steps:
+  - {merchant_says: "customers kam hain"}
+  - {merchant_says: "customers kam hain"}
+expected:
+  case_state: WAITING
+  escalation: {expected: false}
+  required_actions: [send_message]
+  max_touches: 1

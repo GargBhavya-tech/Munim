@@ -1,0 +1,14 @@
+id: S5-dev-should-escalate-repeated-closure
+playbook_id: S5_WINBACK
+family: should_escalate
+description: The merchant asks to close the account. One save message is sent; when the merchant asks again, Munim stops and a person processes the closure (CLOSE-NO-OBSTRUCT-001).
+persona: {merchant_id: M-0008, language: hinglish, traits: [], hidden_goal: "Close my account."}
+steps:
+  - {merchant_says: "mujhe account band karna hai"}
+  - {after_hours: 1, merchant_says: "account band karo, maine bola na"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: CLOSURE}
+  required_actions: [send_message]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 1
