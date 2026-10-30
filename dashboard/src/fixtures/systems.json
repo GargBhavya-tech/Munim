@@ -1,0 +1,113 @@
+{
+ "kyc": {
+  "status": "VERIFIED",
+  "name_match": true
+ },
+ "bank": {
+  "account": "XXXX1234",
+  "verified": true
+ },
+ "device": {
+  "model": "Soundbox 4G",
+  "status": "REPLACEMENT_ORDERED",
+  "order_id": "D-77"
+ },
+ "payments": {
+  "latest": [
+   {
+    "payment_id": "P-1",
+    "amount_paise": 150000,
+    "status": "SETTLING"
+   }
+  ],
+  "settlement": {
+   "settlement_id": "ST-1",
+   "amount_paise": 148500,
+   "status": "PENDING"
+  }
+ },
+ "crm": {
+  "open_cases": [
+   {
+    "case_id": "CS-0001",
+    "merchant_id": "M-002",
+    "lead_id": null,
+    "playbook_id": "S2_REPLACEMENT",
+    "state": "ACTIVE",
+    "lane": "SUPPORT",
+    "language": "kn",
+    "step": "collect_docs",
+    "touches": 1,
+    "opened_at": "2026-03-09T10:00:00+05:30",
+    "closed_at": null,
+    "resume_note": null
+   },
+   {
+    "case_id": "CS-0002",
+    "merchant_id": "M-003",
+    "lead_id": null,
+    "playbook_id": "S3_SETTLEMENT_DELAY",
+    "state": "WAITING",
+    "lane": "SUPPORT",
+    "language": "hinglish",
+    "step": null,
+    "touches": 2,
+    "opened_at": "2026-03-09T10:00:00+05:30",
+    "closed_at": null,
+    "resume_note": null
+   },
+   {
+    "case_id": "CS-0003",
+    "merchant_id": "M-004",
+    "lead_id": "L-003",
+    "playbook_id": "S1_ACTIVATION",
+    "state": "PARKED",
+    "lane": "SALES",
+    "language": "en",
+    "step": "collect_docs",
+    "touches": 3,
+    "opened_at": "2026-03-09T10:00:00+05:30",
+    "closed_at": null,
+    "resume_note": null
+   }
+  ],
+  "focus": "CS-0002",
+  "language": "hinglish"
+ },
+ "pricing": {
+  "band": {
+   "plan": "standard",
+   "rental_paise": 9900
+  },
+  "waivers": [
+   {
+    "fee": "rental",
+    "months": 1
+   }
+  ]
+ },
+ "scheduler": {
+  "follow_ups": [
+   {
+    "at": "2026-03-11T10:00:00+05:30",
+    "case_id": "CS-0002"
+   }
+  ],
+  "bookings": []
+ },
+ "tickets": [
+  {
+   "ticket_id": "T-1",
+   "status": "OPEN"
+  }
+ ],
+ "comms": [
+  {
+   "to": "M-002",
+   "text": "Replacement ordered"
+  }
+ ],
+ "handoff_queue": {
+  "open": 2
+ }
+}

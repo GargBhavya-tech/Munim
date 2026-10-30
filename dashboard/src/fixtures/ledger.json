@@ -1,0 +1,3504 @@
+{
+ "entries": [
+  {
+   "seq": 1,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 1
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000001"
+  },
+  {
+   "seq": 2,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:02:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 2
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000002"
+  },
+  {
+   "seq": 3,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:03:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 3
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000003"
+  },
+  {
+   "seq": 4,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:04:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 4
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000004"
+  },
+  {
+   "seq": 5,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:05:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 5
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000005"
+  },
+  {
+   "seq": 6,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:06:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 6
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000006"
+  },
+  {
+   "seq": 7,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:07:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 7
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000007"
+  },
+  {
+   "seq": 8,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:08:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 8
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000008"
+  },
+  {
+   "seq": 9,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:09:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 9
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000009"
+  },
+  {
+   "seq": 10,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:10:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 10
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000000a"
+  },
+  {
+   "seq": 11,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:11:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 11
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000000b"
+  },
+  {
+   "seq": 12,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:12:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 12
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000000c"
+  },
+  {
+   "seq": 13,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:13:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 13
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000000d"
+  },
+  {
+   "seq": 14,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:14:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 14
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000000e"
+  },
+  {
+   "seq": 15,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:15:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 15
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000000f"
+  },
+  {
+   "seq": 16,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:16:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 16
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000010"
+  },
+  {
+   "seq": 17,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:17:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 17
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000011"
+  },
+  {
+   "seq": 18,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:18:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 18
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000012"
+  },
+  {
+   "seq": 19,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:19:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 19
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000013"
+  },
+  {
+   "seq": 20,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:20:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 20
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000014"
+  },
+  {
+   "seq": 21,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:21:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 21
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000015"
+  },
+  {
+   "seq": 22,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:22:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 22
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000016"
+  },
+  {
+   "seq": 23,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:23:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 23
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000017"
+  },
+  {
+   "seq": 24,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:24:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 24
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000018"
+  },
+  {
+   "seq": 25,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:25:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 25
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000019"
+  },
+  {
+   "seq": 26,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:26:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 26
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000001a"
+  },
+  {
+   "seq": 27,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:27:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 27
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000001b"
+  },
+  {
+   "seq": 28,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:28:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 28
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000001c"
+  },
+  {
+   "seq": 29,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:29:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 29
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000001d"
+  },
+  {
+   "seq": 30,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:30:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 30
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000001e"
+  },
+  {
+   "seq": 31,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:31:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 31
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000001f"
+  },
+  {
+   "seq": 32,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:32:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 32
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000020"
+  },
+  {
+   "seq": 33,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:33:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 33
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000021"
+  },
+  {
+   "seq": 34,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:34:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 34
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000022"
+  },
+  {
+   "seq": 35,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:35:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 35
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000023"
+  },
+  {
+   "seq": 36,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:36:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 36
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000024"
+  },
+  {
+   "seq": 37,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:37:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 37
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000025"
+  },
+  {
+   "seq": 38,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:38:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 38
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000026"
+  },
+  {
+   "seq": 39,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:39:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 39
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000027"
+  },
+  {
+   "seq": 40,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:40:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 40
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000028"
+  },
+  {
+   "seq": 41,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:41:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 41
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000029"
+  },
+  {
+   "seq": 42,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:42:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 42
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000002a"
+  },
+  {
+   "seq": 43,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:43:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 43
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000002b"
+  },
+  {
+   "seq": 44,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:44:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 44
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000002c"
+  },
+  {
+   "seq": 45,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:45:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 45
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000002d"
+  },
+  {
+   "seq": 46,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:46:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 46
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000002e"
+  },
+  {
+   "seq": 47,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:47:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 47
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000002f"
+  },
+  {
+   "seq": 48,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:48:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 48
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000030"
+  },
+  {
+   "seq": 49,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:49:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 49
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000031"
+  },
+  {
+   "seq": 50,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:50:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 50
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000032"
+  },
+  {
+   "seq": 51,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:51:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 51
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000033"
+  },
+  {
+   "seq": 52,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:52:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 52
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000034"
+  },
+  {
+   "seq": 53,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:53:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 53
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000035"
+  },
+  {
+   "seq": 54,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:54:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 54
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000036"
+  },
+  {
+   "seq": 55,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:55:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 55
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000037"
+  },
+  {
+   "seq": 56,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:56:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 56
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000038"
+  },
+  {
+   "seq": 57,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:57:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 57
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000039"
+  },
+  {
+   "seq": 58,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:58:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 58
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000003a"
+  },
+  {
+   "seq": 59,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:59:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 59
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000003b"
+  },
+  {
+   "seq": 60,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:00:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 60
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000003c"
+  },
+  {
+   "seq": 61,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 61
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000003d"
+  },
+  {
+   "seq": 62,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:02:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 62
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000003e"
+  },
+  {
+   "seq": 63,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:03:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 63
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000003f"
+  },
+  {
+   "seq": 64,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:04:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 64
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000040"
+  },
+  {
+   "seq": 65,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:05:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 65
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000041"
+  },
+  {
+   "seq": 66,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:06:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 66
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000042"
+  },
+  {
+   "seq": 67,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:07:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 67
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000043"
+  },
+  {
+   "seq": 68,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:08:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 68
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000044"
+  },
+  {
+   "seq": 69,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:09:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 69
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000045"
+  },
+  {
+   "seq": 70,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:10:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 70
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000046"
+  },
+  {
+   "seq": 71,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:11:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 71
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000047"
+  },
+  {
+   "seq": 72,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:12:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 72
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000048"
+  },
+  {
+   "seq": 73,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:13:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 73
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000049"
+  },
+  {
+   "seq": 74,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:14:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 74
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000004a"
+  },
+  {
+   "seq": 75,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:15:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 75
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000004b"
+  },
+  {
+   "seq": 76,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:16:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 76
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000004c"
+  },
+  {
+   "seq": 77,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:17:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 77
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000004d"
+  },
+  {
+   "seq": 78,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:18:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 78
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000004e"
+  },
+  {
+   "seq": 79,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:19:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 79
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000004f"
+  },
+  {
+   "seq": 80,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:20:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 80
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000050"
+  },
+  {
+   "seq": 81,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:21:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 81
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000051"
+  },
+  {
+   "seq": 82,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:22:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 82
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000052"
+  },
+  {
+   "seq": 83,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:23:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 83
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000053"
+  },
+  {
+   "seq": 84,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:24:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 84
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000054"
+  },
+  {
+   "seq": 85,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:25:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 85
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000055"
+  },
+  {
+   "seq": 86,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:26:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 86
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000056"
+  },
+  {
+   "seq": 87,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:27:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 87
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000057"
+  },
+  {
+   "seq": 88,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:28:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 88
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000058"
+  },
+  {
+   "seq": 89,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:29:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 89
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000059"
+  },
+  {
+   "seq": 90,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:30:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 90
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000005a"
+  },
+  {
+   "seq": 91,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:31:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 91
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000005b"
+  },
+  {
+   "seq": 92,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:32:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 92
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000005c"
+  },
+  {
+   "seq": 93,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:33:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 93
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000005d"
+  },
+  {
+   "seq": 94,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:34:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 94
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000005e"
+  },
+  {
+   "seq": 95,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:35:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 95
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000005f"
+  },
+  {
+   "seq": 96,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:36:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 96
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000060"
+  },
+  {
+   "seq": 97,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:37:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 97
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000061"
+  },
+  {
+   "seq": 98,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:38:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 98
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000062"
+  },
+  {
+   "seq": 99,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:39:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 99
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000063"
+  },
+  {
+   "seq": 100,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:40:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 100
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000064"
+  },
+  {
+   "seq": 101,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:41:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 101
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000065"
+  },
+  {
+   "seq": 102,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:42:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 102
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000066"
+  },
+  {
+   "seq": 103,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:43:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 103
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000067"
+  },
+  {
+   "seq": 104,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:44:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 104
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000068"
+  },
+  {
+   "seq": 105,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:45:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 105
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000069"
+  },
+  {
+   "seq": 106,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:46:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 106
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000006a"
+  },
+  {
+   "seq": 107,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:47:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 107
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000006b"
+  },
+  {
+   "seq": 108,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:48:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 108
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000006c"
+  },
+  {
+   "seq": 109,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:49:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 109
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000006d"
+  },
+  {
+   "seq": 110,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:50:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 110
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000006e"
+  },
+  {
+   "seq": 111,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:51:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 111
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000006f"
+  },
+  {
+   "seq": 112,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:52:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 112
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000070"
+  },
+  {
+   "seq": 113,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:53:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 113
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000071"
+  },
+  {
+   "seq": 114,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:54:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 114
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000072"
+  },
+  {
+   "seq": 115,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:55:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 115
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000073"
+  },
+  {
+   "seq": 116,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:56:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 116
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000074"
+  },
+  {
+   "seq": 117,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:57:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 117
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000075"
+  },
+  {
+   "seq": 118,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:58:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 118
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000076"
+  },
+  {
+   "seq": 119,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:59:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 119
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000077"
+  },
+  {
+   "seq": 120,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:00:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 120
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000078"
+  },
+  {
+   "seq": 121,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 121
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000079"
+  },
+  {
+   "seq": 122,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:02:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 122
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000007a"
+  },
+  {
+   "seq": 123,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:03:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 123
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000007b"
+  },
+  {
+   "seq": 124,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:04:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 124
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000007c"
+  },
+  {
+   "seq": 125,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:05:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 125
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000007d"
+  },
+  {
+   "seq": 126,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:06:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 126
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000007e"
+  },
+  {
+   "seq": 127,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:07:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 127
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000007f"
+  },
+  {
+   "seq": 128,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:08:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 128
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000080"
+  },
+  {
+   "seq": 129,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:09:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 129
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000081"
+  },
+  {
+   "seq": 130,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:10:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 130
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000082"
+  },
+  {
+   "seq": 131,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:11:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 131
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000083"
+  },
+  {
+   "seq": 132,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:12:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 132
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000084"
+  },
+  {
+   "seq": 133,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:13:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 133
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000085"
+  },
+  {
+   "seq": 134,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:14:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 134
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000086"
+  },
+  {
+   "seq": 135,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:15:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 135
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000087"
+  },
+  {
+   "seq": 136,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:16:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 136
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000088"
+  },
+  {
+   "seq": 137,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:17:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 137
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000089"
+  },
+  {
+   "seq": 138,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:18:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 138
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000008a"
+  },
+  {
+   "seq": 139,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:19:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 139
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000008b"
+  },
+  {
+   "seq": 140,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:20:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 140
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000008c"
+  },
+  {
+   "seq": 141,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:21:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 141
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000008d"
+  },
+  {
+   "seq": 142,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:22:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 142
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000008e"
+  },
+  {
+   "seq": 143,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:23:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 143
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000008f"
+  },
+  {
+   "seq": 144,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:24:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 144
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000090"
+  },
+  {
+   "seq": 145,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:25:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 145
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000091"
+  },
+  {
+   "seq": 146,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:26:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 146
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000092"
+  },
+  {
+   "seq": 147,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:27:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 147
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000093"
+  },
+  {
+   "seq": 148,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:28:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 148
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000094"
+  },
+  {
+   "seq": 149,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:29:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 149
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000095"
+  },
+  {
+   "seq": 150,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:30:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 150
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000096"
+  },
+  {
+   "seq": 151,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:31:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 151
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "0000000000000000000000000000000000000000000000000000000000000097"
+  },
+  {
+   "seq": 152,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:32:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 152
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000098"
+  },
+  {
+   "seq": 153,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:33:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 153
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "0000000000000000000000000000000000000000000000000000000000000099"
+  },
+  {
+   "seq": 154,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:34:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 154
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000009a"
+  },
+  {
+   "seq": 155,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:35:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 155
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000009b"
+  },
+  {
+   "seq": 156,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:36:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 156
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000009c"
+  },
+  {
+   "seq": 157,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:37:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 157
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000009d"
+  },
+  {
+   "seq": 158,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:38:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 158
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "000000000000000000000000000000000000000000000000000000000000009e"
+  },
+  {
+   "seq": 159,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:39:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 159
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "000000000000000000000000000000000000000000000000000000000000009f"
+  },
+  {
+   "seq": 160,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:40:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 160
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a0"
+  },
+  {
+   "seq": 161,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:41:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 161
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a1"
+  },
+  {
+   "seq": 162,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:42:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 162
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a2"
+  },
+  {
+   "seq": 163,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:43:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 163
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a3"
+  },
+  {
+   "seq": 164,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:44:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 164
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a4"
+  },
+  {
+   "seq": 165,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:45:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 165
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a5"
+  },
+  {
+   "seq": 166,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:46:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 166
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a6"
+  },
+  {
+   "seq": 167,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:47:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 167
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a7"
+  },
+  {
+   "seq": 168,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:48:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 168
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a8"
+  },
+  {
+   "seq": 169,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:49:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 169
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000a9"
+  },
+  {
+   "seq": 170,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:50:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 170
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000aa"
+  },
+  {
+   "seq": 171,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:51:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 171
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ab"
+  },
+  {
+   "seq": 172,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:52:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 172
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ac"
+  },
+  {
+   "seq": 173,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:53:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 173
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ad"
+  },
+  {
+   "seq": 174,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:54:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 174
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ae"
+  },
+  {
+   "seq": 175,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:55:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 175
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000af"
+  },
+  {
+   "seq": 176,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:56:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 176
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b0"
+  },
+  {
+   "seq": 177,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:57:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 177
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b1"
+  },
+  {
+   "seq": 178,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:58:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 178
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b2"
+  },
+  {
+   "seq": 179,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:59:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 179
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b3"
+  },
+  {
+   "seq": 180,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:00:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 180
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b4"
+  },
+  {
+   "seq": 181,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 181
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b5"
+  },
+  {
+   "seq": 182,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:02:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 182
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b6"
+  },
+  {
+   "seq": 183,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:03:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 183
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b7"
+  },
+  {
+   "seq": 184,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:04:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 184
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b8"
+  },
+  {
+   "seq": 185,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:05:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 185
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000b9"
+  },
+  {
+   "seq": 186,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:06:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 186
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ba"
+  },
+  {
+   "seq": 187,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:07:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 187
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000bb"
+  },
+  {
+   "seq": 188,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:08:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 188
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000bc"
+  },
+  {
+   "seq": 189,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:09:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 189
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000bd"
+  },
+  {
+   "seq": 190,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:10:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 190
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000be"
+  },
+  {
+   "seq": 191,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:11:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 191
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000bf"
+  },
+  {
+   "seq": 192,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:12:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 192
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c0"
+  },
+  {
+   "seq": 193,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:13:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 193
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c1"
+  },
+  {
+   "seq": 194,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:14:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 194
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c2"
+  },
+  {
+   "seq": 195,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:15:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 195
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c3"
+  },
+  {
+   "seq": 196,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:16:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 196
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c4"
+  },
+  {
+   "seq": 197,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:17:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 197
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c5"
+  },
+  {
+   "seq": 198,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:18:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 198
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c6"
+  },
+  {
+   "seq": 199,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:19:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 199
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c7"
+  },
+  {
+   "seq": 200,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:20:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 200
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c8"
+  },
+  {
+   "seq": 201,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:21:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 201
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000c9"
+  },
+  {
+   "seq": 202,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:22:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 202
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ca"
+  },
+  {
+   "seq": 203,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:23:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 203
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000cb"
+  },
+  {
+   "seq": 204,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:24:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 204
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000cc"
+  },
+  {
+   "seq": 205,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:25:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 205
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000cd"
+  },
+  {
+   "seq": 206,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:26:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 206
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ce"
+  },
+  {
+   "seq": 207,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:27:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 207
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000cf"
+  },
+  {
+   "seq": 208,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:28:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 208
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d0"
+  },
+  {
+   "seq": 209,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:29:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 209
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d1"
+  },
+  {
+   "seq": 210,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:30:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 210
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d2"
+  },
+  {
+   "seq": 211,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:31:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 211
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d3"
+  },
+  {
+   "seq": 212,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:32:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 212
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d4"
+  },
+  {
+   "seq": 213,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:33:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 213
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d5"
+  },
+  {
+   "seq": 214,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:34:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 214
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d6"
+  },
+  {
+   "seq": 215,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:35:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 215
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d7"
+  },
+  {
+   "seq": 216,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:36:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 216
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d8"
+  },
+  {
+   "seq": 217,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:37:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 217
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000d9"
+  },
+  {
+   "seq": 218,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:38:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 218
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000da"
+  },
+  {
+   "seq": 219,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:39:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 219
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000db"
+  },
+  {
+   "seq": 220,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:40:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 220
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000dc"
+  },
+  {
+   "seq": 221,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:41:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 221
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000dd"
+  },
+  {
+   "seq": 222,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:42:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 222
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000de"
+  },
+  {
+   "seq": 223,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:43:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 223
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000df"
+  },
+  {
+   "seq": 224,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:44:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 224
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e0"
+  },
+  {
+   "seq": 225,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:45:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 225
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e1"
+  },
+  {
+   "seq": 226,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:46:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 226
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e2"
+  },
+  {
+   "seq": 227,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:47:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 227
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e3"
+  },
+  {
+   "seq": 228,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:48:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 228
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e4"
+  },
+  {
+   "seq": 229,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:49:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 229
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e5"
+  },
+  {
+   "seq": 230,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:50:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 230
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e6"
+  },
+  {
+   "seq": 231,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:51:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 231
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e7"
+  },
+  {
+   "seq": 232,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:52:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 232
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e8"
+  },
+  {
+   "seq": 233,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:53:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 233
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000e9"
+  },
+  {
+   "seq": 234,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:54:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 234
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ea"
+  },
+  {
+   "seq": 235,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:55:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 235
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000eb"
+  },
+  {
+   "seq": 236,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:56:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 236
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ec"
+  },
+  {
+   "seq": 237,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:57:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 237
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ed"
+  },
+  {
+   "seq": 238,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:58:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 238
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ee"
+  },
+  {
+   "seq": 239,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:59:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 239
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000ef"
+  },
+  {
+   "seq": 240,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:00:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 240
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f0"
+  },
+  {
+   "seq": 241,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:01:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 241
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f1"
+  },
+  {
+   "seq": 242,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:02:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 242
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f2"
+  },
+  {
+   "seq": 243,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:03:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 243
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f3"
+  },
+  {
+   "seq": 244,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:04:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 244
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f4"
+  },
+  {
+   "seq": 245,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:05:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 245
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f5"
+  },
+  {
+   "seq": 246,
+   "case_id": "CS-0002",
+   "ts_sim": "2026-03-10T13:06:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "DECISION",
+   "payload": {
+    "n": 246
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f6"
+  },
+  {
+   "seq": 247,
+   "case_id": "CS-0003",
+   "ts_sim": "2026-03-10T13:07:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_INTENT",
+   "payload": {
+    "n": 247
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f7"
+  },
+  {
+   "seq": 248,
+   "case_id": "CS-0004",
+   "ts_sim": "2026-03-10T13:08:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "ACTION_RESULT",
+   "payload": {
+    "n": 248
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f8"
+  },
+  {
+   "seq": 249,
+   "case_id": "CS-0005",
+   "ts_sim": "2026-03-10T13:09:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "VERIFY",
+   "payload": {
+    "n": 249
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": "sarvam-m",
+   "hash": "00000000000000000000000000000000000000000000000000000000000000f9"
+  },
+  {
+   "seq": 250,
+   "case_id": "CS-0001",
+   "ts_sim": "2026-03-10T13:10:00+05:30",
+   "actor": "AGENT",
+   "role": null,
+   "kind": "EVENT",
+   "payload": {
+    "n": 250
+   },
+   "policy_hash": "ph1234abcd",
+   "model_id": null,
+   "hash": "00000000000000000000000000000000000000000000000000000000000000fa"
+  }
+ ]
+}

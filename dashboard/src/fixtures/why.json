@@ -1,0 +1,16 @@
+{
+ "seq": 7,
+ "action": "apply_fee_waiver",
+ "allowed": false,
+ "outcome": "ESCALATE",
+ "summary": "WAIVER-BAND-001: Fee waiver must be within the offer band",
+ "rules": [
+  {
+   "rule_id": "WAIVER-BAND-001",
+   "title": "Fee waiver must be within the offer band",
+   "severity": "ESCALATE",
+   "source": "Bible section 30",
+   "reason": "6 months requested; the pricing system allows 1"
+  }
+ ]
+}
