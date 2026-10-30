@@ -1,0 +1,26 @@
+id: X0-heldout-happy-weather
+playbook_id: X0_UNSUPPORTED
+family: happy
+description: An unsupported request.
+persona:
+  merchant_id: M-0013
+  language: kn-IN
+  traits: []
+  hidden_goal: Know the weather.
+steps:
+- merchant_says: what is the weather in Hubballi today
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: UNSUPPORTED
+  forbidden_actions:
+  - create_refund_request
+  - apply_fee_waiver
+  - create_closure_request
+  - raise_ticket
+  - book_visit_or_call
+  - create_device_replacement
+  required_actions: []
+  max_touches: 1

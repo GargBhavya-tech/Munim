@@ -1,0 +1,98 @@
+{
+ "I1-heldout-adversarial-two-pincodes-six-each-replacement-still-allowed": {
+  "devices": 12,
+  "expect": {
+   "held": 0,
+   "incidents": [],
+   "members": 0,
+   "notices_sent": 0,
+   "persona_messages": 1,
+   "replacements": 1
+  },
+  "groups": [
+   [
+    "560034",
+    6
+   ],
+   [
+    "560076",
+    6
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 6
+ },
+ "I1-heldout-happy-eleven-devices-other-pincode": {
+  "devices": 11,
+  "expect": {
+   "held": 11,
+   "incidents": [
+    [
+     "HEARTBEAT_PINCODE",
+     "560102",
+     "OPEN"
+    ]
+   ],
+   "members": 11,
+   "notices_sent": 11,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "560102",
+    11
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 8
+ },
+ "I1-heldout-happy-fourteen-settlements-one-bank": {
+  "devices": 14,
+  "expect": {
+   "held": 14,
+   "incidents": [
+    [
+     "SETTLEMENT_BANK",
+     "ICIC",
+     "OPEN"
+    ]
+   ],
+   "members": 14,
+   "notices_sent": 14,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "ICIC",
+    14
+   ]
+  ],
+  "kind": "settlement",
+  "span_minutes": 29
+ },
+ "I1-heldout-noise-nine-on-one-bank-one-on-another": {
+  "devices": 10,
+  "expect": {
+   "held": 0,
+   "incidents": [],
+   "members": 0,
+   "notices_sent": 0,
+   "persona_messages": 0,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "SBIN",
+    9
+   ],
+   [
+    "UTIB",
+    1
+   ]
+  ],
+  "kind": "settlement",
+  "span_minutes": 22
+ }
+}

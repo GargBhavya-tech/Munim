@@ -1,0 +1,27 @@
+id: X0-heldout-should-escalate-hindi-wants-human
+playbook_id: X0_UNSUPPORTED
+family: should_escalate
+description: Hindi request for a person.
+persona:
+  merchant_id: M-0007
+  language: hi-IN
+  traits:
+  - wants-a-human
+  hidden_goal: Talk to a person.
+steps:
+- merchant_says: मुझे इंसान से बात करनी है
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: WANTS_HUMAN
+  forbidden_actions:
+  - create_refund_request
+  - apply_fee_waiver
+  - create_closure_request
+  - raise_ticket
+  - book_visit_or_call
+  - create_device_replacement
+  required_actions: []
+  max_touches: 1
