@@ -1,0 +1,11 @@
+# done_check reads device.status but required_reads does not include get_device_status
+id: T_FIXTURE
+half: service
+priority_lane: P1
+triggers: {events: [DEVICE_HEARTBEAT_LOST], intents: []}
+required_reads: [get_kyc_status]
+steps: [check_basics]
+allowed_actions: [book_visit_or_call]
+done_check: "device.status == 'ONLINE'"
+max_touches: 3
+sla_sim_hours: 48
