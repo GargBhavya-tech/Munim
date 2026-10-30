@@ -1,0 +1,21 @@
+# C11: a UPI payment left the consumer's account but never reached the payee. Bible section 15 (consumer pack).
+id: C11_UPI_DEBITED_FAILED
+half: service
+priority_lane: P1
+triggers:
+  events: []
+  intents: [UPI_DEBITED_NOT_CREDITED]
+required_reads: [get_upi_transactions]
+steps:
+  - {name: dispute, done: "upi.dispute_status in ['OPEN', 'RESOLVED'] or upi.status == 'REVERSED'"}
+  - {name: reversal, done: "upi.status == 'REVERSED'"}
+allowed_actions:
+  - raise_upi_dispute: {max_per_case: 1, precondition: "upi.status == 'DEBITED_PENDING'"}
+  - send_message
+done_check: "upi.status == 'REVERSED'"
+escalate_when:
+  - "upi.amount_paise >= 1000000"
+  - "intent in ['WANTS_HUMAN']"
+kb_scope: []
+max_touches: 3
+sla_sim_hours: 72

@@ -1,0 +1,21 @@
+# C12: a refund the consumer was promised has not arrived. Bible section 15 (consumer pack).
+id: C12_REFUND_NOT_RECEIVED
+half: service
+priority_lane: P1
+triggers:
+  events: []
+  intents: [CONSUMER_REFUND_MISSING]
+required_reads: [get_consumer_refunds]
+steps:
+  - {name: status, done: "touches >= 1 or crefund.status == 'CREDITED'"}
+  - {name: credited, done: "crefund.status == 'CREDITED'"}
+allowed_actions:
+  - send_message
+done_check: "crefund.status == 'CREDITED'"
+escalate_when:
+  - "crefund.overdue"
+  - "crefund.status == 'NONE'"
+  - "intent in ['WANTS_HUMAN']"
+kb_scope: []
+max_touches: 3
+sla_sim_hours: 168

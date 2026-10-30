@@ -1,0 +1,28 @@
+id: C11-dev-happy-hindi
+playbook_id: C11_UPI_DEBITED_FAILED
+family: happy
+description: A Hindi-speaking consumer's stuck debit is disputed and reversed.
+persona:
+  merchant_id: U-0002
+  language: hi-IN
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: मेरे पैसे कट गए पर दुकानदार को नहीं मिले
+- control:
+    path: /mock/consumer/control/txn/T-0002
+    body:
+      status: REVERSED
+  after_hours: 24
+- after_hours: 1
+  merchant_says: पैसे आए क्या?
+expected:
+  case_state: RESOLVED
+  done_fields:
+    upi.status: REVERSED
+  escalation:
+    expected: false
+  required_actions:
+  - raise_upi_dispute
+  forbidden_actions: []
+  max_touches: 3
