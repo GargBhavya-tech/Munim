@@ -1,0 +1,27 @@
+# S5: Win-back of a dormant merchant. Bible section 16.
+# DIAGNOSE FIRST: step device_cause comes before any sales step, and send_message is blocked until the device is ONLINE. A device
+# cause is the Soundbox-fault playbook's (C2) to fix (it opens on DEVICE_HEARTBEAT_LOST); this playbook only waits and never pitches.
+# No waiver action here on purpose: any pricing offer to a merchant leaving for a competitor goes through a person.
+id: S5_WINBACK
+half: sales
+priority_lane: P3
+triggers:
+  events: []                      # opened by the usage-drop job (health score) via engine.open_case; USAGE_DROP is deliberately not a trigger here
+  intents: []
+required_reads: [get_device_status, get_transactions]
+steps:
+  - {name: device_cause, done: "device.status == 'ONLINE'"}
+  - {name: win_back, done: "payment.status == 'SUCCESS'"}
+allowed_actions:
+  - send_message: {precondition: "device.status == 'ONLINE'"}
+  - book_visit_or_call: {precondition: "device.status == 'ONLINE'"}
+  - save_preference
+  - schedule_follow_up
+done_check: "device.status == 'ONLINE' and payment.status == 'SUCCESS'"
+alt_terminal: [DECLINED]
+escalate_when:
+  - "intent == 'WANTS_HUMAN'"
+  - "intent == 'CLOSURE_REQUEST' and touches >= 1"
+kb_scope: [objection_answers, device_troubleshooting, fee_schedule, safety_lines]
+max_touches: 3
+sla_sim_hours: 168

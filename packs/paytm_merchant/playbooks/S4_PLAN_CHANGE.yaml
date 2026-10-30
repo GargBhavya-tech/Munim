@@ -1,0 +1,27 @@
+# S4: Plan renewal or change. Bible section 16.
+# A plan change takes effect at the billing date and can be reverted until then (R2 undo). A merchant with an open ticket
+# (a possible billing dispute, handled by C6 first) gets no plan change and is escalated to a person.
+id: S4_PLAN_CHANGE
+half: sales
+priority_lane: P3
+triggers:
+  events: []
+  intents: []
+required_reads: [get_plan, get_tickets, get_offers, get_offer_band]
+steps:
+  - {name: propose, done: "plan.change_status in ['SCHEDULED', 'APPLIED']"}
+  - {name: effective, done: "plan.change_status == 'APPLIED' and plan.status == 'ACTIVE'"}
+allowed_actions:
+  - create_plan_change: {max_per_case: 1, precondition: "plan.change_status != 'SCHEDULED' and ticket.open_count == 0"}
+  - apply_fee_waiver: {max_per_case: 1, precondition: "offer.latest_status != 'APPLIED' and ticket.open_count == 0"}
+  - save_preference
+  - schedule_follow_up
+  - send_message
+done_check: "plan.change_status == 'APPLIED' and plan.status == 'ACTIVE'"
+alt_terminal: [DECLINED]
+escalate_when:
+  - "ticket.open_count >= 1"
+  - "intent in ['WANTS_HUMAN', 'COMPLAINT']"
+kb_scope: [plans_and_billing, fee_schedule, objection_answers, safety_lines]
+max_touches: 3
+sla_sim_hours: 168

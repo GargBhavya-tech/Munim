@@ -1,0 +1,22 @@
+# X0: Unsupported or unknown request. Bible sections 13 and 15. An honest refusal, a person offered, the request logged as a gap.
+# The playbook allows no action but the reply: nothing is improvised. After the refusal the case goes to a person (step
+# hand_to_human can never be satisfied by a system read, so escalate_when fires as soon as the refusal has been sent).
+id: X0_UNSUPPORTED
+half: service
+priority_lane: P2
+triggers:
+  events: []
+  intents: [WANTS_HUMAN]
+required_reads: []
+steps:
+  - {name: refuse_honestly, done: "touches >= 1"}
+  - {name: hand_to_human, done: "False"}
+allowed_actions:
+  - send_message
+done_check: "touches >= 99"
+escalate_when:
+  - "touches >= 1"
+  - "intent in ['LEGAL_MENTION', 'REGULATORY_MENTION']"
+kb_scope: [safety_lines]
+max_touches: 2
+sla_sim_hours: 24

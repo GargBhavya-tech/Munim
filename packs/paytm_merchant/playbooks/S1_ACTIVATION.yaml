@@ -1,0 +1,33 @@
+# S1: Activation, from agreement (or stalled signup) to first settlement. Bible §16.
+# Steps run in this fixed order; each `done` is checked against LIVE system reads, never against what the merchant says.
+id: S1_ACTIVATION
+half: sales
+priority_lane: P2
+triggers:
+  events: [SIGNUP_STALLED, KYC_REJECTED, KYC_SUBMITTED, BANK_VERIFICATION_FAILED, DEVICE_DELIVERED]
+  intents: []
+required_reads: [get_kyc_status, get_bank_status, get_device_status, get_transactions, get_settlements]
+steps:
+  - {name: kyc, done: "kyc.status == 'APPROVED'"}
+  - {name: bank, done: "bank.status == 'VERIFIED'"}
+  - {name: device, done: "device.status == 'ONLINE'"}
+  - {name: payment, done: "payment.status == 'SUCCESS'"}
+  - {name: settlement, done: "settlement.status == 'SETTLED'"}
+allowed_actions:
+  - send_kyc_resume_link: {precondition: "kyc.status != 'APPROVED'"}
+  - retrigger_bank_verification: {max_per_case: 2, precondition: "steps.kyc.done and bank.status != 'VERIFIED'"}
+  - send_bank_update_link: {precondition: "bank.status != 'VERIFIED'"}
+  - create_device_replacement: {max_per_case: 1, precondition: "steps.bank.done and device.status == 'OFFLINE'"}
+  - book_visit_or_call
+  - raise_ticket: {type: ONBOARDING}
+  - schedule_follow_up
+  - send_message
+done_check: "kyc.status == 'APPROVED' and bank.status == 'VERIFIED' and device.status == 'ONLINE' and payment.status == 'SUCCESS' and settlement.status == 'SETTLED'"
+escalate_when:
+  - "bank.reason == 'NAME_MISMATCH'"
+  - "kyc.status == 'REJECTED' and kyc.attempts >= 2"
+  - "intent in ['USE_ANOTHER_ACCOUNT', 'CHANGE_BANK']"
+  - "replacements_last_30d >= 1 and device.status == 'OFFLINE'"
+kb_scope: [kyc_faq, bank_verification, device_troubleshooting, settlement_timelines, safety_lines]
+max_touches: 4
+sla_sim_hours: 72

@@ -1,0 +1,38 @@
+# Every number the policy rules use. Rules read these; they never carry literals.
+money_limit:
+  threshold_paise: 1000000          # Rs 10,000: at or above this an agent action goes to a human
+  route: ops_admin
+fix_first:
+  blocking_lanes: [P0, P1]          # an offer action is blocked while any of these lanes is open
+waiver:
+  role_cap_months:                  # out-of-band waiver a human role may approve (the effective ceiling is max(band, cap))
+    sales_lead: 3
+    area_manager: 2
+  route: sales_lead
+risk_hold:
+  route: risk_reviewer
+  reviewer_role: risk_reviewer
+closure:
+  obstruction_after_requests: 2     # from this many closure requests on, only closure handling may proceed
+mandate:
+  allowed_purpose: paytm_dues
+  route: ops_admin
+loan:
+  indicative_amount_context_words: [loan, emi, lender, credit, interest, tenure, borrow]
+  forbidden_claim_words: [approved, pre-approved, preapproved, sanctioned, guaranteed, guarantee]
+secrets:
+  min_digits: 4
+  max_digits: 8
+  proximity_chars: 24
+kyc:
+  account_number_min_digits: 9
+  account_number_max_digits: 18
+consent:
+  granted_status: GRANTED
+  analysis_channel: call_analysis   # the consent record that permits call or visit analysis
+contact:                            # consumed by core/engine/contact_budget.py when it is built; the policy rule only delegates to it
+  quiet_hours: {start: "21:00", end: "08:00"}
+  daily_cap: 2
+  weekly_cap: 5
+flags:
+  legal_approval: false             # RIVAL-TARGET-001: individual-merchant targeting stays blocked while off

@@ -1,0 +1,23 @@
+# C9: Complaint or grievance. Bible section 15. A complaint ticket exists and the merchant is told its number.
+# No resolution time is promised: the ticket system returns none, so the message states none (never invent an SLA).
+# A legal or regulatory mention (lawyer, police, consumer court, regulator, ombudsman) is always a person.
+id: C9_COMPLAINT
+half: service
+priority_lane: P1
+triggers:
+  events: []
+  intents: [COMPLAINT]
+required_reads: [get_tickets]
+steps:
+  - {name: file_ticket, done: "ticket.open_count >= 1 or touches >= 1"}
+  - {name: tell_merchant, done: "touches >= 1"}
+allowed_actions:
+  - raise_ticket: {type: COMPLAINT, max_per_case: 1, precondition: "ticket.open_count == 0 and touches == 0"}
+  - schedule_follow_up
+  - send_message
+done_check: "ticket.latest_status in ['RESOLVED', 'CLOSED'] and touches >= 1"
+escalate_when:
+  - "intent in ['LEGAL_MENTION', 'REGULATORY_MENTION', 'WANTS_HUMAN']"
+kb_scope: [complaint_process, safety_lines]
+max_touches: 3
+sla_sim_hours: 72

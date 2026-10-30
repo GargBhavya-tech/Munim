@@ -1,0 +1,27 @@
+# S3: Merchant loan, only if eligible. Bible section 16.
+# Paytm is a distributor: the partner lender decides. Nothing here states a rate, a term or an approval; the amount a message
+# may mention is whatever check_partner_eligibility returned (policy rule LOAN-RATE-001), and the application link may only go out
+# after the approved Key Fact Statement line was sent (LOAN-KFS-001). Indicative terms are cited from the loan_partner_terms KB document.
+id: S3_LOAN
+half: sales
+priority_lane: P3
+triggers:
+  events: [LEAD_REPLY]
+  intents: [LOAN_INTEREST]
+required_reads: [check_partner_eligibility, get_lender_applications]
+steps:
+  - {name: eligibility, done: "lender.eligible"}
+  - {name: apply, done: "lender.app_status != 'NONE'"}
+allowed_actions:
+  - send_partner_application_link: {max_per_case: 1, precondition: "lender.eligible"}
+  - save_preference
+  - schedule_follow_up
+  - send_message
+done_check: "lender.app_status != 'NONE'"
+alt_terminal: [DECLINED]
+escalate_when:
+  - "intent in ['WANTS_HUMAN', 'COMPLAINT']"
+  - "touches >= 3"
+kb_scope: [loan_partner_terms, objection_answers, safety_lines]
+max_touches: 3
+sla_sim_hours: 168

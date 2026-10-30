@@ -1,0 +1,27 @@
+# S2: Soundbox upsell to QR-only merchants. Bible section 16.
+# Closes when a device order is PLACED and the device then goes ONLINE. The order stays cancellable until dispatch (the R2 undo window).
+# The fee-waiver band is NEVER written here: policy rule WAIVER-BAND-001 reads it live from get_offer_band (pricing system).
+# A merchant who declines is recorded with save_preference (the engine has no DECLINED transition yet; see the S2 tests).
+id: S2_SOUNDBOX_UPSELL
+half: sales
+priority_lane: P3
+triggers:
+  events: [VISIT_LOGGED]
+  intents: []
+required_reads: [get_device_status, get_offers, get_offer_band]
+steps:
+  - {name: order, done: "device.order_status in ['PLACED', 'DISPATCHED', 'DELIVERED']"}
+  - {name: activate, done: "device.status == 'ONLINE'"}
+allowed_actions:
+  - create_device_order: {max_per_case: 1, precondition: "device.status == 'NONE' and device.order_status == 'NONE'"}
+  - apply_fee_waiver: {max_per_case: 1, precondition: "offer.latest_status != 'APPLIED'"}
+  - save_preference
+  - schedule_follow_up
+  - send_message
+done_check: "device.order_status in ['PLACED', 'DISPATCHED', 'DELIVERED'] and device.status == 'ONLINE'"
+alt_terminal: [DECLINED]
+escalate_when:
+  - "intent in ['WANTS_HUMAN', 'COMPLAINT']"
+kb_scope: [fee_schedule, objection_answers, plans_and_billing, soundbox_howto, safety_lines]
+max_touches: 3
+sla_sim_hours: 168
