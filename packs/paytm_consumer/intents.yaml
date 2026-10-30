@@ -1,0 +1,23 @@
+# Consumer-pack intents (#89). Same format as the merchant pack's. hi / kn phrases: NATIVE-SPEAKER REVIEW EXPECTED.
+intents:
+  UPI_DEBITED_NOT_CREDITED:
+    playbook: C11_UPI_DEBITED_FAILED
+    strong:
+      en: [money debited but not received, amount debited, debited but failed, payment failed but money deducted, money got deducted]
+      hinglish: [paise kat gaye, paisa kat gaya, account se kat gaye, debit ho gaya par, payment fail par paise kate]
+      hi: [पैसे कट गए, पैसा कट गया, खाते से कट गए]
+      kn: [ಹಣ ಕಡಿತವಾಗಿದೆ, ಖಾತೆಯಿಂದ ಹಣ ಹೋಗಿದೆ]
+  CONSUMER_REFUND_MISSING:
+    playbook: C12_REFUND_NOT_RECEIVED
+    strong:
+      en: [refund not received, where is my refund, refund not credited, refund still not come]
+      hinglish: [refund nahi aaya, refund kab aayega, refund abhi tak nahi, refund kahan hai]
+      hi: [रिफंड नहीं आया, रिफंड कब आएगा]
+      kn: [ರೀಫಂಡ್ ಬಂದಿಲ್ಲ, ರೀಫಂಡ್ ಯಾವಾಗ]
+  WANTS_HUMAN:
+    playbook: CTRL_HUMAN
+    strong:
+      en: [talk to a person, talk to a human, customer care, speak to someone]
+      hinglish: [kisi insaan se baat, customer care se baat, manager se baat]
+      hi: [किसी इंसान से बात, कस्टमर केयर]
+      kn: [ಮನುಷ್ಯರೊಂದಿಗೆ ಮಾತನಾಡಬೇಕು]
