@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# munim replay <case_id> | munim verify-ledger | munim eval --split dev | munim heldout [--confirm]   (uses $MUNIM_DB or data/munim.db)
+cd "$(dirname "$0")/.." || exit 1
+py=.venv/bin/python; [ -x "$py" ] || py=.venv/Scripts/python
+exec "$py" -m core.cli "$@"
