@@ -1,0 +1,28 @@
+id: C11-heldout-happy-reversed-hinglish
+playbook_id: C11_UPI_DEBITED_FAILED
+family: happy
+description: A stuck payment at a cafe is disputed and reversed a day later.
+persona:
+  merchant_id: U-0002
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: payment fail par paise kate
+- control:
+    path: /mock/consumer/control/txn/T-0002
+    body:
+      status: REVERSED
+  after_hours: 26
+- after_hours: 1
+  merchant_says: ab aaye?
+expected:
+  case_state: RESOLVED
+  done_fields:
+    upi.status: REVERSED
+  escalation:
+    expected: false
+  required_actions:
+  - raise_upi_dispute
+  forbidden_actions: []
+  max_touches: 3

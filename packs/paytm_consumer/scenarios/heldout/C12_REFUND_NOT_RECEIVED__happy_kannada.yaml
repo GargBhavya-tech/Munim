@@ -1,0 +1,28 @@
+id: C12-heldout-happy-kannada
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: happy
+description: A Kannada-speaking consumer's refund is tracked until credited.
+persona:
+  merchant_id: U-0003
+  language: kn-IN
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: ರೀಫಂಡ್ ಬಂದಿಲ್ಲ
+- control:
+    path: /mock/consumer/control/refund/RF-0001
+    body:
+      status: CREDITED
+  after_hours: 40
+- after_hours: 1
+  merchant_says: ರೀಫಂಡ್ ಯಾವಾಗ
+expected:
+  case_state: RESOLVED
+  done_fields:
+    crefund.status: CREDITED
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 3

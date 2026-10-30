@@ -1,0 +1,30 @@
+id: C11-heldout-noise-two-messages-then-reversal
+playbook_id: C11_UPI_DEBITED_FAILED
+family: noise
+description: Two messages, one dispute, then the reversal closes the case.
+persona:
+  merchant_id: U-0001
+  language: en-IN
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: amount debited but not received
+- after_hours: 0.3
+  merchant_says: money got deducted, please check
+- control:
+    path: /mock/consumer/control/txn/T-0001
+    body:
+      status: REVERSED
+  after_hours: 10
+- after_hours: 1
+  merchant_says: is it back?
+expected:
+  case_state: RESOLVED
+  done_fields:
+    upi.status: REVERSED
+  escalation:
+    expected: false
+  required_actions:
+  - raise_upi_dispute
+  forbidden_actions: []
+  max_touches: 3

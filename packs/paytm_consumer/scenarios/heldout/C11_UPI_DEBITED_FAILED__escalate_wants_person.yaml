@@ -1,0 +1,20 @@
+id: C11-heldout-escalate-wants-person
+playbook_id: C11_UPI_DEBITED_FAILED
+family: should_escalate
+description: The consumer wants a person straight away.
+persona:
+  merchant_id: U-0001
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: customer care se baat karni hai
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions:
+  - raise_upi_dispute
+  max_touches: 1

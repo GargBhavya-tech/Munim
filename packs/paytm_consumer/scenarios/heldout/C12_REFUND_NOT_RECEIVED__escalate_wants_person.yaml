@@ -1,0 +1,19 @@
+id: C12-heldout-escalate-wants-person
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: should_escalate
+description: The consumer with an overdue refund asks for a person.
+persona:
+  merchant_id: U-0005
+  language: en-IN
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: refund not received, I want to talk to a person
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions: []
+  max_touches: 1
