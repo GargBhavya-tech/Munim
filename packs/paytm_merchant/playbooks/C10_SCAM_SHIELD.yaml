@@ -1,0 +1,20 @@
+# C10: Scam Shield. Bible section 23. Code decides (packs/paytm_merchant/scam_shield.py); the model never judges a screenshot.
+# A NO_MATCH / PENDING verdict promises one re-check 15 minutes later: the follow-up timer keeps the case open until it fires.
+id: C10_SCAM_SHIELD
+half: service
+priority_lane: P0
+triggers:
+  events: []
+  intents: [VERIFY_PAYMENT, REPORT_FRAUD_CALL]
+required_reads: [get_transactions]
+steps:
+  - {name: answer, done: "touches >= 1 and not follow_up_pending"}
+allowed_actions:
+  - flag_fraud: {max_per_case: 1}
+  - send_message
+done_check: "touches >= 1 and not follow_up_pending"
+escalate_when:
+  - "intent in ['WANTS_HUMAN']"
+kb_scope: [safety_lines]
+max_touches: 3
+sla_sim_hours: 1

@@ -1,0 +1,27 @@
+# C7: Device return or account closure. Bible section 15. One fix offer, then the closure is processed and a pickup is scheduled.
+# CLOSE-NO-OBSTRUCT-001 (policy) blocks every other write from the second closure request on; the engine must carry
+# facts.closure_requests for that to bite (see the NEEDS FROM INTEGRATOR note in the engineer's report).
+id: C7_RETURN_CLOSURE
+half: service
+priority_lane: P1
+triggers:
+  events: []
+  intents: [CLOSURE_REQUEST]
+required_reads: [get_closures]
+steps:
+  - {name: fix_offer, done: "touches >= 1"}
+  - {name: process_closure, done: "closure.status in ['REQUESTED', 'PICKUP_SCHEDULED', 'COMPLETED']"}
+  - {name: schedule_pickup, done: "touches >= 2"}
+allowed_actions:
+  - create_closure_request: {max_per_case: 1, precondition: "touches >= 1"}
+  - book_visit_or_call: {max_per_case: 1, precondition: "closure.status in ['REQUESTED', 'PICKUP_SCHEDULED']"}
+  - schedule_follow_up
+  - send_message
+done_check: "closure.status in ['REQUESTED', 'PICKUP_SCHEDULED', 'COMPLETED'] and touches >= 2"
+alt_terminal:
+  - "closure.status == 'NONE' and touches >= 1"
+escalate_when:
+  - "intent in ['LEGAL_MENTION', 'WANTS_HUMAN']"
+kb_scope: [closure_policy, safety_lines]
+max_touches: 3
+sla_sim_hours: 48

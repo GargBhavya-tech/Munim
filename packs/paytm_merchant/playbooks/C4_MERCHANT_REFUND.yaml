@@ -1,0 +1,24 @@
+# C4: Merchant-initiated refund to a customer. Bible section 15 (catalogue row C4).
+# create_refund_request leaves the refund AWAITING_MERCHANT_CONFIRM. Only the merchant's own in-app confirmation processes it;
+# no agent action can do that and a chat "yes" is not confirmation. Amounts at or above the money limit escalate (MONEY-LIMIT-001).
+id: C4_MERCHANT_REFUND
+half: service
+priority_lane: P1
+triggers:
+  events: []
+  intents: [REFUND_REQUEST]
+required_reads: [get_refunds, get_transactions]
+steps:
+  - {name: request, done: "refund.status in ['AWAITING_MERCHANT_CONFIRM', 'PROCESSED']"}
+  - {name: confirmation, done: "refund.status == 'PROCESSED'"}
+allowed_actions:
+  - create_refund_request: {max_per_case: 1, precondition: "payment.status == 'SUCCESS' and refund.status != 'AWAITING_MERCHANT_CONFIRM'"}
+  - schedule_follow_up: {max_per_case: 1, precondition: "refund.status == 'AWAITING_MERCHANT_CONFIRM'"}
+  - send_message
+done_check: "refund.status == 'PROCESSED'"
+escalate_when:
+  - "payment.latest_amount_paise >= 1000000"
+  - "intent in ['COMPLAINT', 'WANTS_HUMAN']"
+kb_scope: [refund_policy, consumer_faq, safety_lines]
+max_touches: 3
+sla_sim_hours: 48

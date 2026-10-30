@@ -1,0 +1,25 @@
+# C5: Bank or KYC detail update. Bible section 15 (catalogue row C5), section 30 (KYC-NO-CHAT-001).
+# Self-serve links ONLY. Munim never changes details and never accepts account numbers, IFSC or documents in chat.
+# Step `link` is done once a contact action (the link) has gone out (touches); step `verified` waits for the merchant's own update.
+id: C5_DETAIL_UPDATE
+half: service
+priority_lane: P1
+triggers:
+  events: []
+  intents: [CHANGE_BANK]
+required_reads: [get_kyc_status, get_bank_status]
+steps:
+  - {name: link, done: "touches >= 1"}
+  - {name: verified, done: "bank.status == 'VERIFIED' and kyc.status == 'APPROVED'"}
+allowed_actions:
+  - send_bank_update_link: {max_per_case: 1}
+  - send_kyc_resume_link: {max_per_case: 1, precondition: "kyc.status != 'APPROVED'"}
+  - schedule_follow_up: {max_per_case: 1}
+  - send_message
+done_check: "touches >= 1 and bank.status == 'VERIFIED' and kyc.status == 'APPROVED'"
+escalate_when:
+  - "bank.reason == 'NAME_MISMATCH'"
+  - "intent in ['COMPLAINT', 'WANTS_HUMAN']"
+kb_scope: [kyc_faq, bank_verification, safety_lines]
+max_touches: 3
+sla_sim_hours: 72

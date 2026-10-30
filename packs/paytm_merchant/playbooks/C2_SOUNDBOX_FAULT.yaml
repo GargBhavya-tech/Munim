@@ -1,0 +1,29 @@
+# C2: Soundbox fault. Bible §15 (the worked playbook file), §19: remote fixes run before any replacement (#93).
+id: C2_SOUNDBOX_FAULT
+half: service
+priority_lane: P1
+triggers:
+  events: [DEVICE_HEARTBEAT_LOST]
+  intents: [REPORT_DEVICE_PROBLEM, NO_PAYMENT_ANNOUNCEMENT, DEVICE_STOLEN]
+required_reads: [get_device_status, get_transactions]
+steps:
+  - {name: check_basics, done: "steps.check_basics.done or device.status == 'ONLINE'"}
+  - {name: remote_fix, done: "device.remote_fix_attempts >= 1 or device.status == 'ONLINE'"}
+  - {name: test_announcement, done: "last_test_announcement_ok"}
+  - {name: replace_or_visit, done: "device.status == 'ONLINE' and last_test_announcement_ok"}
+allowed_actions:
+  - book_visit_or_call
+  - create_device_replacement: {max_per_case: 1, precondition: "steps.check_basics.done and device.status == 'OFFLINE' and device.remote_fix_attempts >= 1"}
+  - restart_device: {max_per_case: 1, precondition: "steps.check_basics.done"}
+  - reset_device_volume: {max_per_case: 1, precondition: "device.status == 'ONLINE'"}
+  - push_device_config: {max_per_case: 1, precondition: "steps.check_basics.done"}
+  - raise_ticket: {type: DEVICE}
+  - schedule_follow_up
+  - send_message
+done_check: "device.status == 'ONLINE' and last_test_announcement_ok"
+escalate_when:
+  - "replacements_last_30d >= 1"
+  - "intent in ['DEVICE_STOLEN', 'DEVICE_TAMPERED']"
+kb_scope: [device_troubleshooting, device_replacement_policy, safety_lines]
+max_touches: 3
+sla_sim_hours: 48

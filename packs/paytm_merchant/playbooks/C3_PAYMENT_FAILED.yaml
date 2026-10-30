@@ -1,0 +1,24 @@
+# C3: Customer debited but payment failed. Bible section 15 (catalogue row C3), section 37 (regulatory wording stays generic).
+# Wording is GENERIC: the KB doc dispute_tat_faq is the only source for timelines; no T+N or compensation amount is stated as fact.
+id: C3_PAYMENT_FAILED
+half: service
+priority_lane: P1
+triggers:
+  events: [PAYMENT_FAILED]
+  intents: [CUSTOMER_PAYMENT_FAILED]
+required_reads: [get_transactions, get_tickets]
+steps:
+  - {name: dispute, done: "ticket.open_count >= 1"}
+  - {name: reversal, done: "payment.status == 'SUCCESS'"}
+allowed_actions:
+  - raise_ticket: {type: DISPUTE, max_per_case: 1, precondition: "payment.status == 'FAILED' and ticket.open_count == 0"}
+  - schedule_follow_up: {max_per_case: 2, precondition: "steps.dispute.done and payment.status == 'FAILED'"}
+  - send_message
+done_check: "ticket.open_count >= 1 and payment.status == 'SUCCESS'"
+escalate_when:
+  - "payment.latest_amount_paise >= 1000000"
+  - "ticket.open_count >= 2"
+  - "intent in ['COMPLAINT', 'WANTS_HUMAN']"
+kb_scope: [dispute_tat_faq, consumer_faq, safety_lines]
+max_touches: 3
+sla_sim_hours: 120

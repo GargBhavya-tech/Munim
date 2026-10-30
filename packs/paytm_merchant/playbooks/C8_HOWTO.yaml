@@ -1,0 +1,20 @@
+# C8: How-to and information. Bible section 15. Read-only: every claim comes from approved KB sections inside kb_scope.
+# The only write is the reply itself (send_message). A question the knowledge layer cannot answer raises NO_KB_ANSWER (novelty)
+# and goes to a person with the question attached; the gap is logged by core/engine/knowledge_layer.py (it is not a playbook action).
+id: C8_HOWTO
+half: service
+priority_lane: P2
+triggers:
+  events: []
+  intents: [ASK_WHICH_DOCS]
+required_reads: []
+steps:
+  - {name: answer, done: "touches >= 1"}
+allowed_actions:
+  - send_message
+done_check: "touches >= 1"
+escalate_when:
+  - "intent in ['NO_KB_ANSWER', 'WANTS_HUMAN']"
+kb_scope: [kyc_faq, bank_verification, soundbox_howto, settlement_timelines, plans_and_billing, fee_schedule, contact_preferences, safety_lines]
+max_touches: 2
+sla_sim_hours: 24

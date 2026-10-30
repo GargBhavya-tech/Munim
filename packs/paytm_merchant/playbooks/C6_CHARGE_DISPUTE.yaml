@@ -1,0 +1,27 @@
+# C6: Charge dispute (device rental / subscription charge). Bible section 15.
+# Lane P2, not the P1 of the catalogue table: apply_fee_waiver is registered as an OFFER action, and fix-first (FIX-FIRST-001) strips
+# offer actions while ANY P0/P1 case is open, this one included. At P1 the in-band waiver this case exists to give could never run.
+# The band is NEVER written here: WAIVER-BAND-001 reads it live from the pricing system (get_offer_band) at execution time.
+id: C6_CHARGE_DISPUTE
+half: service
+priority_lane: P2
+triggers:
+  events: []
+  intents: []
+required_reads: [get_plan, get_offers, get_tickets]
+steps:
+  - {name: acknowledge, done: "touches >= 1"}
+  - {name: resolve, done: "offer.latest_status == 'APPLIED' or (ticket.latest_status == 'OPEN' and touches >= 2)"}
+  - {name: close_out, done: "offer.latest_status == 'APPLIED' and touches >= 2"}
+allowed_actions:
+  - apply_fee_waiver: {max_per_case: 1, precondition: "touches >= 1"}
+  - raise_ticket: {type: BILLING, max_per_case: 1, precondition: "touches >= 1"}
+  - schedule_follow_up
+  - send_message
+done_check: "offer.latest_status == 'APPLIED' and touches >= 2"
+escalate_when:
+  - "touches >= 2 and ticket.latest_status == 'OPEN' and offer.latest_status != 'APPLIED'"
+  - "intent in ['LEGAL_MENTION', 'WANTS_HUMAN']"
+kb_scope: [plans_and_billing, fee_schedule, safety_lines]
+max_touches: 3
+sla_sim_hours: 72
