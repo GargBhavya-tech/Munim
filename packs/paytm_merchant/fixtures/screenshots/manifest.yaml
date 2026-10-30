@@ -1,0 +1,221 @@
+provenance: SYNTHETIC
+merchant_id: M-0003
+other_merchant_id: M-0004
+clock_opens: 09:00
+screenshots:
+- file: real_01.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 120000
+  minute: 2
+  reference: '501122334400'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 120000
+    reference: '501122334400'
+    status: SUCCESS
+    minute: 2
+- file: real_02.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 16700
+  minute: 3
+  reference: '511122334411'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 16700
+    reference: '511122334411'
+    status: SUCCESS
+    minute: 3
+- file: real_03.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 214000
+  minute: 4
+  reference: '521122334422'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 214000
+    reference: '521122334422'
+    status: SUCCESS
+    minute: 4
+- file: real_04.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 26100
+  minute: 5
+  reference: '531122334433'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 26100
+    reference: '531122334433'
+    status: SUCCESS
+    minute: 5
+- file: real_05.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 308000
+  minute: 6
+  reference: '541122334444'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 308000
+    reference: '541122334444'
+    status: SUCCESS
+    minute: 6
+- file: real_06.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 35500
+  minute: 7
+  reference: '551122334455'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 35500
+    reference: '551122334455'
+    status: SUCCESS
+    minute: 7
+- file: real_07.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 402000
+  minute: 8
+  reference: '561122334466'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 402000
+    reference: '561122334466'
+    status: SUCCESS
+    minute: 8
+- file: real_08.svg
+  kind: real
+  expected: MATCH
+  amount_paise: 44900
+  minute: 9
+  reference: '571122334477'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 44900
+    reference: '571122334477'
+    status: SUCCESS
+    minute: 9
+- file: fake_01.svg
+  kind: fake
+  expected: NO_MATCH
+  amount_paise: 200000
+  minute: 3
+  reference: '900000000000'
+  setup: []
+- file: fake_02.svg
+  kind: fake
+  expected: NO_MATCH
+  amount_paise: 215000
+  minute: 4
+  reference: '910000000011'
+  setup: []
+- file: fake_03.svg
+  kind: fake
+  expected: NO_MATCH
+  amount_paise: 230000
+  minute: 5
+  reference: '920000000022'
+  setup: []
+- file: fake_04.svg
+  kind: fake
+  expected: NO_MATCH
+  amount_paise: 245000
+  minute: 6
+  reference: '930000000033'
+  setup: []
+- file: fake_05.svg
+  kind: fake
+  expected: NO_MATCH
+  amount_paise: 260000
+  minute: 7
+  reference: '940000000044'
+  setup: []
+- file: fake_06.svg
+  kind: fake
+  expected: NO_MATCH
+  amount_paise: 275000
+  minute: 8
+  reference: '950000000055'
+  setup: []
+- file: misread_01.svg
+  kind: misread
+  expected: AMBIGUOUS
+  amount_paise: 50000
+  minute: 4
+  reference: '705566778800'
+  blur:
+  - amount
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 50000
+    reference: '705566778800'
+    status: SUCCESS
+    minute: 4
+- file: misread_02.svg
+  kind: misread
+  expected: AMBIGUOUS
+  amount_paise: 51000
+  minute: 5
+  reference: '715566778811'
+  blur:
+  - amount
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 51000
+    reference: '715566778811'
+    status: SUCCESS
+    minute: 5
+- file: misread_03.svg
+  kind: misread
+  expected: AMBIGUOUS
+  amount_paise: 52000
+  minute: 6
+  reference: '725566778822'
+  blur:
+  - amount
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 52000
+    reference: '725566778822'
+    status: SUCCESS
+    minute: 6
+- file: edited_amount.svg
+  kind: edited
+  expected: MISMATCH
+  amount_paise: 200000
+  minute: 5
+  reference: '611223344556'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 20000
+    reference: '611223344556'
+    status: SUCCESS
+    minute: 5
+- file: other_merchant.svg
+  kind: reused
+  expected: MISMATCH
+  amount_paise: 150000
+  minute: 6
+  reference: '622334455667'
+  setup:
+  - merchant_id: M-0004
+    amount_paise: 150000
+    reference: '622334455667'
+    status: SUCCESS
+    minute: 6
+- file: pending.svg
+  kind: pending
+  expected: PENDING
+  amount_paise: 88800
+  minute: 7
+  reference: '633445566778'
+  setup:
+  - merchant_id: M-0003
+    amount_paise: 88800
+    reference: '633445566778'
+    status: PENDING
+    minute: 7
