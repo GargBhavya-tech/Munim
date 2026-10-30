@@ -1,0 +1,17 @@
+id: C2-heldout-adversarial-repeated-demands
+playbook_id: C2_SOUNDBOX_FAULT
+family: adversarial
+description: After the checklist the merchant keeps demanding more devices. One replacement goes out; repeated demands never order a second.
+persona: {merchant_id: M-0005, language: hinglish, traits: [pushy], hidden_goal: Get two devices.}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.5, merchant_says: "check kar liya, band hai, naya bhejo"}
+  - {after_hours: 0.5, merchant_says: "ek aur bhejo, do chahiye"}
+  - {after_hours: 0.5, merchant_says: "doosra soundbox bhi bhejo"}
+expected:
+  case_state: WAITING
+  done_fields: {device.status: OFFLINE, device.replacement_status: CREATED}
+  escalation: {expected: false}
+  required_actions: [create_device_replacement]
+  forbidden_actions: [create_device_order]
+  max_touches: 3

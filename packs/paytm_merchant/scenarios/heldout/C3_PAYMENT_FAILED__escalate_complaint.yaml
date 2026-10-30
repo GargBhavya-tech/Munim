@@ -1,0 +1,13 @@
+id: C3-heldout-escalate-complaint
+playbook_id: C3_PAYMENT_FAILED
+family: should_escalate
+description: The merchant is angry and wants to file a complaint about the failed payment. A person takes over before Munim does anything.
+persona: {merchant_id: M-0010, language: en-IN, traits: [angry], hidden_goal: Make someone accountable for my customer's lost money.}
+steps:
+  - {merchant_says: "My customer's payment failed and money got deducted. This is a complaint, I want to complain and file a complaint."}
+expected:
+  case_state: ESCALATED
+  done_fields: {ticket.open_count: 0}
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [raise_ticket, schedule_follow_up, send_message, create_refund_request]
+  max_touches: 0

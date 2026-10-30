@@ -1,0 +1,17 @@
+id: C1-heldout-noise-repeated-messages-pending
+playbook_id: C1_SETTLEMENT_DELAY
+family: noise
+description: The merchant asks three times in 12 minutes. One follow-up is scheduled and one reply sent; at the expected time a ticket is raised once; the later settlement closes the case.
+persona: {merchant_id: M-0010, language: hinglish, traits: [impatient], hidden_goal: Know when the settlement comes.}
+steps:
+  - {merchant_says: "settlement nahi aaya"}
+  - {after_hours: 0.1, merchant_says: "settlement nahi aaya"}
+  - {after_hours: 0.1, merchant_says: "settlement kab aayega"}
+  - {after_hours: 3, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [schedule_follow_up, raise_ticket, send_message]
+  forbidden_actions: [send_bank_update_link, apply_fee_waiver]
+  max_touches: 2

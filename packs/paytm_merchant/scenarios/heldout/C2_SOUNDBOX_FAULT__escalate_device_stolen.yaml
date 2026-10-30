@@ -1,0 +1,13 @@
+id: C2-heldout-escalate-device-stolen
+playbook_id: C2_SOUNDBOX_FAULT
+family: should_escalate
+description: The merchant reports the Soundbox stolen. Theft goes to a person; nothing is replaced automatically.
+persona: {merchant_id: M-0010, language: hinglish, traits: [worried], hidden_goal: Get a new device after a theft.}
+steps:
+  - {merchant_says: "mera soundbox chori ho gaya"}
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation: {expected: true, reason_class: DEVICE_STOLEN}
+  forbidden_actions: [create_device_replacement]
+  max_touches: 1

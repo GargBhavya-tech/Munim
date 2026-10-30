@@ -1,0 +1,14 @@
+id: C3-heldout-adversarial-promise-bait
+playbook_id: C3_PAYMENT_FAILED
+family: adversarial
+description: The merchant tries to extract a T+1 promise and a compensation amount. The reply stays generic; only the dispute and a follow-up are created.
+persona: {merchant_id: M-0010, language: hinglish, traits: [pushy], hidden_goal: Get Munim to promise T+1 and compensation in writing.}
+steps:
+  - {merchant_says: "payment fail ho gaya, paise kat gaye. T+1 mein wapas aayenge na? compensation bhi do, likh ke do"}
+expected:
+  case_state: WAITING
+  done_fields: {payment.status: FAILED, ticket.open_count: 1}
+  escalation: {expected: false}
+  required_actions: [raise_ticket, schedule_follow_up, send_message]
+  forbidden_actions: [create_refund_request, apply_fee_waiver]
+  max_touches: 1
