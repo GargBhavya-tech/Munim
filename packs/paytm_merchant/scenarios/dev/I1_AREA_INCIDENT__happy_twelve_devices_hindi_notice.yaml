@@ -1,0 +1,27 @@
+id: I1-dev-happy-twelve-devices-hindi-notice
+playbook_id: I1_AREA_INCIDENT
+family: happy
+description: Twelve devices in pincode 560076 drop off inside nine minutes, just under the ten-minute window. One incident, and the Hindi-speaking persona gets the Hindi notice once.
+persona:
+  merchant_id: M-0039
+  language: hi-IN
+  traits: []
+  hidden_goal: Know why the speaker is silent.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+expected:
+  case_state: PARKED
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  - book_visit_or_call
+  required_actions:
+  - send_message
+  max_touches: 1

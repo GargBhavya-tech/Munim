@@ -1,0 +1,29 @@
+id: I1-dev-noise-job-runs-three-times
+playbook_id: I1_AREA_INCIDENT
+family: noise
+description: 'The incident job runs three times after every step (a restarted worker). Still one incident and one message per merchant: the notice is never sent twice.'
+persona:
+  merchant_id: M-0095
+  language: hi-IN
+  traits: []
+  hidden_goal: Know what is happening.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- after_hours: 2
+  merchant_says: abhi bhi band hai
+expected:
+  case_state: PARKED
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  - book_visit_or_call
+  required_actions:
+  - send_message
+  max_touches: 1

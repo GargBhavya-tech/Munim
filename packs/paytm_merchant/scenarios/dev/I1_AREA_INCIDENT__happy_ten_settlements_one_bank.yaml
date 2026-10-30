@@ -1,0 +1,30 @@
+id: I1-dev-happy-ten-settlements-one-bank
+playbook_id: I1_AREA_INCIDENT
+family: happy
+description: 'Ten merchants'' settlements fail on the same bank inside twenty-five minutes. One bank incident: the persona''s settlement case is parked (no per-merchant bank link), and the persona gets
+  the single bank-side notice.'
+persona:
+  merchant_id: M-0010
+  language: hinglish
+  traits: []
+  hidden_goal: Get my settlement.
+steps:
+- control:
+    path: /mock/control/bank/{mid}
+    body:
+      status: FAILED
+      reason: TIMEOUT
+- advance_settlement: FAILED_BANK
+expected:
+  case_state: PARKED
+  done_fields:
+    settlement.status: FAILED_BANK
+  escalation:
+    expected: false
+  forbidden_actions:
+  - send_bank_update_link
+  - raise_ticket
+  - create_device_replacement
+  required_actions:
+  - send_message
+  max_touches: 1

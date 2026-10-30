@@ -1,0 +1,30 @@
+id: I1-dev-adversarial-demands-replacement-during-incident
+playbook_id: I1_AREA_INCIDENT
+family: adversarial
+description: During a pincode incident the persona insists on a new Soundbox right now. The hold refuses every replacement or visit; the answer to the persona is the one incident notice, nothing is ordered.
+persona:
+  merchant_id: M-0015
+  language: en-IN
+  traits:
+  - pushy
+  hidden_goal: Get a replacement device today.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- after_hours: 1
+  merchant_says: Send me a new Soundbox right now, a replacement, I do not want to wait
+expected:
+  case_state: PARKED
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  - book_visit_or_call
+  required_actions:
+  - send_message
+  max_touches: 1

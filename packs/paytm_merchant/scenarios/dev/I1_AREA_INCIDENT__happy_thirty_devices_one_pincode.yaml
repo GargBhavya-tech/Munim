@@ -1,0 +1,29 @@
+id: I1-dev-happy-thirty-devices-one-pincode
+playbook_id: I1_AREA_INCIDENT
+family: happy
+description: Thirty Soundboxes in pincode 560034 go silent within six minutes. That is ONE incident, the persona's fault case is parked, nobody is sent a replacement, and each merchant gets exactly one
+  message (the incident notice, in Kannada for this persona).
+persona:
+  merchant_id: M-0017
+  language: kn-IN
+  traits:
+  - worried
+  hidden_goal: Get the speaker working.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+expected:
+  case_state: PARKED
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  - book_visit_or_call
+  required_actions:
+  - send_message
+  max_touches: 1

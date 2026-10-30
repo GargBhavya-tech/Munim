@@ -1,0 +1,27 @@
+id: C9-dev-multi-case-complaint-with-device-fault-open
+playbook_id: C9_COMPLAINT
+family: multi_case
+description: A device fault is open; the complaint still gets its own ticket.
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits:
+  - angry
+  hidden_goal: Complain about the repeated Soundbox failures.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- merchant_says: I want to complain, my soundbox keeps failing.
+expected:
+  case_state: WAITING
+  done_fields:
+    ticket.open_count: 1
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - raise_ticket
+  max_touches: 1

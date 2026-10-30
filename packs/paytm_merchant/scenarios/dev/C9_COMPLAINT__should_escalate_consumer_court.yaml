@@ -1,0 +1,21 @@
+id: C9-dev-should-escalate-consumer-court
+playbook_id: C9_COMPLAINT
+family: should_escalate
+description: A consumer court mention is always a person.
+persona:
+  merchant_id: M-0001
+  language: kn-IN
+  traits:
+  - angry
+  hidden_goal: Threaten with the consumer court.
+steps:
+- merchant_says: I will take this to the consumer court, my complaint is not being heard.
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: REGULATORY
+  forbidden_actions: []
+  required_actions: []
+  max_touches: 0

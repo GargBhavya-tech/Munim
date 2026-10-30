@@ -1,0 +1,22 @@
+id: C9-dev-noise-existing-complaint-not-duplicated
+playbook_id: C9_COMPLAINT
+family: noise
+description: 'M-0002 already has an open complaint: no second ticket, the merchant is pointed to it.'
+persona:
+  merchant_id: M-0002
+  language: kn-IN
+  traits:
+  - angry
+  hidden_goal: Be answered on the complaint already open.
+steps:
+- merchant_says: COMPLAINT!!! koi reply nahi, pareshan ho gaya
+expected:
+  case_state: WAITING
+  done_fields:
+    ticket.open_count: 1
+  escalation:
+    expected: false
+  forbidden_actions:
+  - raise_ticket
+  required_actions: []
+  max_touches: 1

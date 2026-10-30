@@ -1,0 +1,27 @@
+id: I1-dev-multi-case-resolved-incident-releases-the-hold
+playbook_id: I1_AREA_INCIDENT
+family: multi_case
+description: An area incident parks the persona's fault case; three hours later the incident is resolved, the hold is released and the case goes back to waiting on live state (no replacement was ordered
+  meanwhile).
+persona:
+  merchant_id: M-0018
+  language: kn-IN
+  traits: []
+  hidden_goal: Get the speaker working.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+expected:
+  case_state: WAITING
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  required_actions:
+  - send_message
+  max_touches: 1
