@@ -1,0 +1,14 @@
+id: S4-heldout-multi-case-service-opens-midway
+playbook_id: S4_PLAN_CHANGE
+family: multi_case
+description: The merchant asks about plans, a Soundbox fault case opens, and then they ask to upgrade. No plan change while the fault case is open.
+persona: {merchant_id: M-0014, language: en-IN, traits: [], hidden_goal: "Upgrade the plan."}
+steps:
+  - {merchant_says: "tell me about the plans"}
+  - {after_hours: 1, event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 1, merchant_says: "please upgrade my plan"}
+expected:
+  case_state: PARKED
+  escalation: {expected: false}
+  forbidden_actions: [create_plan_change, apply_fee_waiver]
+  max_touches: 2

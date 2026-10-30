@@ -1,0 +1,14 @@
+id: S5-heldout-happy-customers-return
+playbook_id: S5_WINBACK
+family: happy
+description: A dormant restaurant with a working Soundbox is asked what changed, and a week later payments are coming in again.
+persona: {merchant_id: M-0008, language: kn-IN, traits: [], hidden_goal: "Customers have dropped, but they are coming back."}
+steps:
+  - {merchant_says: "customers kam aa rahe hain"}
+  - {after_hours: 48, pay: 9000}
+expected:
+  case_state: RESOLVED
+  done_fields: {device.status: ONLINE, payment.status: SUCCESS}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  max_touches: 2

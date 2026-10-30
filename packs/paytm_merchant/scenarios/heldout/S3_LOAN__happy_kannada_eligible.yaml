@@ -1,0 +1,14 @@
+id: S3-heldout-happy-kannada-eligible
+playbook_id: S3_LOAN
+family: happy
+description: An eligible Kannada-speaking kirana merchant asks about a loan, hears the generic KFS line and the tool's amount, says yes, and gets the partner's link.
+persona: {merchant_id: M-0016, language: kn-IN, traits: [], hidden_goal: "Apply for a loan through the partner."}
+steps:
+  - {merchant_says: "ಲೋನ್ ಬೇಕು"}
+  - {after_hours: 1, merchant_says: "ಹೌದು"}
+expected:
+  case_state: RESOLVED
+  done_fields: {lender.app_status: LINK_SENT}
+  escalation: {expected: false}
+  required_actions: [send_message, send_partner_application_link]
+  max_touches: 3

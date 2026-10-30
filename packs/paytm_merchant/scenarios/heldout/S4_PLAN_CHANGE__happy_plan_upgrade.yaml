@@ -1,0 +1,14 @@
+id: S4-heldout-happy-plan-upgrade
+playbook_id: S4_PLAN_CHANGE
+family: happy
+description: A merchant on the basic plan asks to upgrade. The change is scheduled for the billing date and can still be reverted until then.
+persona: {merchant_id: M-0013, language: kn-IN, traits: [], hidden_goal: "Move to the Soundbox plan."}
+steps:
+  - {merchant_says: "plan upgrade karo"}
+expected:
+  case_state: WAITING
+  done_fields: {plan.change_status: SCHEDULED, plan.pending_plan_id: SOUNDBOX_STD}
+  escalation: {expected: false}
+  required_actions: [create_plan_change]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 2

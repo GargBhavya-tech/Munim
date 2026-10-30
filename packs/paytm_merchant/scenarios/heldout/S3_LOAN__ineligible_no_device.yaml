@@ -1,0 +1,14 @@
+id: S3-heldout-ineligible-no-device
+playbook_id: S3_LOAN
+family: happy
+description: A merchant with no device is not eligible. Munim says so plainly, mentions no offer and sends no link. Nobody needs to take over.
+persona: {merchant_id: M-0013, language: kn-IN, traits: [], hidden_goal: "A loan for the shop."}
+steps:
+  - {merchant_says: "loan chahiye"}
+expected:
+  case_state: WAITING
+  done_fields: {lender.eligible: false, lender.app_status: NONE}
+  escalation: {expected: false}
+  forbidden_actions: [send_partner_application_link, apply_fee_waiver, create_device_order]
+  required_actions: [send_message]
+  max_touches: 1

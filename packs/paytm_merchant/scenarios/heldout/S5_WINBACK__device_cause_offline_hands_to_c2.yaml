@@ -1,0 +1,14 @@
+id: S5-heldout-device-cause-offline-hands-to-c2
+playbook_id: S5_WINBACK
+family: multi_case
+description: A silent merchant whose Soundbox is offline. The fault playbook opens; the win-back case sends nothing and books nothing.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [], hidden_goal: "Nothing is coming in since the last week."}
+steps:
+  - {merchant_says: "kuch bhi nahi aa raha pichle hafte se"}
+  - {after_hours: 1, event: DEVICE_HEARTBEAT_LOST}
+expected:
+  case_state: WAITING
+  done_fields: {device.status: OFFLINE}
+  escalation: {expected: false}
+  forbidden_actions: [send_message, book_visit_or_call]
+  max_touches: 0

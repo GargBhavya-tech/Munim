@@ -1,0 +1,12 @@
+id: S4-heldout-should-escalate-four-months-d2c
+playbook_id: S4_PLAN_CHANGE
+family: should_escalate
+description: The band is 2 months and the merchant wants 4 months off the new plan. A person decides.
+persona: {merchant_id: M-0019, language: kn-IN, traits: [], hidden_goal: "Four months free on the upgrade."}
+steps:
+  - {merchant_says: "upgrade ke saath 4 mahine free chahiye"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: OUT_OF_BAND}
+  forbidden_actions: [apply_fee_waiver, create_plan_change]
+  max_touches: 1

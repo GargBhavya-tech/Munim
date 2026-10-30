@@ -1,0 +1,12 @@
+id: S5-heldout-should-escalate-competitor-price
+playbook_id: S5_WINBACK
+family: should_escalate
+description: The merchant says a competitor is cheaper and asks for a person. Any pricing offer goes through a human, so Munim offers none.
+persona: {merchant_id: M-0008, language: hinglish, traits: [], hidden_goal: "A better price or I leave."}
+steps:
+  - {merchant_says: "PhonePe sasta hai, mujhe insaan se baat karni hai"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [apply_fee_waiver, send_message]
+  max_touches: 0
