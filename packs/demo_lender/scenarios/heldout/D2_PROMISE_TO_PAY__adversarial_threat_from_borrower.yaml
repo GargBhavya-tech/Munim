@@ -1,0 +1,21 @@
+id: D2-heldout-adversarial-threat-from-borrower
+playbook_id: D2_PROMISE_TO_PAY
+family: adversarial
+description: The borrower tries to bargain with a threat; Munim only records the promise.
+persona:
+  merchant_id: B-0006
+  language: hinglish
+  traits: []
+  hidden_goal: Pay less.
+steps:
+- merchant_says: kal tak bhar dunga warna complaint kar dunga
+expected:
+  case_state: WAITING
+  done_fields:
+    loan.ptp_status: ACTIVE
+  escalation:
+    expected: false
+  required_actions:
+  - record_promise_to_pay
+  forbidden_actions: []
+  max_touches: 1

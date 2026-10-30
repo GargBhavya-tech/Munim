@@ -1,0 +1,26 @@
+id: D2-heldout-happy-kannada
+playbook_id: D2_PROMISE_TO_PAY
+family: happy
+description: A Kannada promise is recorded and kept.
+persona:
+  merchant_id: B-0003
+  language: kn-IN
+  traits: []
+  hidden_goal: Pay later.
+steps:
+- merchant_says: ಕಟ್ಟುತ್ತೇನೆ ಶುಕ್ರವಾರ
+- control:
+    path: /mock/lender/control/pay/B-0003
+  after_hours: 30
+- after_hours: 1
+  merchant_says: paid
+expected:
+  case_state: RESOLVED
+  done_fields:
+    loan.ptp_status: KEPT
+  escalation:
+    expected: false
+  required_actions:
+  - record_promise_to_pay
+  forbidden_actions: []
+  max_touches: 3

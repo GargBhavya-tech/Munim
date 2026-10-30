@@ -1,0 +1,20 @@
+id: D2-heldout-escalate-ninety-days
+playbook_id: D2_PROMISE_TO_PAY
+family: should_escalate
+description: A loan 90 days past due is for a person, not a promise.
+persona:
+  merchant_id: B-0004
+  language: en-IN
+  traits: []
+  hidden_goal: Pay later.
+steps:
+- merchant_says: i will pay by friday
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions:
+  - record_promise_to_pay
+  max_touches: 0

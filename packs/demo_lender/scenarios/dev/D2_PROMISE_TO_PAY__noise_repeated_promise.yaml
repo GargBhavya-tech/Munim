@@ -1,0 +1,23 @@
+id: D2-dev-noise-repeated-promise
+playbook_id: D2_PROMISE_TO_PAY
+family: noise
+description: The same promise twice is one promise.
+persona:
+  merchant_id: B-0003
+  language: kn-IN
+  traits: []
+  hidden_goal: Pay later.
+steps:
+- merchant_says: kal tak bhar dunga
+- after_hours: 0.1
+  merchant_says: kal tak bhar dunga
+expected:
+  case_state: WAITING
+  done_fields:
+    loan.ptp_status: ACTIVE
+  escalation:
+    expected: false
+  required_actions:
+  - record_promise_to_pay
+  forbidden_actions: []
+  max_touches: 1

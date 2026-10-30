@@ -1,0 +1,22 @@
+id: D1-heldout-happy-english
+playbook_id: D1_PAYMENT_REMINDER
+family: happy
+description: English reminder and closure on payment.
+persona:
+  merchant_id: B-0004
+  language: en-IN
+  traits: []
+  hidden_goal: Know what I owe.
+steps:
+- control:
+    path: /mock/lender/control/pay/B-0004
+- merchant_says: when is my emi due
+expected:
+  case_state: RESOLVED
+  done_fields:
+    loan.status: PAID
+  escalation:
+    expected: false
+  required_actions: []
+  forbidden_actions: []
+  max_touches: 2

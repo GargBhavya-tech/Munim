@@ -1,0 +1,28 @@
+id: D1-heldout-noise-two-questions-then-payment
+playbook_id: D1_PAYMENT_REMINDER
+family: noise
+description: 'Two questions then payment: still one reminder, then closed.'
+persona:
+  merchant_id: B-0006
+  language: hinglish
+  traits: []
+  hidden_goal: Know what I owe.
+steps:
+- merchant_says: kitna due hai
+- after_hours: 0.1
+  merchant_says: kitna due hai
+- control:
+    path: /mock/lender/control/pay/B-0006
+  after_hours: 30
+- after_hours: 1
+  merchant_says: bhar diya
+expected:
+  case_state: RESOLVED
+  done_fields:
+    loan.status: PAID
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 2
