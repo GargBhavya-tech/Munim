@@ -1,0 +1,23 @@
+# Lender-collections intents (#114). Same format as the other packs. hi / kn phrases: NATIVE-SPEAKER REVIEW EXPECTED.
+intents:
+  LOAN_DUE_QUERY:
+    playbook: D1_PAYMENT_REMINDER
+    strong:
+      en: [when is my emi due, how much do i owe, how much is due, what is my due amount, payment due]
+      hinglish: [emi kab hai, kitna baaki hai, kitna due hai, kab bharna hai, kitna bharna hai]
+      hi: [किस्त कब है, कितना बाकी है, कितना देना है]
+      kn: [ಕಂತು ಯಾವಾಗ, ಎಷ್ಟು ಬಾಕಿ ಇದೆ]
+  PROMISE_TO_PAY:
+    playbook: D2_PROMISE_TO_PAY
+    strong:
+      en: [i will pay on, i will pay by, i promise to pay, i can pay on]
+      hinglish: [pay kar dunga, pay kar dungi, bhar dunga, bhar dungi, tak pay karunga, tak bhar dunga]
+      hi: [भर दूँगा, भर दूंगी, पैसे दे दूँगा, तक दे दूँगा]
+      kn: [ಕಟ್ಟುತ್ತೇನೆ, ಪಾವತಿ ಮಾಡುತ್ತೇನೆ]
+  WANTS_HUMAN:
+    playbook: CTRL_HUMAN
+    strong:
+      en: [talk to a person, talk to a human, speak to someone, customer care]
+      hinglish: [kisi insaan se baat, customer care se baat, manager se baat]
+      hi: [किसी इंसान से बात, कस्टमर केयर]
+      kn: [ಮನುಷ್ಯರೊಂದಿಗೆ ಮಾತನಾಡಬೇಕು]
