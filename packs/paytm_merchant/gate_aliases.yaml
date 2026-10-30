@@ -1,0 +1,4 @@
+# Words a merchant (or the model) uses for things the sources name differently. The grounding gate applies them to a claim ONLY as the
+# entailment model reads it (core.gate.verify.GroundingVerifier, aliases); the text that is sent never changes. Lower-case word -> source word.
+# Keep this list short and literal: an alias that maps two different things together would let one prove the other.
+soundbox: device

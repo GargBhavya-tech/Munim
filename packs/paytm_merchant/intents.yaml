@@ -1,0 +1,145 @@
+# Rule-based intent phrases per language for the Paytm merchant pack (Bible §13, ticket #18).
+# Text is normalised before matching (lower-case, Indic digits -> ASCII, nukta and ZWJ/ZWNJ removed, punctuation -> space),
+# and the phrases below are normalised the same way. `strong` phrases score 0.8, `weak` ones 0.4; matches combine noisy-or.
+# Latin phrases match whole words; Devanagari / Kannada phrases match as substrings (words carry suffixes).
+# Order of the intents is the tie-break order. `playbook` feeds INTENT_TO_PLAYBOOK (CTRL_* = handled by the engine, not a case).
+intents:
+  REPORT_DEVICE_PROBLEM:
+    playbook: C2_SOUNDBOX_FAULT
+    strong:
+      en: [soundbox not working, soundbox is not working, soundbox is off, soundbox stopped working, speaker not working, device is offline, device not working, soundbox no sound, soundbox is dead, soundbox is not turning on, soundbox not turning on, soundbox offline, my soundbox is down, no sound from soundbox]
+      hinglish: [soundbox band hai, soundbox band ho gaya, soundbox kaam nahi, soundbox chalu nahi, soundbox on nahi, soundbox kharab, speaker kaam nahi, awaaz nahi aa rahi, awaz nahi aa rahi, awaaz nahi aati, device band hai, soundbox nahi chal raha, soundbox bol nahi raha, soundbox bajta nahi, soundbox band pada hai]
+      hi: [साउंडबॉक्स बंद, साउंडबॉक्स काम नहीं, साउंड बॉक्स बंद, साउंड बॉक्स काम नहीं, आवाज नहीं आ, स्पीकर काम नहीं, साउंडबॉक्स चालू नहीं, डिवाइस बंद, डिवाइस काम नहीं]
+      kn: [ಸೌಂಡ್ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡ್ತಿಲ್ಲ, ಸೌಂಡ್ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ, ಸೌಂಡ್ ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡ್ತಿಲ್ಲ, ಸೌಂಡ್ ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ, ಸೌಂಡ್ಬಾಕ್ಸ್ ಆಫ್, ಸೌಂಡ್ಬಾಕ್ಸ್ ಆನ್ ಆಗ್ತಿಲ್ಲ, ಶಬ್ದ ಬರುತ್ತಿಲ್ಲ, ಶಬ್ದ ಬರ್ತಿಲ್ಲ, ಧ್ವನಿ ಬರುತ್ತಿಲ್ಲ]
+    weak:
+      en: [soundbox, speaker, device]
+      hinglish: [soundbox, sound box, speaker, device]
+      hi: [साउंडबॉक्स, साउंड बॉक्स, स्पीकर, डिवाइस]
+      kn: [ಸೌಂಡ್ಬಾಕ್ಸ್, ಸೌಂಡ್ ಬಾಕ್ಸ್, ಸ್ಪೀಕರ್, ಡಿವೈಸ್]
+  NO_PAYMENT_ANNOUNCEMENT:
+    playbook: C2_SOUNDBOX_FAULT
+    strong:
+      en: [no announcement, not announcing, does not announce, doesn't announce, payment not announced]
+      hinglish: [announce nahi, payment ki awaaz nahi, payment ka awaaz nahi, payment bolta nahi]
+      hi: [पेमेंट की आवाज नहीं, पेमेंट बोलता नहीं]
+  DEVICE_STOLEN:
+    playbook: C2_SOUNDBOX_FAULT
+    strong:
+      en: [stolen, was stolen, theft]
+      hinglish: [chori ho gaya, chori ho gayi, chori hua, chori]
+      hi: [चोरी]
+      kn: [ಕಳ್ಳತನ, ಕಳವು]
+  DEVICE_TAMPERED:
+    playbook: C2_SOUNDBOX_FAULT
+    strong:
+      en: [tampered, tampering]
+      hinglish: [tamper, tampering]
+      hi: [छेड़छाड़]
+  SETTLEMENT_MISSING:
+    playbook: C1_SETTLEMENT_DELAY
+    strong:
+      en: [settlement not received, settlement has not come, settlement is delayed, settlement delayed, settlement pending, money not received in my bank, money has not reached my bank, money not in my bank, my money has not come, payout not received, where is my settlement, settlement hasn't come, haven't received my settlement, not received my money, has not been credited, not credited to my bank]
+      hinglish: [settlement nahi aaya, settlement nahi aya, settlement nahi mila, settlement kab aayega, settlement kab aaega, settlement late, settlement pending hai, paisa nahi aaya, paise nahi aaye, paisa nahi aya, paise nahi aaya, paisa bank me nahi, paisa bank mein nahi, paise bank mein nahi aaye, paisa kab aayega, paise kab aayenge, bank mein paisa nahi aaya]
+      hi: [सेटलमेंट नहीं आया, सेटलमेंट नहीं मिला, सेटलमेंट कब, सेटलमेंट देर, सेटलमेंट अटक, पैसा नहीं आया, पैसे नहीं आए, पैसे नहीं आये, पैसा बैंक में नहीं, पैसे बैंक में नहीं, रकम नहीं आई, पैसा कब आएगा, पैसे कब आएंगे]
+      kn: [ಸೆಟಲ್ಮೆಂಟ್ ಬಂದಿಲ್ಲ, ಸೆಟಲ್ಮೆಂಟ್ ಆಗಿಲ್ಲ, ಸೆಟಲ್ಮೆಂಟ್ ತಡ, ಹಣ ಬಂದಿಲ್ಲ, ದುಡ್ಡು ಬಂದಿಲ್ಲ, ಹಣ ಬ್ಯಾಂಕ್ಗೆ ಬಂದಿಲ್ಲ, ಹಣ ಬ್ಯಾಂಕಿಗೆ ಬಂದಿಲ್ಲ, ಹಣ ಜಮೆ ಆಗಿಲ್ಲ]
+    weak:
+      en: [settlement]
+      hinglish: [settlement]
+      hi: [सेटलमेंट]
+      kn: [ಸೆಟಲ್ಮೆಂಟ್]
+  CUSTOMER_PAYMENT_FAILED:
+    playbook: C3_PAYMENT_FAILED
+    strong:
+      en: [payment failed, customer payment failed, customer paid but, money got deducted, money deducted, amount debited, debited but, deducted but, transaction failed]
+      hinglish: [payment fail, payment fail ho gaya, customer ka payment fail, customer ka paisa kat gaya, paisa kat gaya, paise kat gaye, paise cut ho gaye, paisa cut ho gaya, transaction fail, debit ho gaya, debit ho gaye]
+      hi: [पेमेंट फेल, ट्रांजैक्शन फेल, पैसे कट गए, पैसे कट गये, पैसा कट गया, ग्राहक का पेमेंट, ग्राहक के पैसे कट, भुगतान विफल, डेबिट हो गया]
+      kn: [ಪೇಮೆಂಟ್ ಫೇಲ್, ಪಾವತಿ ವಿಫಲ, ಹಣ ಕಟ್ ಆಗಿದೆ, ಹಣ ಕಟ್ ಆಯ್ತು, ಗ್ರಾಹಕರ ಪೇಮೆಂಟ್, ಟ್ರಾನ್ಸಾಕ್ಷನ್ ಫೇಲ್, ಡೆಬಿಟ್ ಆಗಿದೆ]
+  LOAN_INTEREST:
+    playbook: S3_LOAN
+    strong:
+      en: [loan, working capital, credit line]
+      hinglish: [loan, loan chahiye, loan milega]
+      hi: [लोन, कर्ज, ऋण]
+      kn: [ಲೋನ್, ಸಾಲ]
+  WANTS_HUMAN:
+    playbook: X0_UNSUPPORTED
+    strong:
+      en: [talk to a human, talk to a person, speak to a human, speak to someone, speak to a person, talk to someone, real person, human agent, customer care, call me back, call me, representative]
+      hinglish: [insaan se baat, insan se baat, kisi se baat karao, kisi insaan se, human se baat, agent se baat, manager se baat, customer care se baat, call back, mujhe call karo, mujhe phone karo, koi call kare, kisi se baat karni hai, executive se baat]
+      hi: [इंसान से बात, किसी से बात करा, किसी इंसान से, एजेंट से बात, मैनेजर से बात, कस्टमर केयर, मुझे फोन करो, मुझे कॉल करो, कॉल बैक, किसी से बात करनी]
+      kn: [ಮನುಷ್ಯರ ಜೊತೆ ಮಾತಾಡ, ಯಾರಾದರೂ ಜೊತೆ ಮಾತಾಡ, ಯಾರಾದ್ರೂ ಜೊತೆ ಮಾತಾಡ, ಏಜೆಂಟ್, ಮ್ಯಾನೇಜರ್, ಕಸ್ಟಮರ್ ಕೇರ್, ನನಗೆ ಕರೆ ಮಾಡಿ, ಕರೆ ಮಾಡಿ]
+    weak:
+      en: [agent, manager]
+  COMPLAINT:
+    playbook: C9_COMPLAINT
+    strong:
+      en: [complaint, i want to complain, file a complaint, very bad service, worst service, terrible service, fed up]
+      hinglish: [shikayat, shikayat karni hai, bahut kharab service, bekar service, pareshan ho gaya]
+      hi: [शिकायत, खराब सर्विस, बेकार सर्विस]
+      kn: [ದೂರು, ಕೆಟ್ಟ ಸೇವೆ]
+    weak:
+      hinglish: [pareshan]
+      hi: [परेशान]
+  VERIFY_PAYMENT:
+    playbook: C10_SCAM_SHIELD
+    strong:
+      en: [did the payment come, has the payment come, is this payment real, is this payment genuine, check this payment, verify this payment, payment screenshot, is this payment fake, fake payment, screenshot]
+      hinglish: [payment aaya kya, payment aaya hai kya, payment aaya ya nahi, payment aya kya, payment real hai, payment sahi hai, screenshot dikha, fake payment, payment check karo, payment confirm karo, kya payment aaya, paisa aaya kya, paise aaye kya, screenshot]
+      hi: [पेमेंट आया क्या, पेमेंट आया है क्या, पेमेंट असली, स्क्रीनशॉट, फेक पेमेंट, पेमेंट चेक करो, पेमेंट सही है]
+      kn: [ಪೇಮೆಂಟ್ ಬಂದಿದೆಯಾ, ಪೇಮೆಂಟ್ ಬಂದಿದೆಯೇ, ಹಣ ಬಂದಿದೆಯಾ, ಸ್ಕ್ರೀನ್ಶಾಟ್, ನಕಲಿ ಪೇಮೆಂಟ್, ಪೇಮೆಂಟ್ ಚೆಕ್ ಮಾಡಿ]
+  REPORT_FRAUD_CALL:          # Scam Shield (#86). hi / kn phrases: NATIVE-SPEAKER REVIEW EXPECTED
+    playbook: C10_SCAM_SHIELD
+    strong:
+      en: [asked for my otp, asked for my pin, asking for my otp, asking for otp, someone called asking, fake call from paytm, called from paytm and asked, fraud call, scam call]
+      hinglish: [otp maanga, otp mang raha, otp maang rahe, pin maanga, fraud call aaya, paytm se call aaya otp, fake call aaya, call karke otp]
+      hi: [ओटीपी मांगा, ओटीपी माँगा, पिन मांगा, फ्रॉड कॉल]
+      kn: [ಒಟಿಪಿ ಕೇಳಿದರು, ಪಿನ್ ಕೇಳಿದರು, ಮೋಸದ ಕರೆ]
+  ASK_WHICH_DOCS:
+    playbook: C8_HOWTO
+    strong:
+      en: [which documents, what documents, documents needed, documents required, what papers, which papers, what do i need to submit, kyc documents]
+      hinglish: [kaun se document, kaunse document, konse document, kaun sa document, kaun se kagaz, kaunse kagaz, kya kya document, document kya chahiye, kagaz kya]
+      hi: [कौन से दस्तावेज, कौन से डॉक्यूमेंट, कौन सा डॉक्यूमेंट, कौन से कागज, कौनसे कागज, कौनसे डॉक्यूमेंट]
+      kn: [ಯಾವ ದಾಖಲೆ, ಯಾವ ಡಾಕ್ಯುಮೆಂಟ್, ದಾಖಲೆಗಳು ಬೇಕು, ಯಾವ ಕಾಗದ ಪತ್ರ, ಡಾಕ್ಯುಮೆಂಟ್ ಬೇಕು]
+  STOP:
+    playbook: CTRL_STOP
+    strong:
+      en: [stop, stop messaging, stop messages, stop calling, don't call me, do not call, don't message, do not message, leave me alone, unsubscribe, no more messages, stop it]
+      hinglish: [stop, message mat bhejo, message mat karo, messages band karo, message band karo, call mat karo, mujhe call mat karo, mat bhejo, bas karo, tang mat karo, pareshan mat karo, call band karo]
+      hi: [स्टॉप, मैसेज मत भेजो, मैसेज बंद करो, कॉल मत करो, फोन मत करो, बस करो, परेशान मत करो]
+      kn: [ನಿಲ್ಲಿಸಿ, ಮೆಸೇಜ್ ಕಳುಹಿಸಬೇಡಿ, ಮೆಸೇಜ್ ಮಾಡಬೇಡಿ, ಕರೆ ಮಾಡಬೇಡಿ, ಫೋನ್ ಮಾಡಬೇಡಿ, ತೊಂದರೆ ಕೊಡಬೇಡಿ, ಸಾಕು]
+  UNDO_LAST:
+    playbook: CTRL_UNDO_LAST
+    strong:
+      en: [undo, undo that, undo the last, cancel that, cancel it, cancel the last, revert that, take it back, reverse that, that was a mistake, by mistake]
+      hinglish: [undo karo, wapas karo, wo cancel karo, cancel kar do, cancel karo, galti se ho gaya, galti se hua, pichla cancel, wapas le lo, ye hata do]
+      hi: [रद्द करो, रद्द कर दो, कैंसिल करो, कैंसिल कर दो, वापस ले लो, अनडू, गलती से हो गया, पिछला रद्द]
+      kn: [ರದ್ದು ಮಾಡಿ, ರದ್ದುಮಾಡಿ, ಕ್ಯಾನ್ಸಲ್ ಮಾಡಿ, ಹಿಂತೆಗೆದುಕೊಳ್ಳಿ, ತಪ್ಪಾಗಿ ಆಯಿತು, ಅನ್ಡು]
+  REFUND_REQUEST:
+    playbook: C4_MERCHANT_REFUND
+    strong:
+      en: [refund, refund the customer, give refund, return the money to customer, send money back to customer, money back to the customer]
+      hinglish: [refund, refund karna hai, refund do, customer ko paisa wapas, paisa wapas karna, paise wapas karne hain]
+      hi: [रिफंड, ग्राहक को पैसे वापस, पैसे वापस करने, पैसा वापस करना]
+      kn: [ರಿಫಂಡ್, ರೀಫಂಡ್, ಗ್ರಾಹಕರಿಗೆ ಹಣ ಮರಳಿ, ಹಣ ವಾಪಸ್, ಹಣ ಮರಳಿಸ]
+  CLOSURE_REQUEST:
+    playbook: C7_RETURN_CLOSURE
+    strong:
+      en: [close my account, close the account, close my paytm, close my merchant account, cancel my account, cancel my subscription, cancel my soundbox, return the soundbox, return my soundbox, return the device, i want to leave, stop my service, deactivate, discontinue the service, discontinue]
+      hinglish: [account band karna, account band karo, account band kar do, khata band, service band karo, service band karni, soundbox wapas, soundbox wapas karna, soundbox wapas le jao, device wapas, mujhe service nahi chahiye, service nahi chahiye, band karwana hai, subscription band, subscription cancel]
+      hi: [खाता बंद, अकाउंट बंद, सर्विस बंद, साउंडबॉक्स वापस, डिवाइस वापस, सर्विस नहीं चाहिए, बंद करवाना, सब्सक्रिप्शन बंद]
+      kn: [ಖಾತೆ ಮುಚ್ಚ, ಖಾತೆ ಮುಚ್ಚಿ, ಅಕೌಂಟ್ ಮುಚ್ಚ, ಅಕೌಂಟ್ ಕ್ಲೋಸ್, ಸೇವೆ ಬೇಡ, ಸೌಂಡ್ಬಾಕ್ಸ್ ವಾಪಸ್, ಸೌಂಡ್ಬಾಕ್ಸ್ ಹಿಂತಿರುಗಿಸ, ಸೇವೆ ನಿಲ್ಲಿಸಿ]
+  CHANGE_BANK:
+    playbook: C5_DETAIL_UPDATE
+    strong:
+      en: [change my bank, change bank, change the bank account, change bank account, different bank account, another bank account, new bank account, update my bank, use another account, settlement to another account]
+      hinglish: [bank badalna, bank change, bank account change, bank account badal, dusra bank account, doosra bank account, dusre account mein, naya bank account, bank badlo, account badalna hai, bank details badal]
+      hi: [बैंक बदल, बैंक खाता बदल, बैंक अकाउंट बदल, दूसरा बैंक, दूसरे अकाउंट, नया बैंक अकाउंट, बैंक की जानकारी बदल]
+      kn: [ಬ್ಯಾಂಕ್ ಬದಲಾಯಿಸ, ಬ್ಯಾಂಕ್ ಖಾತೆ ಬದಲ, ಬೇರೆ ಬ್ಯಾಂಕ್ ಖಾತೆ, ಹೊಸ ಬ್ಯಾಂಕ್ ಖಾತೆ, ಬೇರೆ ಖಾತೆ]
+  SWITCH_LANGUAGE:
+    playbook: CTRL_SWITCH_LANGUAGE
+    strong:
+      en: [speak in kannada, speak in hindi, speak in english, talk in kannada, talk in hindi, talk in english, switch to kannada, switch to hindi, switch to english, in kannada please, in hindi please, in english please, reply in kannada, reply in hindi, reply in english, change language]
+      hinglish: [kannada mein baat, kannada me baat, kannada mein bolo, kannada me bolo, hindi mein baat, hindi me baat, hindi mein bolo, english mein baat, english me baat, english mein bolo, bhasha badlo, language badlo, kannada mein batao, hindi mein batao, english mein batao]
+      hi: [हिंदी में बात, हिन्दी में बात, हिंदी में बोलो, कन्नड़ में बात, कन्नड़ में बोलो, अंग्रेजी में बात, अंग्रेजी में बोलो, भाषा बदल]
+      kn: [ಕನ್ನಡದಲ್ಲಿ ಮಾತಾಡಿ, ಕನ್ನಡದಲ್ಲಿ ಮಾತನಾಡಿ, ಕನ್ನಡದಲ್ಲಿ ಹೇಳಿ, ಹಿಂದಿಯಲ್ಲಿ ಮಾತಾಡಿ, ಹಿಂದಿಯಲ್ಲಿ ಮಾತನಾಡಿ, ಇಂಗ್ಲಿಷ್ನಲ್ಲಿ ಮಾತಾಡಿ, ಇಂಗ್ಲಿಷ್ನಲ್ಲಿ ಮಾತನಾಡಿ, ಭಾಷೆ ಬದಲಾಯಿಸಿ]
