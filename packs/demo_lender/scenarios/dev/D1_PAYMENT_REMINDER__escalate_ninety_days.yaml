@@ -1,0 +1,20 @@
+id: D1-dev-escalate-ninety-days
+playbook_id: D1_PAYMENT_REMINDER
+family: should_escalate
+description: A loan 90 or more days past due goes to a person.
+persona:
+  merchant_id: B-0004
+  language: en-IN
+  traits: []
+  hidden_goal: Know what I owe.
+steps:
+- merchant_says: how much do i owe
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions:
+  - send_message
+  max_touches: 0

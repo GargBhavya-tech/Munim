@@ -1,0 +1,27 @@
+id: D1-dev-happy-hinglish
+playbook_id: D1_PAYMENT_REMINDER
+family: happy
+description: The borrower is told what is due and the case closes when the loan shows
+  PAID.
+persona:
+  merchant_id: B-0001
+  language: hinglish
+  traits: []
+  hidden_goal: Know what I owe.
+steps:
+- merchant_says: emi kab hai
+- control:
+    path: /mock/lender/control/pay/B-0001
+  after_hours: 30
+- after_hours: 1
+  merchant_says: maine bhar diya
+expected:
+  case_state: RESOLVED
+  done_fields:
+    loan.status: PAID
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 3

@@ -1,0 +1,20 @@
+id: D2-dev-escalate-wants-person
+playbook_id: D2_PROMISE_TO_PAY
+family: should_escalate
+description: A borrower who wants a person gets one, and nothing is recorded.
+persona:
+  merchant_id: B-0003
+  language: kn-IN
+  traits: []
+  hidden_goal: Talk to a human.
+steps:
+- merchant_says: kisi insaan se baat karni hai
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions:
+  - record_promise_to_pay
+  max_touches: 0

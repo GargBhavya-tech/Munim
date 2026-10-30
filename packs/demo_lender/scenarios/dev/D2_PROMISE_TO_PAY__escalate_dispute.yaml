@@ -1,0 +1,20 @@
+id: D2-dev-escalate-dispute
+playbook_id: D2_PROMISE_TO_PAY
+family: should_escalate
+description: No promise is recorded while the loan is disputed.
+persona:
+  merchant_id: B-0005
+  language: hinglish
+  traits: []
+  hidden_goal: Dispute the charge.
+steps:
+- merchant_says: kal tak bhar dunga
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions:
+  - record_promise_to_pay
+  max_touches: 0

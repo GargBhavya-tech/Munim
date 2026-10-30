@@ -1,0 +1,23 @@
+id: D2-dev-multi-case-reminder-then-promise
+playbook_id: D2_PROMISE_TO_PAY
+family: multi_case
+description: A due question opens the reminder case; the promise opens its own.
+persona:
+  merchant_id: B-0001
+  language: hinglish
+  traits: []
+  hidden_goal: Know what I owe, then promise.
+steps:
+- merchant_says: emi kab hai
+- after_hours: 0.1
+  merchant_says: shukravaar tak bhar dunga
+expected:
+  case_state: WAITING
+  done_fields:
+    loan.ptp_status: ACTIVE
+  escalation:
+    expected: false
+  required_actions:
+  - record_promise_to_pay
+  forbidden_actions: []
+  max_touches: 1

@@ -1,0 +1,26 @@
+id: D1-dev-happy-hindi-due-soon
+playbook_id: D1_PAYMENT_REMINDER
+family: happy
+description: A not-yet-overdue instalment is reminded in Hindi and closes on payment.
+persona:
+  merchant_id: B-0002
+  language: hi-IN
+  traits: []
+  hidden_goal: Know when to pay.
+steps:
+- merchant_says: किस्त कब है
+- control:
+    path: /mock/lender/control/pay/B-0002
+  after_hours: 30
+- after_hours: 1
+  merchant_says: मैंने भर दिया
+expected:
+  case_state: RESOLVED
+  done_fields:
+    loan.status: PAID
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 3

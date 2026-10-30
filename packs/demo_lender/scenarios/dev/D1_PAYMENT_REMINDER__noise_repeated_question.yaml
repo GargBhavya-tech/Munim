@@ -1,0 +1,22 @@
+id: D1-dev-noise-repeated-question
+playbook_id: D1_PAYMENT_REMINDER
+family: noise
+description: The same question twice produces one reminder, not two.
+persona:
+  merchant_id: B-0003
+  language: kn-IN
+  traits: []
+  hidden_goal: Know what I owe.
+steps:
+- merchant_says: emi kab hai
+- after_hours: 0.1
+  merchant_says: emi kab hai
+expected:
+  case_state: WAITING
+  done_fields: {}
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 1

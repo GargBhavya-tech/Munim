@@ -1,0 +1,27 @@
+id: D2-dev-happy-promise-kept
+playbook_id: D2_PROMISE_TO_PAY
+family: happy
+description: The borrower promises a date themselves; it is recorded once and the
+  case closes when they pay.
+persona:
+  merchant_id: B-0001
+  language: hinglish
+  traits: []
+  hidden_goal: Pay later this week.
+steps:
+- merchant_says: shukravaar tak bhar dunga
+- control:
+    path: /mock/lender/control/pay/B-0001
+  after_hours: 30
+- after_hours: 1
+  merchant_says: maine bhar diya
+expected:
+  case_state: RESOLVED
+  done_fields:
+    loan.ptp_status: KEPT
+  escalation:
+    expected: false
+  required_actions:
+  - record_promise_to_pay
+  forbidden_actions: []
+  max_touches: 3
