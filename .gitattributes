@@ -1,0 +1,6 @@
+# Shell scripts must keep LF endings, even on Windows checkouts with core.autocrlf=true.
+*.sh text eol=lf
+scripts/munim text eol=lf
+
+# Frozen evidence sets are hash-verified byte for byte; never convert line endings.
+eval/frozen/** text eol=lf

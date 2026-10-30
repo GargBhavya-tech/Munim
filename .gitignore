@@ -1,0 +1,34 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+
+# data produced by make seed / runs
+data/*.db
+data/*.db-wal
+data/*.db-shm
+eval/out/*
+!eval/out/.gitkeep
+
+# models and checkpoints
+models/indic_nli/*
+!models/indic_nli/.gitkeep
+
+# dashboard
+dashboard/node_modules/
+dashboard/dist/
+
+# editor / os
+.vscode/
+.idea/
+.DS_Store
+web/node_modules/
+web/dist/
