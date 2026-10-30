@@ -1,0 +1,14 @@
+id: S3-dev-ineligible-no-offer
+playbook_id: S3_LOAN
+family: happy
+description: The merchant's KYC and bank are not verified, so the partner tool says not eligible. Munim explains that plainly, mentions no offer or amount, and sends no link.
+persona: {merchant_id: M-0001, language: kn-IN, traits: [], hidden_goal: "A loan."}
+steps:
+  - {merchant_says: "ಲೋನ್ ಬೇಕು"}
+expected:
+  case_state: WAITING
+  done_fields: {lender.eligible: false, lender.app_status: NONE}
+  escalation: {expected: false}
+  forbidden_actions: [send_partner_application_link]
+  required_actions: [send_message]
+  max_touches: 1

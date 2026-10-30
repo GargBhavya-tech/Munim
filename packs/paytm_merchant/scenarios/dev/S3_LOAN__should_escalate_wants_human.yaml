@@ -1,0 +1,12 @@
+id: S3-dev-should-escalate-wants-human
+playbook_id: S3_LOAN
+family: should_escalate
+description: A loan conversation where the merchant asks for a person. Handed over with no link sent.
+persona: {merchant_id: M-0003, language: hinglish, traits: [wants-a-human], hidden_goal: "Talk to a person about the loan."}
+steps:
+  - {merchant_says: "loan ke baare mein insaan se baat karni hai"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [send_partner_application_link, send_message]
+  max_touches: 0

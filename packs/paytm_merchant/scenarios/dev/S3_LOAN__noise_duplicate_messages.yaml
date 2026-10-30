@@ -1,0 +1,16 @@
+id: S3-dev-noise-duplicate-messages
+playbook_id: S3_LOAN
+family: noise
+description: The loan question and the yes both arrive twice. One KFS message and one application link go out, never two.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: "A loan."}
+steps:
+  - {merchant_says: "loan chahiye"}
+  - {merchant_says: "loan chahiye"}
+  - {after_hours: 1, merchant_says: "haan bhej do"}
+  - {merchant_says: "haan bhej do"}
+expected:
+  case_state: RESOLVED
+  done_fields: {lender.app_status: LINK_SENT}
+  escalation: {expected: false}
+  required_actions: [send_message, send_partner_application_link]
+  max_touches: 3

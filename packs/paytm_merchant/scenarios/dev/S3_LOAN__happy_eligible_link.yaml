@@ -1,0 +1,15 @@
+id: S3-dev-happy-eligible-link
+playbook_id: S3_LOAN
+family: happy
+description: An eligible restaurant asks about a loan, gets the KFS line and the tool's maximum amount, says yes, and receives the partner's application link. The case closes on the link.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: "Apply for a loan through the partner."}
+steps:
+  - {merchant_says: "loan chahiye"}
+  - {after_hours: 1, merchant_says: "haan bhej do"}
+expected:
+  case_state: RESOLVED
+  done_fields: {lender.eligible: true, lender.app_status: LINK_SENT}
+  escalation: {expected: false}
+  required_actions: [send_message, send_partner_application_link]
+  forbidden_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 3

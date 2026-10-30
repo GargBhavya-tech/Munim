@@ -1,0 +1,17 @@
+id: S3-dev-multi-case-service-opens-before-link
+playbook_id: S3_LOAN
+family: multi_case
+description: The merchant has seen the loan message, then the Soundbox goes offline and a service case opens, then the merchant says yes. The application link is not sent and the loan case is parked.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: "A loan."}
+steps:
+  - {merchant_says: "loan chahiye"}
+  - {after_hours: 1, control: {path: "/mock/control/device/{mid}", body: {status: OFFLINE}}}
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 1, merchant_says: "haan bhej do"}
+expected:
+  case_state: PARKED
+  done_fields: {lender.app_status: NONE}
+  escalation: {expected: false}
+  forbidden_actions: [send_partner_application_link]
+  required_actions: [send_message]
+  max_touches: 2

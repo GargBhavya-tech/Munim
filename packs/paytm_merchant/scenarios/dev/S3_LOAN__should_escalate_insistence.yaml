@@ -1,0 +1,16 @@
+id: S3-dev-should-escalate-insistence
+playbook_id: S3_LOAN
+family: should_escalate
+description: The merchant keeps insisting on a 0 percent rate. Munim refuses twice in the same words, then a person takes over rather than argue a third time.
+persona: {merchant_id: M-0003, language: hinglish, traits: [pushy], hidden_goal: "A zero-interest loan."}
+steps:
+  - {merchant_says: "0% loan chahiye"}
+  - {after_hours: 1, merchant_says: "nahi 0% loan hi chahiye"}
+  - {after_hours: 1, merchant_says: "0% loan do varna nahi lunga"}
+  - {after_hours: 1, merchant_says: "0% loan kab milega"}
+expected:
+  case_state: ESCALATED
+  done_fields: {lender.app_status: NONE}
+  escalation: {expected: true, reason_class: REGULATORY}
+  forbidden_actions: [send_partner_application_link]
+  max_touches: 3
