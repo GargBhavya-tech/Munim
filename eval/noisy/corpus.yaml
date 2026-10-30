@@ -1,0 +1,47 @@
+# Noisy-speech set (#144): 40 SYNTHETIC intended utterances. Phrases are lifted from packs/paytm_merchant/intents.yaml (already in the pack).
+# Hindi / Kannada / Hinglish wording: NATIVE-SPEAKER REVIEW EXPECTED. No Kannada number words are used (unsure, left out; digits only).
+# amount_paise is set only where the utterance carries an amount; those clips drive the read-back (misheard-action) test.
+clips:
+  # ---- Hinglish (14)
+  - {id: N01, lang: hinglish, intent: REPORT_DEVICE_PROBLEM, text: "mera soundbox band hai"}
+  - {id: N02, lang: hinglish, intent: REPORT_DEVICE_PROBLEM, text: "awaaz nahi aa rahi soundbox se"}
+  - {id: N03, lang: hinglish, intent: SETTLEMENT_MISSING, text: "settlement nahi aaya kal ka"}
+  - {id: N04, lang: hinglish, intent: SETTLEMENT_MISSING, text: "paisa bank mein nahi aaya"}
+  - {id: N05, lang: hinglish, intent: CUSTOMER_PAYMENT_FAILED, text: "customer ka paisa kat gaya"}
+  - {id: N06, lang: hinglish, intent: WANTS_HUMAN, text: "kisi insaan se baat karao"}
+  - {id: N07, lang: hinglish, intent: STOP, text: "message mat bhejo"}
+  - {id: N08, lang: hinglish, intent: ASK_WHICH_DOCS, text: "kaun se document chahiye"}
+  - {id: N09, lang: hinglish, intent: REFUND_REQUEST, text: "2000 rupaye ka refund karna hai", amount_paise: 200000}
+  - {id: N10, lang: hinglish, intent: REFUND_REQUEST, text: "do hazaar rupaye ka refund karna hai", amount_paise: 200000, spoken_number: true}
+  - {id: N11, lang: hinglish, intent: REFUND_REQUEST, text: "paanch sau rupaye ka refund do", amount_paise: 50000, spoken_number: true}
+  - {id: N12, lang: hinglish, intent: UNDO_LAST, text: "galti se ho gaya cancel karo"}
+  - {id: N13, lang: hinglish, intent: CLOSURE_REQUEST, text: "account band karna hai"}
+  - {id: N14, lang: hinglish, intent: SWITCH_LANGUAGE, text: "kannada mein baat karo"}
+  # ---- Hindi (13)
+  - {id: N15, lang: hi, intent: REPORT_DEVICE_PROBLEM, text: "साउंडबॉक्स बंद है"}
+  - {id: N16, lang: hi, intent: REPORT_DEVICE_PROBLEM, text: "स्पीकर काम नहीं कर रहा"}
+  - {id: N17, lang: hi, intent: SETTLEMENT_MISSING, text: "सेटलमेंट नहीं आया"}
+  - {id: N18, lang: hi, intent: SETTLEMENT_MISSING, text: "पैसे बैंक में नहीं आए"}
+  - {id: N19, lang: hi, intent: CUSTOMER_PAYMENT_FAILED, text: "ग्राहक के पैसे कट गए"}
+  - {id: N20, lang: hi, intent: COMPLAINT, text: "मुझे शिकायत करनी है"}
+  - {id: N21, lang: hi, intent: STOP, text: "कॉल मत करो"}
+  - {id: N22, lang: hi, intent: VERIFY_PAYMENT, text: "पेमेंट आया क्या"}
+  - {id: N23, lang: hi, intent: REFUND_REQUEST, text: "ग्राहक को 1500 रुपये रिफंड करना है", amount_paise: 150000}
+  - {id: N24, lang: hi, intent: REFUND_REQUEST, text: "तीन हज़ार रुपये का रिफंड करना है", amount_paise: 300000, spoken_number: true}
+  - {id: N25, lang: hi, intent: UNDO_LAST, text: "कैंसिल कर दो"}
+  - {id: N26, lang: hi, intent: CLOSURE_REQUEST, text: "अकाउंट बंद करना है"}
+  - {id: N27, lang: hi, intent: ASK_WHICH_DOCS, text: "कौन से दस्तावेज चाहिए"}
+  # ---- Kannada (13)
+  - {id: N28, lang: kn, intent: REPORT_DEVICE_PROBLEM, text: "ಸೌಂಡ್ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡ್ತಿಲ್ಲ"}
+  - {id: N29, lang: kn, intent: REPORT_DEVICE_PROBLEM, text: "ಶಬ್ದ ಬರುತ್ತಿಲ್ಲ"}
+  - {id: N30, lang: kn, intent: SETTLEMENT_MISSING, text: "ಸೆಟಲ್ಮೆಂಟ್ ಬಂದಿಲ್ಲ"}
+  - {id: N31, lang: kn, intent: SETTLEMENT_MISSING, text: "ಹಣ ಬ್ಯಾಂಕ್ಗೆ ಬಂದಿಲ್ಲ"}
+  - {id: N32, lang: kn, intent: CUSTOMER_PAYMENT_FAILED, text: "ಪೇಮೆಂಟ್ ಫೇಲ್ ಆಗಿದೆ"}
+  - {id: N33, lang: kn, intent: COMPLAINT, text: "ನನಗೆ ದೂರು ಕೊಡಬೇಕು"}
+  - {id: N34, lang: kn, intent: STOP, text: "ಕರೆ ಮಾಡಬೇಡಿ"}
+  - {id: N35, lang: kn, intent: VERIFY_PAYMENT, text: "ಪೇಮೆಂಟ್ ಬಂದಿದೆಯಾ"}
+  - {id: N36, lang: kn, intent: REFUND_REQUEST, text: "ಗ್ರಾಹಕರಿಗೆ 1200 ರೂಪಾಯಿ ರಿಫಂಡ್ ಮಾಡಬೇಕು", amount_paise: 120000}
+  - {id: N37, lang: kn, intent: UNDO_LAST, text: "ರದ್ದು ಮಾಡಿ"}
+  - {id: N38, lang: kn, intent: CLOSURE_REQUEST, text: "ಖಾತೆ ಮುಚ್ಚಿ"}
+  - {id: N39, lang: kn, intent: WANTS_HUMAN, text: "ಕಸ್ಟಮರ್ ಕೇರ್ ಜೊತೆ ಮಾತಾಡ ಬೇಕು"}
+  - {id: N40, lang: kn, intent: CHANGE_BANK, text: "ಬೇರೆ ಬ್ಯಾಂಕ್ ಖಾತೆ ಬೇಕು"}

@@ -1,0 +1,413 @@
+{
+ "assumptions": {
+  "note": "stand-in ASR channel; rates are assumed, not measured. Audio carrier is synthetic, not speech.",
+  "word_error_rate": {
+   "10": 0.12,
+   "20": 0.04,
+   "5": 0.25
+  }
+ },
+ "by_langs": {
+  "hi": 13,
+  "hinglish": 14,
+  "kn": 13
+ },
+ "by_snr": {
+  "10": {
+   "amount_lost_ask_to_repeat": 0,
+   "ask_once_rate": 1.0,
+   "clips": 40,
+   "confirmed_correct": 7,
+   "intent_accuracy": 0.675,
+   "max_snr_error_db": 0.0,
+   "misheard_executed": 0,
+   "misheard_proposals": 0,
+   "not_confirmed": 0,
+   "proposals": 7,
+   "write_turns": 9
+  },
+  "20": {
+   "amount_lost_ask_to_repeat": 0,
+   "ask_once_rate": 0.875,
+   "clips": 40,
+   "confirmed_correct": 7,
+   "intent_accuracy": 0.875,
+   "max_snr_error_db": 0.0,
+   "misheard_executed": 0,
+   "misheard_proposals": 1,
+   "not_confirmed": 1,
+   "proposals": 8,
+   "write_turns": 9
+  },
+  "5": {
+   "amount_lost_ask_to_repeat": 2,
+   "ask_once_rate": 0.6667,
+   "clips": 40,
+   "confirmed_correct": 2,
+   "intent_accuracy": 0.575,
+   "max_snr_error_db": 0.0,
+   "misheard_executed": 0,
+   "misheard_proposals": 1,
+   "not_confirmed": 1,
+   "proposals": 3,
+   "write_turns": 9
+  },
+  "clean": {
+   "amount_lost_ask_to_repeat": 0,
+   "ask_once_rate": 1.0,
+   "clips": 40,
+   "confirmed_correct": 9,
+   "intent_accuracy": 1.0,
+   "max_snr_error_db": null,
+   "misheard_executed": 0,
+   "misheard_proposals": 0,
+   "not_confirmed": 0,
+   "proposals": 9,
+   "write_turns": 9
+  }
+ },
+ "clips": 40,
+ "label": "SIMULATED",
+ "misheard_actions_executed": 0,
+ "needs_real_audio_and_live_key": [
+  "real busy-place recordings (hi/kn/Hinglish)",
+  "recogniser word/intent accuracy on them (Sarvam STT)",
+  "whether language_probability is usable as a confidence signal",
+  "open noise corpus (licence check) instead of synthetic shop noise"
+ ],
+ "seed": 144,
+ "ticket": 144,
+ "turns": [
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 200000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N09",
+   "heard": "2000 rupaye ka refund karna hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 200000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N09",
+   "heard": "2000 rupaye refund kerne hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 200000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N10",
+   "heard": "do hazaar rupaye ka refund karna hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 200000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N10",
+   "heard": "do hazaar rupaye ka refund karna hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 50000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N11",
+   "heard": "paanch sau rupaye ka refund do",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 10000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N11",
+   "heard": "pachaas sau rupaye refund do",
+   "misheard": true,
+   "result": "UNCLEAR",
+   "snr": "20"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N13",
+   "heard": "account band karna hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N13",
+   "heard": "account band karna hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N13",
+   "heard": "account band karna hai",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N13",
+   "heard": "account band karna hai hmm",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "5"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 150000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N23",
+   "heard": "ग्राहक को 1500 रुपये रिफंड करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 150000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N23",
+   "heard": "ग्राहक को 1500 रुपये रिफंड करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 150000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N23",
+   "heard": "ग्राहक को 1500 रुपये रिफंड करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 450000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N23",
+   "heard": "ग्राहक को 4500 रुपये रिफंड करना है",
+   "misheard": true,
+   "result": "UNCLEAR",
+   "snr": "5"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 300000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N24",
+   "heard": "तीन हज़ार रुपये का रिफंड करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 300000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N24",
+   "heard": "तीन हज़ार रुपये का रिफंड करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 300000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N24",
+   "heard": "तीन हज़ार रुपये का रिफंड करन है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N26",
+   "heard": "अकाउंट बंद करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N26",
+   "heard": "अकाउंट बंद करना है",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N26",
+   "heard": "अकाउंट बंद करना",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 120000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N36",
+   "heard": "ಗ್ರಾಹಕರಿಗೆ 1200 ರೂಪಾಯಿ ರಿಫಂಡ್ ಮಾಡಬೇಕು",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 120000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N36",
+   "heard": "ಗ್ರಾಹಕರಿಗೆ 1200 ರೂಪಾಯಿ ರಿಫಂಡ್ ಮಾಡಬೇಕು",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 120000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N36",
+   "heard": "ಗ್ರಾಹಕರಿಗೆ 1200 ರೂಪಾಯಿ ರಿಫಂಡ್ ಮಾಡಬೇಕು",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  },
+  {
+   "action": "create_refund_request",
+   "args": {
+    "amount_paise": 120000,
+    "merchant_id": "M-0001",
+    "payment_id": "P-1"
+   },
+   "clip": "N36",
+   "heard": "ಗ್ರಾಹಕರಿಗ 1200 ರೂಪಾಯಿ ರಿಫಂಡ್ ಮಾಡಬೇಕು",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "5"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N38",
+   "heard": "ಖಾತೆ ಮುಚ್ಚಿ",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "clean"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N38",
+   "heard": "ಖಾತೆ ಮುಚ್ಚಿ",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "20"
+  },
+  {
+   "action": "create_closure_request",
+   "args": {
+    "merchant_id": "M-0001"
+   },
+   "clip": "N38",
+   "heard": "ಖಾತೆ ಮುಚ್ಚಿ",
+   "misheard": false,
+   "result": "CONFIRMED",
+   "snr": "10"
+  }
+ ]
+}
