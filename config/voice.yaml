@@ -1,0 +1,7 @@
+# Voice thresholds (Build Map #39-#41). [ASSUMPTION] until the noisy-speech set (#144) measures real shop audio.
+# The Sarvam REST speech-to-text response carries NO per-transcript confidence (spike 2026-10-29). The only signal is
+# language_probability, and only when language_code is 'unknown'. A missing value is therefore treated as LOW confidence.
+min_stt_confidence: 0.70       # below this (or missing), a write action needs a spoken "haan" first (read-back)
+readback_ttl_minutes: 2        # sim minutes a read-back stays open; silence or a timeout never confirms anything
+readback_max_unclear: 2        # unclear answers tolerated before the read-back is dropped
+language_flip_confidence: 0.70 # STT language differs from the saved preference: below this, ask once

@@ -1,0 +1,24 @@
+# Languages Munim may speak (Build Map #126, E12). A language is ON only when a passing report exists for it (core/voice/language_bar.py).
+# [ASSUMPTION] The candidate list below is the ten Indian languages the Sarvam speech models cover plus English. It is NOT a confirmed copy of Paytm's own
+# list of eleven; check before quoting it. Names in Hindi, Kannada and other scripts need native review before use (hard rule 8).
+bar:
+  min_labelled_replies: 30     # a language with fewer labelled replies cannot be measured, so it cannot be enabled
+  max_false_block_rate: 0.05   # share of grounded (true) replies the gate wrongly blocks
+  max_leaks: 0                 # ungrounded replies that were sent
+baseline:                      # shipped before the bar existed: they stay on, flagged as lacking a report until one is generated
+  - en-IN
+  - hi-IN
+  - hinglish
+  - kn-IN
+candidates:
+  - {code: en-IN, name: English}
+  - {code: hi-IN, name: Hindi}
+  - {code: kn-IN, name: Kannada}
+  - {code: bn-IN, name: Bengali}
+  - {code: gu-IN, name: Gujarati}
+  - {code: ml-IN, name: Malayalam}
+  - {code: mr-IN, name: Marathi}
+  - {code: od-IN, name: Odia}
+  - {code: pa-IN, name: Punjabi}
+  - {code: ta-IN, name: Tamil}
+  - {code: te-IN, name: Telugu}

@@ -1,0 +1,28 @@
+# Model names and endpoints live here, never in code (Sarvam renames and removes models: the Aug 2026
+# changelog removed sarvam-30b). Verified against docs.sarvam.ai on 2026-10-29.
+base_url: https://api.sarvam.ai
+chat:
+  path: /v1/chat/completions
+  model: sarvam-105b                   # 128K context; sarvam-105b-conversations (32K) exists for realtime voice
+  temperature: 0.2
+  max_tokens: 1024                     # ample once reasoning is off (decisions are ~300 tokens)
+  # sarvam-105b is a REASONING model: with reasoning on, a 1024-token cap is spent entirely on thinking (spike 2026-10-29: 0/60
+  # valid, p50 6 s, content empty). 'off' sends reasoning_effort: null, which disables it (valid JSON in ~1.3 s).
+  # 'low' does NOT help. Other values: high | max | omit the key to use the model default (reasoning on).
+  reasoning_effort: "off"
+stt:
+  path: /speech-to-text
+  model: saaras:v4                     # saaras:v3 also available; REST accepts clips under 30 s
+  mode: transcribe
+  sample_rate: 16000
+tts:
+  path: /text-to-speech
+  model: bulbul:v3                     # bulbul:v4-flash is the newer recommended model
+  speakers: {hi-IN: shubh, kn-IN: priya, en-IN: shubh}
+  sample_rate: 16000
+translate:
+  path: /translate
+  model: mayura:v1                     # 1,000-character input limit; supports source 'auto'
+  mode: formal
+# chat 20 s (was 60): a live call once hung for the full 60 s before its retry answered in ~1 s (BUILD_PLAN C1); the client retries once.
+timeouts_seconds: {chat: 20, stt: 60, tts: 60, translate: 30}

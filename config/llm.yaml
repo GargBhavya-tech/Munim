@@ -1,0 +1,10 @@
+# Fallback chat model (Build Map #34). Any OpenAI-compatible /chat/completions endpoint. The key comes from FALLBACK_LLM_KEY.
+# Left empty on purpose: the team has not chosen a fallback provider yet, and nothing should call one by accident.
+# With base_url, model and FALLBACK_LLM_KEY all set, the client switches to it after Sarvam fails twice and shows a banner.
+fallback:
+  base_url: ""          # e.g. https://api.example.com/v1
+  model: ""
+  path: /chat/completions
+  temperature: 0.2
+  max_tokens: 1024
+  timeout_seconds: 60
