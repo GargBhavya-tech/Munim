@@ -1,0 +1,24 @@
+id: C7-dev-noise-shouting-hinglish-repeat
+playbook_id: C7_RETURN_CLOSURE
+family: noise
+description: 'Capital letters and emoji, then a repeat: processed.'
+persona:
+  merchant_id: M-0008
+  language: hinglish
+  traits:
+  - angry
+  hidden_goal: Close the account.
+steps:
+- merchant_says: ACCOUNT BAND KAR DO!!! 😡
+- merchant_says: account band kar do, kitni baar bolu
+expected:
+  case_state: RESOLVED
+  done_fields:
+    closure.status: REQUESTED
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - create_closure_request
+  - book_visit_or_call
+  max_touches: 2

@@ -1,0 +1,22 @@
+id: C6-dev-noise-typos-and-emoji-waiver
+playbook_id: C6_CHARGE_DISPUTE
+family: noise
+description: Noisy Hinglish with emoji; the amount of months is still clear.
+persona:
+  merchant_id: M-0010
+  language: hinglish
+  traits:
+  - terse
+  hidden_goal: One month waived.
+steps:
+- merchant_says: bhai charge galat hai!!! plz 1 mahine ka waive krdo 🙏
+expected:
+  case_state: RESOLVED
+  done_fields:
+    offer.latest_status: APPLIED
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - apply_fee_waiver
+  max_touches: 2

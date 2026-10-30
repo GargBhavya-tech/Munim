@@ -1,0 +1,25 @@
+id: C6-dev-should-escalate-three-months-out-of-band
+playbook_id: C6_CHARGE_DISPUTE
+family: should_escalate
+description: 'Three months is above the band of 1: a billing ticket and the sales lead, no waiver.'
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits:
+  - angry
+  hidden_goal: Three free months.
+steps:
+- merchant_says: This charge is wrong. Waive 3 months of fees for me.
+expected:
+  case_state: ESCALATED
+  done_fields:
+    ticket.latest_status: OPEN
+    offer.latest_status: NONE
+  escalation:
+    expected: true
+    reason_class: OUT_OF_BAND
+  forbidden_actions:
+  - apply_fee_waiver
+  required_actions:
+  - raise_ticket
+  max_touches: 2

@@ -1,0 +1,28 @@
+id: C7-dev-multi-case-closure-while-device-fault-open
+playbook_id: C7_RETURN_CLOSURE
+family: multi_case
+description: A device fault case is open as well; the closure is still processed.
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Close even though a device fault is open.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- merchant_says: I want to close my account.
+- merchant_says: Close my account, I have decided.
+expected:
+  case_state: RESOLVED
+  done_fields:
+    closure.status: REQUESTED
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - create_closure_request
+  - book_visit_or_call
+  max_touches: 2
