@@ -1,0 +1,17 @@
+id: C5-dev-noise-repeated-requests-chaos
+playbook_id: C5_DETAIL_UPDATE
+family: noise
+description: Duplicate webhooks and the same change request three times. Each self-serve link goes out exactly once.
+persona: {merchant_id: M-0001, language: hinglish, traits: [], hidden_goal: Change my bank.}
+steps:
+  - {chaos: {system: "*", mode: duplicate_webhook, rate: 1.0}}
+  - {merchant_says: "bank badalna hai"}
+  - {after_hours: 0.1, merchant_says: "bank badalna hai"}
+  - {after_hours: 0.1, merchant_says: "bank change"}
+expected:
+  case_state: WAITING
+  done_fields: {bank.status: FAILED, kyc.status: REJECTED}
+  escalation: {expected: false}
+  required_actions: [send_bank_update_link, send_kyc_resume_link]
+  forbidden_actions: [retrigger_bank_verification]
+  max_touches: 4

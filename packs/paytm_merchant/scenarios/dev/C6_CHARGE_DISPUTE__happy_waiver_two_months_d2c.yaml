@@ -1,0 +1,22 @@
+id: C6-dev-happy-waiver-two-months-d2c
+playbook_id: C6_CHARGE_DISPUTE
+family: happy
+description: A D2C brand has band 2, so a two month waiver is in band.
+persona:
+  merchant_id: M-0009
+  language: en-IN
+  traits: []
+  hidden_goal: Get two months waived.
+steps:
+- merchant_says: My device rental charge is wrong. Please waive 2 months.
+expected:
+  case_state: RESOLVED
+  done_fields:
+    offer.latest_status: APPLIED
+  escalation:
+    expected: false
+  forbidden_actions:
+  - raise_ticket
+  required_actions:
+  - apply_fee_waiver
+  max_touches: 2

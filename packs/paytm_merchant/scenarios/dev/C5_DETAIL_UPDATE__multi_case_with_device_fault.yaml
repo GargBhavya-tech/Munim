@@ -1,0 +1,15 @@
+id: C5-dev-multi-case-with-device-fault
+playbook_id: C5_DETAIL_UPDATE
+family: multi_case
+description: A device fault case is open at the same time. The bank link is still sent once and the details case closes.
+persona: {merchant_id: M-0005, language: hi-IN, traits: [], hidden_goal: Change my bank and fix my speaker.}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.2, merchant_says: "bank account change karna hai"}
+expected:
+  case_state: RESOLVED
+  done_fields: {bank.status: VERIFIED}
+  escalation: {expected: false}
+  required_actions: [send_bank_update_link]
+  forbidden_actions: [create_device_replacement, send_kyc_resume_link]
+  max_touches: 2

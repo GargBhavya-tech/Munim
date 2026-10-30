@@ -1,0 +1,26 @@
+id: C6-dev-multi-case-waiver-parked-while-device-down
+playbook_id: C6_CHARGE_DISPUTE
+family: multi_case
+description: 'An open device fault (P1) means no waiver (fix first): the dispute is parked, nothing is waived.'
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits:
+  - confused
+  hidden_goal: Waiver now, even though the Soundbox is also down.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- merchant_says: The charge is wrong, please waive 1 month.
+expected:
+  case_state: PARKED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions:
+  - apply_fee_waiver
+  required_actions: []
+  max_touches: 1

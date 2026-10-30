@@ -1,0 +1,14 @@
+id: C5-dev-happy-kyc-pending-waits
+playbook_id: C5_DETAIL_UPDATE
+family: happy
+description: KYC is rejected and the bank is pending. Both secure links go out and the case waits for the merchant to complete them.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [], hidden_goal: Update my bank and KYC.}
+steps:
+  - {merchant_says: "bank change karna hai"}
+expected:
+  case_state: WAITING
+  done_fields: {bank.status: PENDING, kyc.status: REJECTED}
+  escalation: {expected: false}
+  required_actions: [send_bank_update_link, send_kyc_resume_link]
+  forbidden_actions: [retrigger_bank_verification, create_device_replacement]
+  max_touches: 4

@@ -1,0 +1,14 @@
+id: C5-dev-happy-healthy-merchant-link
+playbook_id: C5_DETAIL_UPDATE
+family: happy
+description: A healthy merchant asks to change the bank. Munim sends the secure link; the details are verified so the case closes. No details are changed by Munim.
+persona: {merchant_id: M-0004, language: en-IN, traits: [], hidden_goal: Change my settlement bank.}
+steps:
+  - {merchant_says: "I want to change my bank account"}
+expected:
+  case_state: RESOLVED
+  done_fields: {bank.status: VERIFIED, kyc.status: APPROVED}
+  escalation: {expected: false}
+  required_actions: [send_bank_update_link, send_message]
+  forbidden_actions: [retrigger_bank_verification, send_kyc_resume_link, apply_fee_waiver]
+  max_touches: 2

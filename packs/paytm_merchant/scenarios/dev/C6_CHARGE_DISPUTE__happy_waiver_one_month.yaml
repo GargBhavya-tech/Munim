@@ -1,0 +1,22 @@
+id: C6-dev-happy-waiver-one-month
+playbook_id: C6_CHARGE_DISPUTE
+family: happy
+description: 'In-band waiver: a band-1 restaurant asks for one month and gets it.'
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Get this month's wrong charge waived.
+steps:
+- merchant_says: The charge on my account this month looks wrong. Please waive 1 month of fees.
+expected:
+  case_state: RESOLVED
+  done_fields:
+    offer.latest_status: APPLIED
+  escalation:
+    expected: false
+  forbidden_actions:
+  - raise_ticket
+  required_actions:
+  - apply_fee_waiver
+  max_touches: 2
