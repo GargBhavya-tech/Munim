@@ -1,0 +1,80 @@
+# Regulatory / legal mentions that escalate a case at once (Bible section 32, hard triggers).
+# Only phrases we are sure of. Native-speaker review of hi / kn / hinglish is expected before go-live.
+#
+# Matching rules (core/engine/escalation.py):
+#   * text is NFC-normalised, case-folded, and zero-width joiners/non-joiners are removed from text AND phrases,
+#     so write Kannada phrases without U+200C/U+200D.
+#   * Latin script (en, hinglish): whole-word match, an optional plural 's'/'es' is allowed. "policy" never matches "police".
+#   * Indic script (hi, kn): the phrase must START at a word boundary but may carry suffixes, because case endings
+#     and plurals are glued to the stem (Kannada ಪೊಲೀಸರಿಗೆ, Hindi वकीलों). Write the stem.
+#   * A negated mention ("I am not going to the police") STILL escalates: a human should see any legal or
+#     regulatory word. The trigger detail records whether a negation was seen near it.
+#
+# Left out on purpose (not sure enough, or too ambiguous): "FIR"/"fir" in Latin script (an ordinary word),
+# "advocate" (also a verb), Kannada Lokayukta/ombudsman phrasing other than the transliterations below,
+# Kannada phrasings for "complaint to RBI".
+regulatory:
+  en:
+    - ombudsman
+    - banking ombudsman
+    - rbi
+    - reserve bank
+    - police
+    - police station
+    - lawyer
+    - legal action
+    - legal notice
+    - consumer court
+    - consumer forum
+    - consumer complaint
+    - court
+    - sue
+    - cyber crime
+    - cybercrime
+  hinglish:
+    - ombudsman
+    - lokpal
+    - rbi
+    - police
+    - thana
+    - vakil
+    - vakeel
+    - consumer court
+    - court
+    - legal notice
+    - cyber crime
+  hi:
+    - लोकपाल
+    - पुलिस
+    - थाने
+    - वकील
+    - अदालत
+    - कोर्ट
+    - उपभोक्ता फोरम
+    - उपभोक्ता आयोग
+    - आरबीआई
+    - रिज़र्व बैंक
+    - रिजर्व बैंक
+    - कानूनी कार्रवाई
+    - कानूनी नोटिस
+    - एफआईआर
+    - साइबर क्राइम
+  kn:
+    - ಲೋಕಪಾಲ
+    - ಒಂಬುಡ್ಸ್ಮನ್
+    - ಪೊಲೀಸ
+    - ವಕೀಲ
+    - ನ್ಯಾಯಾಲಯ
+    - ಕೋರ್ಟ್
+    - ಆರ್ಬಿಐ
+    - ರಿಸರ್ವ್ ಬ್ಯಾಂಕ್
+    - ಎಫ್ಐಆರ್
+    - ಕಾನೂನು ಕ್ರಮ
+    - ಸೈಬರ್ ಕ್ರೈಮ್
+
+# Words that, shortly BEFORE a regulatory phrase, mark it as negated. Used only to annotate the trigger detail.
+negations:
+  en: [not, no, never, dont, don't, won't, wont, without, neither, nor]
+  hinglish: [nahi, nahin, na, mat, bina, kabhi nahi]
+  hi: [नहीं, ना, मत, बिना]
+  kn: [ಇಲ್ಲ, ಬೇಡ, ಅಲ್ಲ]
