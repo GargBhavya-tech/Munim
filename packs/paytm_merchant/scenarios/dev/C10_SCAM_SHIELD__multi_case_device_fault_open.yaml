@@ -1,0 +1,17 @@
+id: C10-dev-multi-case-device-fault-open
+playbook_id: C10_SCAM_SHIELD
+family: multi_case
+description: The Soundbox is down (a fault case is open) and a customer says they paid. Scam Shield checks the transactions directly, so the silent speaker does not matter.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: Know if a payment came while the speaker is off.}
+steps:
+  - {control: {path: "/mock/control/device/{mid}", body: {status: OFFLINE}}}
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.1, pay: 31500}
+  - {after_hours: 0.05, merchant_says: "soundbox band hai, payment aaya kya 315"}
+expected:
+  case_state: RESOLVED
+  done_fields: {payment.status: SUCCESS, device.status: OFFLINE}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [flag_fraud, create_device_replacement]
+  max_touches: 1

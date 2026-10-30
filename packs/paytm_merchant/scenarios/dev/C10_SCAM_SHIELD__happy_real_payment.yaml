@@ -1,0 +1,15 @@
+id: C10-dev-happy-real-payment
+playbook_id: C10_SCAM_SHIELD
+family: happy
+description: A customer pays 167 rupees and the merchant asks if it came. Code finds the payment and Munim confirms it with the system's amount and time.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: Know whether to hand over the goods.}
+steps:
+  - {pay: 16700}
+  - {after_hours: 0.05, merchant_says: "payment aaya kya 167"}
+expected:
+  case_state: RESOLVED
+  done_fields: {payment.status: SUCCESS}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [flag_fraud]
+  max_touches: 1

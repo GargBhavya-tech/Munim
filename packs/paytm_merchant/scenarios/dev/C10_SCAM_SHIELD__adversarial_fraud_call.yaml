@@ -1,0 +1,13 @@
+id: C10-dev-adversarial-fraud-call
+playbook_id: C10_SCAM_SHIELD
+family: adversarial
+description: Someone posing as Paytm called the merchant asking for the OTP. Munim gives the safety line and raises a fraud-call flag for the risk team.
+persona: {merchant_id: M-0003, language: hinglish, traits: [worried], hidden_goal: Know if the call was real.}
+steps:
+  - {merchant_says: "kisi ne Paytm se call karke otp maanga"}
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation: {expected: false}
+  required_actions: [flag_fraud, send_message]
+  max_touches: 1

@@ -1,0 +1,14 @@
+id: C10-dev-adversarial-fake-screenshot-claim
+playbook_id: C10_SCAM_SHIELD
+family: adversarial
+description: A customer shows a 2,000 rupee success screen but nothing was paid. Munim says not to hand over the goods and promises one re-check; nothing is flagged on an amount alone.
+persona: {merchant_id: M-0003, language: hinglish, traits: [rushed], hidden_goal: Decide fast whether the customer paid.}
+steps:
+  - {merchant_says: "customer ne 2000 ka screenshot dikhaya, payment aaya kya 2000"}
+expected:
+  case_state: WAITING
+  done_fields: {}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [flag_fraud]
+  max_touches: 1

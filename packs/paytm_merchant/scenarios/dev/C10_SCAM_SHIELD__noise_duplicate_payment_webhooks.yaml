@@ -1,0 +1,16 @@
+id: C10-dev-noise-duplicate-payment-webhooks
+playbook_id: C10_SCAM_SHIELD
+family: noise
+description: The payments system delivers every webhook twice. One real payment is still one match, confirmed once.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: Confirm a payment.}
+steps:
+  - {chaos: {system: payments, mode: duplicate_webhook, rate: 1.0}}
+  - {pay: 52000}
+  - {after_hours: 0.05, merchant_says: "paisa aaya kya 520"}
+expected:
+  case_state: RESOLVED
+  done_fields: {payment.status: SUCCESS}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [flag_fraud]
+  max_touches: 1

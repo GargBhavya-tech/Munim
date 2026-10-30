@@ -1,0 +1,13 @@
+id: C10-dev-escalate-wants-a-person
+playbook_id: C10_SCAM_SHIELD
+family: should_escalate
+description: The merchant, worried about a payment, insists on talking to a person. A person takes over; nothing is flagged.
+persona: {merchant_id: M-0003, language: hinglish, traits: [anxious], hidden_goal: Talk to a human.}
+steps:
+  - {merchant_says: "mujhe manager se baat karni hai"}
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [flag_fraud]
+  max_touches: 1
