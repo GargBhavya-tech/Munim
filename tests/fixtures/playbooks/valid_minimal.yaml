@@ -1,0 +1,17 @@
+id: T_FIXTURE
+half: service
+priority_lane: P1
+triggers: {events: [DEVICE_HEARTBEAT_LOST], intents: [REPORT_DEVICE_PROBLEM]}
+required_reads: [get_device_status]
+steps:
+  - check_basics
+  - {name: confirm, done: "device.status == 'ONLINE'"}
+allowed_actions:
+  - book_visit_or_call
+  - create_device_replacement: {max_per_case: 1, precondition: "steps.check_basics.done and device.status == 'OFFLINE'"}
+  - raise_ticket: {type: DEVICE}
+done_check: "device.status == 'ONLINE'"
+escalate_when: ["replacements_last_30d >= 1"]
+kb_scope: [device_troubleshooting]
+max_touches: 3
+sla_sim_hours: 48
