@@ -1,0 +1,22 @@
+id: C12-dev-noise-repeated
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: noise
+description: The consumer asks twice; one status message.
+persona:
+  merchant_id: U-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: refund nahi aaya
+- after_hours: 0.5
+  merchant_says: refund kahan hai
+expected:
+  case_state: WAITING
+  done_fields: {}
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 1

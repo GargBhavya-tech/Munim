@@ -1,0 +1,19 @@
+id: C12-dev-escalate-overdue
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: should_escalate
+description: 'The refund is past its expected date: a person chases it.'
+persona:
+  merchant_id: U-0005
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: refund kab aayega
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions: []
+  max_touches: 1

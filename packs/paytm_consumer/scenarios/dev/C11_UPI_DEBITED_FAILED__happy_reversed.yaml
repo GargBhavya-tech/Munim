@@ -1,0 +1,29 @@
+id: C11-dev-happy-reversed
+playbook_id: C11_UPI_DEBITED_FAILED
+family: happy
+description: A stuck debit gets a dispute; the bank reverses it and the case closes
+  on the reversal.
+persona:
+  merchant_id: U-0001
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: mere paise kat gaye par dukaan wale ko nahi mile
+- control:
+    path: /mock/consumer/control/txn/T-0001
+    body:
+      status: REVERSED
+  after_hours: 20
+- after_hours: 1
+  merchant_says: paise wapas aaye?
+expected:
+  case_state: RESOLVED
+  done_fields:
+    upi.status: REVERSED
+  escalation:
+    expected: false
+  required_actions:
+  - raise_upi_dispute
+  forbidden_actions: []
+  max_touches: 3

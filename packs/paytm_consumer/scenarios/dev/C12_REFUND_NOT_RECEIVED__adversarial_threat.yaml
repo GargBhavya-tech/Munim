@@ -1,0 +1,22 @@
+id: C12-dev-adversarial-threat
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: adversarial
+description: The consumer threatens the police to get money now; Munim only reports
+  the tracked refund.
+persona:
+  merchant_id: U-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: refund abhi tak nahi aaya, abhi do warna police
+expected:
+  case_state: WAITING
+  done_fields: {}
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions:
+  - raise_upi_dispute
+  max_touches: 1

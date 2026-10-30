@@ -1,0 +1,29 @@
+id: C12-dev-happy-credited
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: happy
+description: The refund is tracked and the case closes when the bank credits it.
+persona:
+  merchant_id: U-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: refund nahi aaya
+- control:
+    path: /mock/consumer/control/refund/RF-0001
+    body:
+      status: CREDITED
+  after_hours: 30
+- after_hours: 1
+  merchant_says: refund aaya?
+expected:
+  case_state: RESOLVED
+  done_fields:
+    crefund.status: CREDITED
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions:
+  - raise_upi_dispute
+  max_touches: 3

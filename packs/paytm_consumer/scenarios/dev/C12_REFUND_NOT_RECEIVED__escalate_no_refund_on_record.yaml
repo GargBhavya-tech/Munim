@@ -1,0 +1,20 @@
+id: C12-dev-escalate-no-refund-on-record
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: should_escalate
+description: There is no refund on record for this consumer; nothing is invented,
+  a person checks.
+persona:
+  merchant_id: U-0004
+  language: en-IN
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: where is my refund
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions: []
+  max_touches: 1

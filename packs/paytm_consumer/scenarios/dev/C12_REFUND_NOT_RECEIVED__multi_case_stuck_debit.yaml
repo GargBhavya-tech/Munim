@@ -1,0 +1,23 @@
+id: C12-dev-multi-case-stuck-debit
+playbook_id: C12_REFUND_NOT_RECEIVED
+family: multi_case
+description: A debit question opens its own case first; the refund is still tracked
+  in its case.
+persona:
+  merchant_id: U-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: paise kat gaye
+- after_hours: 0.2
+  merchant_says: aur refund nahi aaya
+expected:
+  case_state: WAITING
+  done_fields: {}
+  escalation:
+    expected: false
+  required_actions:
+  - send_message
+  forbidden_actions: []
+  max_touches: 1

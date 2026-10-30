@@ -1,0 +1,24 @@
+id: C11-dev-multi-case-refund-open
+playbook_id: C11_UPI_DEBITED_FAILED
+family: multi_case
+description: A refund question opens its own case; the stuck debit is still disputed
+  in its own case.
+persona:
+  merchant_id: U-0001
+  language: hinglish
+  traits: []
+  hidden_goal: Get my money back.
+steps:
+- merchant_says: refund nahi aaya
+- after_hours: 0.2
+  merchant_says: aur mere paise bhi kat gaye
+expected:
+  case_state: WAITING
+  done_fields:
+    upi.dispute_status: OPEN
+  escalation:
+    expected: false
+  required_actions:
+  - raise_upi_dispute
+  forbidden_actions: []
+  max_touches: 2
