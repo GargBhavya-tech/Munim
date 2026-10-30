@@ -1,0 +1,61 @@
+# Fixed phrases Munim may say WITHOUT a source claim (Bible section 29: "allowed extras = a fixed list of conversational phrases").
+# The renderer can only ask for one by id; it can never reword it, and the faithfulness check skips exactly these texts.
+# kind: conversational (the renderer may use them), compliance (added by code), control (clarify / handoff, added by code).
+# Nothing here states a fact, a number, a date or a promise.
+# review_status: DRAFT_UNREVIEWED. A NATIVE SPEAKER MUST REVIEW every hi-IN, hinglish and kn-IN line before any real use.
+review_status: DRAFT_UNREVIEWED
+phrases:
+  greeting:
+    kind: conversational
+    en-IN: "Hello."
+    hi-IN: "नमस्ते।"
+    hinglish: "Namaste."
+    kn-IN: "ನಮಸ್ಕಾರ."
+  one_moment:
+    kind: conversational
+    en-IN: "One moment, please."
+    hi-IN: "कृपया एक क्षण रुकिए।"
+    hinglish: "Ek minute, kripya rukiye."
+    kn-IN: "ದಯವಿಟ್ಟು ಒಂದು ಕ್ಷಣ ಕಾಯಿರಿ."
+  thank_you:
+    kind: conversational
+    en-IN: "Thank you."
+    hi-IN: "धन्यवाद।"
+    hinglish: "Dhanyavaad."
+    kn-IN: "ಧನ್ಯವಾದಗಳು."
+  anything_else:
+    kind: conversational
+    en-IN: "Is there anything else you need?"
+    hi-IN: "क्या आपको और कोई मदद चाहिए?"
+    hinglish: "Kya aapko aur koi madad chahiye?"
+    kn-IN: "ನಿಮಗೆ ಇನ್ನೇನಾದರೂ ಸಹಾಯ ಬೇಕೇ?"
+  identity:
+    kind: compliance
+    en-IN: "I am Munim, Paytm's AI assistant."
+    hi-IN: "मैं मुनीम हूँ, पेटीएम का एआई असिस्टेंट।"
+    hinglish: "Main Munim hoon, Paytm ka AI assistant."
+    kn-IN: "ನಾನು ಮುನೀಮ್, ಪೇಟಿಎಂನ ಎಐ ಸಹಾಯಕ."
+  pin_otp:
+    kind: compliance
+    en-IN: "Paytm never asks for your PIN or OTP."
+    hi-IN: "पेटीएम कभी आपका पिन या ओटीपी नहीं मांगता।"
+    hinglish: "Paytm kabhi aapka PIN ya OTP nahi maangta."
+    kn-IN: "ಪೇಟಿಎಂ ಎಂದಿಗೂ ನಿಮ್ಮ ಪಿನ್ ಅಥವಾ ಒಟಿಪಿ ಕೇಳುವುದಿಲ್ಲ."
+  ai_yes:
+    kind: compliance
+    en-IN: "Yes, I am an AI assistant, not a person. I can connect you to a person if you want."
+    hi-IN: "जी हाँ, मैं एक एआई असिस्टेंट हूँ, इंसान नहीं। आप चाहें तो मैं आपको किसी व्यक्ति से जोड़ सकता हूँ।"
+    hinglish: "Haan, main ek AI assistant hoon, insaan nahi. Aap chahein to main aapko kisi insaan se jod sakta hoon."
+    kn-IN: "ಹೌದು, ನಾನು ಎಐ ಸಹಾಯಕ, ವ್ಯಕ್ತಿಯಲ್ಲ. ನೀವು ಬಯಸಿದರೆ ನಾನು ನಿಮ್ಮನ್ನು ಒಬ್ಬ ವ್ಯಕ್ತಿಯೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಬಲ್ಲೆ."
+  clarify:
+    kind: control
+    en-IN: "Could you tell me a little more about what you need?"
+    hi-IN: "क्या आप बता सकते हैं कि आपको ठीक से क्या चाहिए?"
+    hinglish: "Kya aap bata sakte hain ki aapko theek se kya chahiye?"
+    kn-IN: "ನಿಮಗೆ ನಿಖರವಾಗಿ ಏನು ಬೇಕು ಎಂದು ಹೇಳಬಹುದೇ?"
+  handoff:
+    kind: control
+    en-IN: "I am passing this to a colleague who will help you."
+    hi-IN: "मैं यह मामला एक सहकर्मी को दे रहा हूँ, जो आपकी मदद करेंगे।"
+    hinglish: "Main yeh maamla ek colleague ko de raha hoon, jo aapki madad karenge."
+    kn-IN: "ನಾನು ಇದನ್ನು ಒಬ್ಬ ಸಹೋದ್ಯೋಗಿಗೆ ನೀಡುತ್ತಿದ್ದೇನೆ, ಅವರು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ."
