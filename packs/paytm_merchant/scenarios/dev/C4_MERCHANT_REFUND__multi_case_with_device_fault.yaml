@@ -1,0 +1,15 @@
+id: C4-dev-multi-case-with-device-fault
+playbook_id: C4_MERCHANT_REFUND
+family: multi_case
+description: A device fault case is open at the same time as the refund. The refund request still waits for the merchant's confirmation.
+persona: {merchant_id: M-0005, language: hinglish, traits: [], hidden_goal: Refund the customer and fix my speaker.}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 0.2, merchant_says: "refund karna hai"}
+expected:
+  case_state: WAITING
+  done_fields: {refund.status: AWAITING_MERCHANT_CONFIRM}
+  escalation: {expected: false}
+  required_actions: [create_refund_request]
+  forbidden_actions: [create_device_replacement, apply_fee_waiver]
+  max_touches: 1

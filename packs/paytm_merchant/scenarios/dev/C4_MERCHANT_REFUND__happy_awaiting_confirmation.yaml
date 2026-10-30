@@ -1,0 +1,14 @@
+id: C4-dev-happy-awaiting-confirmation
+playbook_id: C4_MERCHANT_REFUND
+family: happy
+description: A Hindi refund request creates one request that waits for the merchant's in-app confirmation. The case is not closed.
+persona: {merchant_id: M-0005, language: hi-IN, traits: [], hidden_goal: Refund my customer.}
+steps:
+  - {merchant_says: "रिफंड करना है"}
+expected:
+  case_state: WAITING
+  done_fields: {refund.status: AWAITING_MERCHANT_CONFIRM}
+  escalation: {expected: false}
+  required_actions: [create_refund_request, send_message]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 1

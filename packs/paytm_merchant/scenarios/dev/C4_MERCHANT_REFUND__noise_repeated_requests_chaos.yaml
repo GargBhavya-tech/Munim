@@ -1,0 +1,17 @@
+id: C4-dev-noise-repeated-requests-chaos
+playbook_id: C4_MERCHANT_REFUND
+family: noise
+description: The merchant repeats the request while the refund system times out after committing. Exactly one refund request exists.
+persona: {merchant_id: M-0004, language: hinglish, traits: [], hidden_goal: Refund my customer.}
+steps:
+  - {chaos: {system: refunds, mode: timeout_after_commit, rate: 0.5}}
+  - {merchant_says: "refund do"}
+  - {after_hours: 0.1, merchant_says: "refund do"}
+  - {after_hours: 0.1, merchant_says: "refund karna hai"}
+expected:
+  case_state: WAITING
+  done_fields: {refund.status: AWAITING_MERCHANT_CONFIRM}
+  escalation: {expected: false}
+  required_actions: [create_refund_request]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 1

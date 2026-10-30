@@ -1,0 +1,15 @@
+id: C4-dev-happy-status-question-while-waiting
+playbook_id: C4_MERCHANT_REFUND
+family: happy
+description: After the request is created the merchant asks whether it is done. Nothing new is created; the request still waits for their in-app confirmation.
+persona: {merchant_id: M-0003, language: hinglish, traits: [], hidden_goal: Refund my customer.}
+steps:
+  - {merchant_says: "refund do"}
+  - {after_hours: 1, merchant_says: "refund ho gaya kya"}
+expected:
+  case_state: WAITING
+  done_fields: {refund.status: AWAITING_MERCHANT_CONFIRM}
+  escalation: {expected: false}
+  required_actions: [create_refund_request, send_message]
+  forbidden_actions: [apply_fee_waiver, send_bank_update_link]
+  max_touches: 1

@@ -1,0 +1,13 @@
+id: C4-dev-escalate-complaint
+playbook_id: C4_MERCHANT_REFUND
+family: should_escalate
+description: The merchant asks for a refund and says they will file a complaint. A person takes over before any refund request is made.
+persona: {merchant_id: M-0003, language: en-IN, traits: [angry], hidden_goal: Get a refund and an apology.}
+steps:
+  - {merchant_says: "refund do aur I want to complain, file a complaint"}
+expected:
+  case_state: ESCALATED
+  done_fields: {refund.status: NONE}
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [create_refund_request, send_message]
+  max_touches: 0

@@ -1,0 +1,14 @@
+id: C5-dev-escalate-name-mismatch
+playbook_id: C5_DETAIL_UPDATE
+family: should_escalate
+description: The bank check failed on a name mismatch, which no link can fix. A person takes over.
+persona: {merchant_id: M-0004, language: hinglish, traits: [], hidden_goal: Use the account in my spouse's name.}
+steps:
+  - {control: {path: "/mock/control/bank/{mid}", body: {status: FAILED, reason: NAME_MISMATCH}}}
+  - {merchant_says: "bank badalna hai"}
+expected:
+  case_state: ESCALATED
+  done_fields: {bank.status: FAILED}
+  escalation: {expected: true, reason_class: NAME_MISMATCH}
+  forbidden_actions: [retrigger_bank_verification, send_bank_update_link]
+  max_touches: 0

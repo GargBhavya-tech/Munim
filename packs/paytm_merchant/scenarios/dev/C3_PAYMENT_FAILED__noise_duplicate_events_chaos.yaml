@@ -1,0 +1,18 @@
+id: C3-dev-noise-duplicate-events-chaos
+playbook_id: C3_PAYMENT_FAILED
+family: noise
+description: Duplicate webhooks, a flaky ticket system and the same failed-payment event three times. Exactly one dispute ticket and one follow-up exist.
+persona: {merchant_id: M-0010, language: hinglish, traits: [], hidden_goal: Get my customer's money sorted.}
+steps:
+  - {chaos: {system: "*", mode: duplicate_webhook, rate: 1.0}}
+  - {chaos: {system: tickets, mode: timeout_after_commit, rate: 0.4}}
+  - {event: PAYMENT_FAILED}
+  - {after_hours: 0.1, event: PAYMENT_FAILED}
+  - {after_hours: 0.1, event: PAYMENT_FAILED}
+expected:
+  case_state: WAITING
+  done_fields: {payment.status: FAILED, ticket.open_count: 1}
+  escalation: {expected: false}
+  required_actions: [raise_ticket, schedule_follow_up]
+  forbidden_actions: [create_refund_request]
+  max_touches: 1
