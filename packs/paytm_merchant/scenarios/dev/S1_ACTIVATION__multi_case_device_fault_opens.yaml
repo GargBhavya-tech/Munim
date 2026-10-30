@@ -1,0 +1,14 @@
+id: S1-dev-multi-case-device-fault-opens
+playbook_id: S1_ACTIVATION
+family: multi_case
+description: While activation is stuck at KYC, the Soundbox loses its heartbeat and a fault case opens. Activation keeps working its own step and never orders a replacement itself.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [], hidden_goal: Finish signup.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {after_hours: 1, event: DEVICE_HEARTBEAT_LOST}
+expected:
+  case_state: WAITING
+  done_fields: {kyc.status: REJECTED, device.status: OFFLINE}
+  escalation: {expected: false}
+  forbidden_actions: [create_device_replacement, retrigger_bank_verification, apply_fee_waiver]
+  max_touches: 3

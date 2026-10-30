@@ -1,0 +1,20 @@
+id: S1-dev-happy-stalled-signup
+playbook_id: S1_ACTIVATION
+family: happy
+description: Stalled signup (blurry KYC photo, bank pending, Soundbox offline) recovers to the first settlement.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [confused], hidden_goal: Get the shop live and receive the first settlement.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {after_hours: 2, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {event: KYC_SUBMITTED}
+  - {after_hours: 24, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {event: DEVICE_DELIVERED}
+  - {after_hours: 1, pay: 24000}
+  - {after_hours: 23, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {kyc.status: APPROVED, bank.status: VERIFIED, device.status: ONLINE, payment.status: SUCCESS, settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [send_kyc_resume_link, retrigger_bank_verification, create_device_replacement]
+  forbidden_actions: [apply_fee_waiver, send_partner_application_link, create_device_order]
+  max_touches: 4

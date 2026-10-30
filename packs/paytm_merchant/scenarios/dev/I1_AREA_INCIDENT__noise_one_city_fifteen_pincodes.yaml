@@ -1,0 +1,26 @@
+id: I1-dev-noise-one-city-fifteen-pincodes
+playbook_id: I1_AREA_INCIDENT
+family: noise
+description: Fifteen Bengaluru devices go dark together but each is in a different pincode. Grouping by city would see an incident; grouping by pincode correctly sees none.
+persona:
+  merchant_id: M-0015
+  language: en-IN
+  traits: []
+  hidden_goal: Fix my speaker.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+expected:
+  case_state: WAITING
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  required_actions:
+  - send_message
+  max_touches: 1

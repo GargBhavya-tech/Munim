@@ -1,0 +1,16 @@
+id: S1-dev-escalate-name-mismatch
+playbook_id: S1_ACTIVATION
+family: should_escalate
+description: The bank account holder name does not match, which Munim must never try to fix. A person takes over.
+persona: {merchant_id: M-0006, language: hinglish, traits: [], hidden_goal: Use the account that is already in my name on the form.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {after_hours: 2, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {control: {path: "/mock/control/bank/{mid}", body: {status: FAILED, reason: NAME_MISMATCH}}}
+  - {event: BANK_VERIFICATION_FAILED}
+expected:
+  case_state: ESCALATED
+  done_fields: {bank.status: FAILED}
+  escalation: {expected: true, reason_class: NAME_MISMATCH}
+  forbidden_actions: [retrigger_bank_verification, create_device_replacement, apply_fee_waiver]
+  max_touches: 2

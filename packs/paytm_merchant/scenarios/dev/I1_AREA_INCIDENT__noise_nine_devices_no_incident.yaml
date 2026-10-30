@@ -1,0 +1,27 @@
+id: I1-dev-noise-nine-devices-no-incident
+playbook_id: I1_AREA_INCIDENT
+family: noise
+description: 'Nine devices in one pincode in six minutes is one short of an incident. The persona''s fault is an ordinary C2 case: the checklist goes out first, and no replacement is ordered before it is
+  answered.'
+persona:
+  merchant_id: M-0010
+  language: hinglish
+  traits: []
+  hidden_goal: Fix my speaker.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+expected:
+  case_state: WAITING
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  required_actions:
+  - send_message
+  max_touches: 1

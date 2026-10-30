@@ -1,0 +1,27 @@
+id: I1-dev-noise-two-banks-five-each-no-incident
+playbook_id: I1_AREA_INCIDENT
+family: noise
+description: Ten settlements fail in half an hour, but five on one bank and five on another. Neither bank reaches ten, so the persona's case is an ordinary C1 case and gets its secure bank-update link.
+persona:
+  merchant_id: M-0012
+  language: en-IN
+  traits: []
+  hidden_goal: Get my settlement.
+steps:
+- control:
+    path: /mock/control/bank/{mid}
+    body:
+      status: FAILED
+      reason: TIMEOUT
+- advance_settlement: FAILED_BANK
+expected:
+  case_state: WAITING
+  done_fields:
+    settlement.status: FAILED_BANK
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  required_actions:
+  - send_bank_update_link
+  max_touches: 2

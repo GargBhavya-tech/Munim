@@ -1,0 +1,20 @@
+id: S1-dev-happy-bank-timeout-retry
+playbook_id: S1_ACTIVATION
+family: happy
+description: KYC was rejected and the bank check timed out. After the KYC fix the bank check is retried once, the Soundbox is replaced, and the first settlement lands.
+persona: {merchant_id: M-0001, language: kn-IN, traits: [], hidden_goal: Start taking payments.}
+steps:
+  - {event: KYC_REJECTED}
+  - {after_hours: 3, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {event: KYC_SUBMITTED}
+  - {after_hours: 24, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {event: DEVICE_DELIVERED}
+  - {after_hours: 2, pay: 15500}
+  - {after_hours: 22, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {kyc.status: APPROVED, bank.status: VERIFIED, device.status: ONLINE, payment.status: SUCCESS, settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [send_kyc_resume_link, retrigger_bank_verification, create_device_replacement]
+  forbidden_actions: [apply_fee_waiver, send_partner_application_link]
+  max_touches: 4
