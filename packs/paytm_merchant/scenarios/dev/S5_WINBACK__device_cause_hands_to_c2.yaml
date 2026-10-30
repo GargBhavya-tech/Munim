@@ -1,0 +1,15 @@
+id: S5-dev-device-cause-hands-to-c2
+playbook_id: S5_WINBACK
+family: multi_case
+description: The dormant merchant's Soundbox is offline. The fault playbook opens; the win-back case diagnoses the device first and sends no sales message.
+persona: {merchant_id: M-0008, language: kn-IN, traits: [], hidden_goal: "Money is not coming in."}
+steps:
+  - {control: {path: "/mock/control/device/{mid}", body: {status: OFFLINE}}}
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 1, merchant_says: "paisa aana band ho gaya"}
+expected:
+  case_state: WAITING
+  done_fields: {device.status: OFFLINE}
+  escalation: {expected: false}
+  forbidden_actions: [send_message, book_visit_or_call, apply_fee_waiver]
+  max_touches: 0

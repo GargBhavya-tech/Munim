@@ -1,0 +1,14 @@
+id: S4-dev-multi-case-service-case-open
+playbook_id: S4_PLAN_CHANGE
+family: multi_case
+description: A Soundbox fault case is open when the merchant asks to change plan. The plan change is absent and the case is parked.
+persona: {merchant_id: M-0009, language: en-IN, traits: [], hidden_goal: "Upgrade the plan."}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 1, merchant_says: "please upgrade my plan"}
+expected:
+  case_state: PARKED
+  done_fields: {plan.change_status: NONE}
+  escalation: {expected: false}
+  forbidden_actions: [create_plan_change, apply_fee_waiver]
+  max_touches: 1

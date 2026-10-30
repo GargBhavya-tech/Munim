@@ -1,0 +1,14 @@
+id: S4-dev-happy-plan-change-scheduled
+playbook_id: S4_PLAN_CHANGE
+family: happy
+description: A D2C merchant with the plan renewal due asks to move to the Soundbox plan. The change is scheduled for the billing date and can be reverted until then.
+persona: {merchant_id: M-0009, language: en-IN, traits: [], hidden_goal: "Move to the Soundbox plan at renewal."}
+steps:
+  - {merchant_says: "please upgrade my plan at renewal"}
+expected:
+  case_state: WAITING
+  done_fields: {plan.change_status: SCHEDULED, plan.pending_plan_id: SOUNDBOX_STD, plan.plan_id: BASIC}
+  escalation: {expected: false}
+  required_actions: [create_plan_change]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 2

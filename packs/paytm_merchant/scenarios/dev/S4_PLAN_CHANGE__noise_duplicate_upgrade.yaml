@@ -1,0 +1,15 @@
+id: S4-dev-noise-duplicate-upgrade
+playbook_id: S4_PLAN_CHANGE
+family: noise
+description: The upgrade request arrives three times. One plan change exists.
+persona: {merchant_id: M-0009, language: en-IN, traits: [], hidden_goal: "Upgrade the plan."}
+steps:
+  - {merchant_says: "please upgrade my plan"}
+  - {merchant_says: "please upgrade my plan"}
+  - {after_hours: 1, merchant_says: "please upgrade my plan"}
+expected:
+  case_state: WAITING
+  done_fields: {plan.change_status: SCHEDULED, plan.pending_plan_id: SOUNDBOX_STD}
+  escalation: {expected: false}
+  required_actions: [create_plan_change]
+  max_touches: 2

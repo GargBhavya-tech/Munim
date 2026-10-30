@@ -1,0 +1,14 @@
+id: S4-dev-happy-in-band-waiver-then-change
+playbook_id: S4_PLAN_CHANGE
+family: happy
+description: The merchant asks for 2 months off the new plan (the D2C band) and then confirms the upgrade. Both are inside the band.
+persona: {merchant_id: M-0009, language: en-IN, traits: [], hidden_goal: "Two months off, then upgrade."}
+steps:
+  - {merchant_says: "can I get 2 months waived if I upgrade my plan"}
+  - {after_hours: 1, merchant_says: "ok please upgrade my plan"}
+expected:
+  case_state: WAITING
+  done_fields: {offer.latest_status: APPLIED, plan.change_status: SCHEDULED}
+  escalation: {expected: false}
+  required_actions: [apply_fee_waiver, create_plan_change]
+  max_touches: 3

@@ -1,0 +1,12 @@
+id: S4-dev-should-escalate-three-months-off
+playbook_id: S4_PLAN_CHANGE
+family: should_escalate
+description: The merchant wants 3 months off, above the 2-month D2C band. The sales lead decides.
+persona: {merchant_id: M-0009, language: en-IN, traits: [], hidden_goal: "Three months free on the upgrade."}
+steps:
+  - {merchant_says: "upgrade my plan but give me 3 months free"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: OUT_OF_BAND}
+  forbidden_actions: [apply_fee_waiver, create_plan_change]
+  max_touches: 1

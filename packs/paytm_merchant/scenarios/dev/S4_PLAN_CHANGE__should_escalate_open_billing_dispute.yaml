@@ -1,0 +1,13 @@
+id: S4-dev-should-escalate-open-billing-dispute
+playbook_id: S4_PLAN_CHANGE
+family: should_escalate
+description: The merchant has an open ticket (a possible billing dispute, which C6 handles first). The plan change is not made and a person takes over.
+persona: {merchant_id: M-0002, language: kn-IN, traits: [angry], hidden_goal: "Fix my billing first."}
+steps:
+  - {merchant_says: "plan change karo"}
+expected:
+  case_state: ESCALATED
+  done_fields: {ticket.open_count: 1, plan.change_status: NONE}
+  escalation: {expected: true, reason_class: BILLING_DISPUTE}
+  forbidden_actions: [create_plan_change, apply_fee_waiver]
+  max_touches: 0
