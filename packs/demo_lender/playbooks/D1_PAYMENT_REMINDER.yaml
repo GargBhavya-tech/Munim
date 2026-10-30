@@ -1,0 +1,21 @@
+# D1: tell a borrower what is due, with the lender's own figures, and close when the loan shows PAID. Bible section 36 (lender pack).
+id: D1_PAYMENT_REMINDER
+half: service
+priority_lane: P2
+triggers:
+  events: []
+  intents: [LOAN_DUE_QUERY]
+required_reads: [get_loan_account]
+steps:
+  - {name: remind, done: "touches >= 1 or loan.status == 'PAID'"}
+  - {name: paid, done: "loan.status == 'PAID'"}
+allowed_actions:
+  - send_message
+done_check: "loan.status == 'PAID'"
+escalate_when:
+  - "loan.in_dispute"
+  - "loan.dpd >= 90"
+  - "intent in ['WANTS_HUMAN']"
+kb_scope: [payment_options, charges_and_dues]
+max_touches: 3
+sla_sim_hours: 72

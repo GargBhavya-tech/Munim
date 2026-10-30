@@ -1,0 +1,20 @@
+id: D1-dev-escalate-dispute
+playbook_id: D1_PAYMENT_REMINDER
+family: should_escalate
+description: 'A disputed loan is never chased: a person handles it.'
+persona:
+  merchant_id: B-0005
+  language: hinglish
+  traits: []
+  hidden_goal: Dispute the charge.
+steps:
+- merchant_says: kitna baaki hai
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+  required_actions: []
+  forbidden_actions:
+  - send_message
+  max_touches: 0

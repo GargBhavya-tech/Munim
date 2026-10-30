@@ -1,0 +1,22 @@
+# D2: capture a promise to pay that the borrower made themselves, for a date inside the limit. Bible section 36 (lender pack).
+id: D2_PROMISE_TO_PAY
+half: service
+priority_lane: P2
+triggers:
+  events: []
+  intents: [PROMISE_TO_PAY]
+required_reads: [get_loan_account]
+steps:
+  - {name: capture, done: "loan.ptp_status in ['ACTIVE', 'KEPT']"}
+  - {name: kept, done: "loan.ptp_status == 'KEPT'"}
+allowed_actions:
+  - record_promise_to_pay: {max_per_case: 1, precondition: "loan.status == 'OVERDUE' and loan.ptp_status != 'ACTIVE'"}
+  - send_message
+done_check: "loan.ptp_status == 'KEPT'"
+escalate_when:
+  - "loan.in_dispute"
+  - "loan.dpd >= 90"
+  - "intent in ['WANTS_HUMAN']"
+kb_scope: [promise_to_pay_terms, contact_conduct]
+max_touches: 3
+sla_sim_hours: 168
