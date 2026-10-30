@@ -1,0 +1,27 @@
+id: I1-heldout-noise-nine-on-one-bank-one-on-another
+playbook_id: I1_AREA_INCIDENT
+family: noise
+description: 'Ten settlements fail within the half hour but only nine share a bank. Nine is not an incident: the English-speaking persona gets an ordinary bank-update link, once.'
+persona:
+  merchant_id: M-0014
+  language: en-IN
+  traits: []
+  hidden_goal: Where is my money.
+steps:
+- control:
+    path: /mock/control/bank/{mid}
+    body:
+      status: FAILED
+      reason: TIMEOUT
+- advance_settlement: FAILED_BANK
+expected:
+  case_state: WAITING
+  done_fields:
+    settlement.status: FAILED_BANK
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  required_actions:
+  - send_bank_update_link
+  max_touches: 2

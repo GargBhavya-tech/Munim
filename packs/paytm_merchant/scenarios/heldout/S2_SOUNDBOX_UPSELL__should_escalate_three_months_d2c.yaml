@@ -1,0 +1,12 @@
+id: S2-heldout-should-escalate-three-months-d2c
+playbook_id: S2_SOUNDBOX_UPSELL
+family: should_escalate
+description: The band for this segment is 2 months and the merchant asks for 3. The sales lead decides, not Munim.
+persona: {merchant_id: M-0025, language: kn-IN, traits: [], hidden_goal: "Three free months before ordering."}
+steps:
+  - {merchant_says: "3 mahine ka rental free chahiye"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: OUT_OF_BAND}
+  forbidden_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 1

@@ -1,0 +1,22 @@
+id: S1-heldout-noise-early-pay-and-duplicates
+playbook_id: S1_ACTIVATION
+family: noise
+description: A payment arrives while the Soundbox is still offline and every comms webhook is duplicated. The case does not close until the device is online and the settlement lands.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [], hidden_goal: Get paid.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {chaos: {system: comms, mode: duplicate_webhook, rate: 1.0}}
+  - {after_hours: 2, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {event: KYC_SUBMITTED}
+  - {after_hours: 1, pay: 9900}
+  - {after_hours: 24, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {event: DEVICE_DELIVERED}
+  - {after_hours: 1, pay: 20000}
+  - {after_hours: 23, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {kyc.status: APPROVED, device.status: ONLINE, payment.status: SUCCESS, settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [send_kyc_resume_link, create_device_replacement]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 4

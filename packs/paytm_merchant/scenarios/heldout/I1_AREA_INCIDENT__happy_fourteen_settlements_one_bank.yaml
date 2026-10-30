@@ -1,0 +1,29 @@
+id: I1-heldout-happy-fourteen-settlements-one-bank
+playbook_id: I1_AREA_INCIDENT
+family: happy
+description: Fourteen settlements fail on one bank over twenty-nine minutes, just inside the thirty-minute window. One bank incident; the persona's case is parked and the persona gets the one bank-side
+  notice, in Kannada.
+persona:
+  merchant_id: M-0013
+  language: kn-IN
+  traits: []
+  hidden_goal: Settlement bekku.
+steps:
+- control:
+    path: /mock/control/bank/{mid}
+    body:
+      status: FAILED
+      reason: TIMEOUT
+- advance_settlement: FAILED_BANK
+expected:
+  case_state: PARKED
+  done_fields:
+    settlement.status: FAILED_BANK
+  escalation:
+    expected: false
+  forbidden_actions:
+  - send_bank_update_link
+  - raise_ticket
+  required_actions:
+  - send_message
+  max_touches: 1

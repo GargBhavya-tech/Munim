@@ -1,0 +1,16 @@
+id: S1-heldout-escalate-wants-another-account
+playbook_id: S1_ACTIVATION
+family: should_escalate
+description: After KYC is fixed the merchant asks to put a different bank account on the signup. Changing bank details is never Munim's to do; a person takes over.
+persona: {merchant_id: M-0006, language: hinglish, traits: [], hidden_goal: Use a different bank account.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {after_hours: 2, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {event: KYC_SUBMITTED}
+  - {after_hours: 1, merchant_says: "mujhe doosra bank account lagana hai"}
+expected:
+  case_state: ESCALATED
+  done_fields: {kyc.status: APPROVED}
+  escalation: {expected: true, reason_class: CHANGE_BANK}
+  forbidden_actions: [send_bank_update_link, apply_fee_waiver, send_partner_application_link]
+  max_touches: 3

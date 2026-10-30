@@ -1,0 +1,21 @@
+id: S1-heldout-happy-only-device-left
+playbook_id: S1_ACTIVATION
+family: happy
+description: KYC is pending and the bank is fine; after the KYC fix only the offline Soundbox stands between the merchant and the first settlement.
+persona: {merchant_id: M-0005, language: hi-IN, traits: [], hidden_goal: Get the first settlement.}
+steps:
+  - {control: {path: "/mock/control/kyc/{mid}", body: {status: PENDING}}}
+  - {event: SIGNUP_STALLED}
+  - {after_hours: 4, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {event: KYC_SUBMITTED}
+  - {after_hours: 30, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {event: DEVICE_DELIVERED}
+  - {after_hours: 1, pay: 42000}
+  - {after_hours: 23, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {kyc.status: APPROVED, bank.status: VERIFIED, device.status: ONLINE, payment.status: SUCCESS, settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [send_kyc_resume_link, create_device_replacement]
+  forbidden_actions: [retrigger_bank_verification, apply_fee_waiver]
+  max_touches: 4

@@ -1,0 +1,15 @@
+id: S2-heldout-multi-case-service-opens-after-pitch
+playbook_id: S2_SOUNDBOX_UPSELL
+family: multi_case
+description: The merchant hears the Soundbox pitch, then a service case opens, then they say yes. The order must not be placed while the service case is open.
+persona: {merchant_id: M-0013, language: kn-IN, traits: [], hidden_goal: "Get a Soundbox for the shop."}
+steps:
+  - {merchant_says: "soundbox ka rate kya hai?"}
+  - {after_hours: 1, event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 1, merchant_says: "theek hai, order kar do"}
+expected:
+  case_state: PARKED
+  escalation: {expected: false}
+  forbidden_actions: [create_device_order, apply_fee_waiver]
+  required_actions: [send_message]
+  max_touches: 2

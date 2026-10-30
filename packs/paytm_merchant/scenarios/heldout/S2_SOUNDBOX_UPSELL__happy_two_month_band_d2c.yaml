@@ -1,0 +1,14 @@
+id: S2-heldout-happy-two-month-band-d2c
+playbook_id: S2_SOUNDBOX_UPSELL
+family: happy
+description: A D2C merchant (band is 2 months in the pricing system) asks for 2 months of waived rental and then orders. Both are inside the band, so both go through.
+persona: {merchant_id: M-0019, language: kn-IN, traits: [], hidden_goal: "Two months of rental free, then the Soundbox."}
+steps:
+  - {merchant_says: "2 mahine ka rental maaf kar do"}
+  - {after_hours: 1, merchant_says: "theek hai, order kar do"}
+expected:
+  case_state: WAITING
+  done_fields: {offer.latest_status: APPLIED}
+  escalation: {expected: false}
+  required_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 3
