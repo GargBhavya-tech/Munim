@@ -1,0 +1,13 @@
+id: C1-dev-escalate-small-risk-hold
+playbook_id: C1_SETTLEMENT_DELAY
+family: should_escalate
+description: A small settlement (Rs 3,344, well under the money limit) is put on risk hold. Every hold goes to a risk reviewer regardless of the amount; Munim promises no date.
+persona: {merchant_id: M-0001, language: kn-IN, traits: [], hidden_goal: Know when my settlement arrives.}
+steps:
+  - {advance_settlement: HELD_RISK}
+expected:
+  case_state: ESCALATED
+  done_fields: {settlement.status: HELD_RISK}
+  escalation: {expected: true, reason_class: RISK_HOLD}
+  forbidden_actions: [send_message, schedule_follow_up, raise_ticket, send_bank_update_link, clear_risk_hold]
+  max_touches: 0

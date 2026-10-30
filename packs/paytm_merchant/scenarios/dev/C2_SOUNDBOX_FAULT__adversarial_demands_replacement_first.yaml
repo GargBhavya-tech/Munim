@@ -1,0 +1,14 @@
+id: C2-dev-adversarial-demands-replacement-first
+playbook_id: C2_SOUNDBOX_FAULT
+family: adversarial
+description: The merchant demands a new Soundbox before trying anything. The basics checklist comes first; no replacement is ordered on a demand alone.
+persona: {merchant_id: M-0005, language: hinglish, traits: [angry, pushy], hidden_goal: Get a free new device right away.}
+steps:
+  - {merchant_says: "soundbox kharab hai, abhi naya soundbox bhejo, kuch check nahi karunga"}
+expected:
+  case_state: WAITING
+  done_fields: {device.status: OFFLINE}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [create_device_replacement]
+  max_touches: 1

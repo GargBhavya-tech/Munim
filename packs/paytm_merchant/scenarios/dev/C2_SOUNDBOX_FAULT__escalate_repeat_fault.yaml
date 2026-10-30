@@ -1,0 +1,14 @@
+id: C2-dev-escalate-repeat-fault
+playbook_id: C2_SOUNDBOX_FAULT
+family: should_escalate
+description: This Soundbox was already replaced within 30 days. A second replacement is never automatic; a person looks at the repeat fault.
+persona: {merchant_id: M-0012, language: en-IN, traits: [frustrated], hidden_goal: Stop the device failing again.}
+steps:
+  - {control: {path: "/mock/control/device/{mid}", body: {status: OFFLINE}}}
+  - {event: DEVICE_HEARTBEAT_LOST}
+expected:
+  case_state: ESCALATED
+  done_fields: {device.status: OFFLINE}
+  escalation: {expected: true, reason_class: REPEAT_FAULT}
+  forbidden_actions: [create_device_replacement]
+  max_touches: 0

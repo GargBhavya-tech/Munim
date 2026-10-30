@@ -1,0 +1,15 @@
+id: C1-dev-happy-pending-followup
+playbook_id: C1_SETTLEMENT_DELAY
+family: happy
+description: A pending settlement. Munim quotes only the expected time the system returns, schedules one follow-up, and the case closes when the settlement arrives.
+persona: {merchant_id: M-0001, language: hinglish, traits: [], hidden_goal: Know when today's settlement arrives.}
+steps:
+  - {merchant_says: "settlement nahi aaya"}
+  - {after_hours: 0.5, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [schedule_follow_up, send_message]
+  forbidden_actions: [raise_ticket, send_bank_update_link, apply_fee_waiver]
+  max_touches: 2

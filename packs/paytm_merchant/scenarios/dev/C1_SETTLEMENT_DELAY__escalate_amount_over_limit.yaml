@@ -1,0 +1,13 @@
+id: C1-dev-escalate-amount-over-limit
+playbook_id: C1_SETTLEMENT_DELAY
+family: should_escalate
+description: The pending settlement is Rs 13,216, above the money limit. A person takes it; Munim schedules and promises nothing.
+persona: {merchant_id: M-0004, language: hinglish, traits: [], hidden_goal: Know when my big settlement arrives.}
+steps:
+  - {merchant_says: "settlement kab aayega"}
+expected:
+  case_state: ESCALATED
+  done_fields: {settlement.status: PENDING}
+  escalation: {expected: true, reason_class: OUT_OF_BAND}
+  forbidden_actions: [schedule_follow_up, send_message, raise_ticket, apply_fee_waiver]
+  max_touches: 0
