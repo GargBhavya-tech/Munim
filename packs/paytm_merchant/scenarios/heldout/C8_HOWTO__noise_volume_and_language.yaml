@@ -1,0 +1,21 @@
+id: C8-heldout-noise-volume-and-language
+playbook_id: C8_HOWTO
+family: noise
+description: Informal wording with extra punctuation.
+persona:
+  merchant_id: M-0012
+  language: en-IN
+  traits:
+  - terse
+  hidden_goal: Change volume and language.
+steps:
+- merchant_says: how to change volume or language of announcements??
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - send_message
+  max_touches: 1

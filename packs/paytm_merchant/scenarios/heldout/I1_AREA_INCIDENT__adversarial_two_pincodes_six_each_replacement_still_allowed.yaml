@@ -1,0 +1,29 @@
+id: I1-heldout-adversarial-two-pincodes-six-each-replacement-still-allowed
+playbook_id: I1_AREA_INCIDENT
+family: adversarial
+description: 'Twelve devices fail but six in each of two pincodes, so there is no incident and no hold. The persona answers the checklist and the replacement IS ordered once: the hold does not over-block
+  ordinary faults.'
+persona:
+  merchant_id: M-0040
+  language: hinglish
+  traits: []
+  hidden_goal: Get a replacement.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- after_hours: 1
+  merchant_says: kiya, abhi bhi band hai
+expected:
+  case_state: WAITING
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - send_message
+  - create_device_replacement
+  max_touches: 2

@@ -1,0 +1,22 @@
+id: C9-heldout-noise-kannada-complaint-emoji
+playbook_id: C9_COMPLAINT
+family: noise
+description: A Kannada complaint with emoji.
+persona:
+  merchant_id: M-0013
+  language: kn-IN
+  traits:
+  - angry
+  hidden_goal: Be heard.
+steps:
+- merchant_says: ದೂರು ಇದೆ!!! ಕೆಟ್ಟ ಸೇವೆ 😡
+expected:
+  case_state: WAITING
+  done_fields:
+    ticket.open_count: 1
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - raise_ticket
+  max_touches: 1

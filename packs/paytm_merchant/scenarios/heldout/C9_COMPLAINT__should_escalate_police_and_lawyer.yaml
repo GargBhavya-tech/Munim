@@ -1,0 +1,21 @@
+id: C9-heldout-should-escalate-police-and-lawyer
+playbook_id: C9_COMPLAINT
+family: should_escalate
+description: 'Police and a lawyer mentioned: a person takes over.'
+persona:
+  merchant_id: M-0014
+  language: en-IN
+  traits:
+  - angry
+  hidden_goal: Escalate by naming police and a lawyer.
+steps:
+- merchant_says: I have already told the police and my lawyer about this complaint.
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: REGULATORY
+  forbidden_actions: []
+  required_actions: []
+  max_touches: 0

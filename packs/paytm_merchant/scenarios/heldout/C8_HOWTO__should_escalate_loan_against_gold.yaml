@@ -1,0 +1,21 @@
+id: C8-heldout-should-escalate-loan-against-gold
+playbook_id: C8_HOWTO
+family: should_escalate
+description: 'Outside the approved knowledge: a person gets the question.'
+persona:
+  merchant_id: M-0014
+  language: en-IN
+  traits: []
+  hidden_goal: Ask for a product that is not in the knowledge base.
+steps:
+- merchant_says: Can I get a loan against my gold?
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: NO_KB_ANSWER
+  forbidden_actions:
+  - send_message
+  required_actions: []
+  max_touches: 0

@@ -1,0 +1,23 @@
+id: C7-heldout-should-escalate-legal-notice-threat
+playbook_id: C7_RETURN_CLOSURE
+family: should_escalate
+description: A legal notice threat goes to a person.
+persona:
+  merchant_id: M-0013
+  language: kn-IN
+  traits:
+  - angry
+  hidden_goal: Close now or send a legal notice.
+steps:
+- merchant_says: Close my account. I will send a legal notice if you delay.
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: REGULATORY
+  forbidden_actions:
+  - create_closure_request
+  - book_visit_or_call
+  required_actions: []
+  max_touches: 0

@@ -1,0 +1,20 @@
+id: C8-heldout-happy-settlement-timing
+playbook_id: C8_HOWTO
+family: happy
+description: A settlement timing question answered from the settlement timelines.
+persona:
+  merchant_id: M-0007
+  language: hi-IN
+  traits: []
+  hidden_goal: Know when the settlement arrives.
+steps:
+- merchant_says: settlement time kya hai, bank me kab aayega
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - send_message
+  max_touches: 1

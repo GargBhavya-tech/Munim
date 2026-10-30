@@ -1,0 +1,28 @@
+id: I1-heldout-happy-eleven-devices-other-pincode
+playbook_id: I1_AREA_INCIDENT
+family: happy
+description: Eleven Soundboxes in pincode 560102 fall silent over eight minutes. One incident, no replacements, the hinglish persona gets one message.
+persona:
+  merchant_id: M-0034
+  language: hinglish
+  traits:
+  - confused
+  hidden_goal: Speaker chalu karwana.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+expected:
+  case_state: PARKED
+  done_fields:
+    device.status: OFFLINE
+  escalation:
+    expected: false
+  forbidden_actions:
+  - create_device_replacement
+  - book_visit_or_call
+  required_actions:
+  - send_message
+  max_touches: 1
