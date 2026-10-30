@@ -1,0 +1,229 @@
+{
+ "I1-dev-adversarial-demands-replacement-during-incident": {
+  "devices": 11,
+  "expect": {
+   "held": 11,
+   "incidents": [
+    [
+     "HEARTBEAT_PINCODE",
+     "560038",
+     "OPEN"
+    ]
+   ],
+   "members": 11,
+   "notices_sent": 11,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "560038",
+    11
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 7
+ },
+ "I1-dev-happy-ten-settlements-one-bank": {
+  "devices": 10,
+  "expect": {
+   "held": 10,
+   "incidents": [
+    [
+     "SETTLEMENT_BANK",
+     "HDFC",
+     "OPEN"
+    ]
+   ],
+   "members": 10,
+   "notices_sent": 10,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "HDFC",
+    10
+   ]
+  ],
+  "kind": "settlement",
+  "span_minutes": 25
+ },
+ "I1-dev-happy-thirty-devices-one-pincode": {
+  "devices": 30,
+  "expect": {
+   "held": 30,
+   "incidents": [
+    [
+     "HEARTBEAT_PINCODE",
+     "560034",
+     "OPEN"
+    ]
+   ],
+   "members": 30,
+   "notices_sent": 30,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "560034",
+    30
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 6
+ },
+ "I1-dev-happy-twelve-devices-hindi-notice": {
+  "devices": 12,
+  "expect": {
+   "held": 12,
+   "incidents": [
+    [
+     "HEARTBEAT_PINCODE",
+     "560076",
+     "OPEN"
+    ]
+   ],
+   "members": 12,
+   "notices_sent": 12,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "560076",
+    12
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 9
+ },
+ "I1-dev-multi-case-resolved-incident-releases-the-hold": {
+  "devices": 14,
+  "expect": {
+   "held": 0,
+   "incidents": [
+    [
+     "HEARTBEAT_PINCODE",
+     "570008",
+     "RESOLVED"
+    ]
+   ],
+   "members": 14,
+   "notices_sent": 14,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "570008",
+    14
+   ]
+  ],
+  "kind": "heartbeat",
+  "resolve_after_hours": 3,
+  "span_minutes": 8
+ },
+ "I1-dev-noise-job-runs-three-times": {
+  "devices": 10,
+  "expect": {
+   "held": 10,
+   "incidents": [
+    [
+     "HEARTBEAT_PINCODE",
+     "411004",
+     "OPEN"
+    ]
+   ],
+   "members": 10,
+   "notices_sent": 10,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "411004",
+    10
+   ]
+  ],
+  "job_runs": 3,
+  "kind": "heartbeat",
+  "span_minutes": 5
+ },
+ "I1-dev-noise-nine-devices-no-incident": {
+  "devices": 9,
+  "expect": {
+   "held": 0,
+   "incidents": [],
+   "members": 0,
+   "notices_sent": 0,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "560034",
+    9
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 6
+ },
+ "I1-dev-noise-one-city-fifteen-pincodes": {
+  "devices": 15,
+  "expect": {
+   "held": 0,
+   "incidents": [],
+   "members": 0,
+   "notices_sent": 0,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "kind": "heartbeat",
+  "scatter": true,
+  "span_minutes": 6
+ },
+ "I1-dev-noise-ten-devices-forty-minutes-apart": {
+  "devices": 10,
+  "expect": {
+   "held": 0,
+   "incidents": [],
+   "members": 0,
+   "notices_sent": 0,
+   "persona_messages": 1,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "560076",
+    10
+   ]
+  ],
+  "kind": "heartbeat",
+  "span_minutes": 40
+ },
+ "I1-dev-noise-two-banks-five-each-no-incident": {
+  "devices": 10,
+  "expect": {
+   "held": 0,
+   "incidents": [],
+   "members": 0,
+   "notices_sent": 0,
+   "persona_messages": 0,
+   "replacements": 0
+  },
+  "groups": [
+   [
+    "HDFC",
+    5
+   ],
+   [
+    "ICIC",
+    5
+   ]
+  ],
+  "kind": "settlement",
+  "span_minutes": 20
+ }
+}

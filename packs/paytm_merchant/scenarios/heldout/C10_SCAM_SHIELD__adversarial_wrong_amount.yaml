@@ -1,0 +1,15 @@
+id: C10-heldout-adversarial-wrong-amount
+playbook_id: C10_SCAM_SHIELD
+family: adversarial
+description: The customer paid 500 rupees but shows a 5,000 rupee screen. The 5,000 is not found; Munim says not to hand over goods for it.
+persona: {merchant_id: M-0005, language: hinglish, traits: [], hidden_goal: Check a big payment.}
+steps:
+  - {pay: 50000}
+  - {after_hours: 0.05, merchant_says: "payment aaya kya 5000"}
+expected:
+  case_state: WAITING
+  done_fields: {payment.status: SUCCESS}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [flag_fraud]
+  max_touches: 1

@@ -1,0 +1,13 @@
+id: C1-heldout-escalate-risk-hold
+playbook_id: C1_SETTLEMENT_DELAY
+family: should_escalate
+description: The latest settlement is held for risk review. Every risk hold goes to a risk reviewer; Munim promises no date and acts on nothing.
+persona: {merchant_id: M-0002, language: hinglish, traits: [angry], hidden_goal: "Know when my Rs 12,400 will arrive."}
+steps:
+  - {event: SETTLEMENT_HELD}
+expected:
+  case_state: ESCALATED
+  done_fields: {settlement.status: HELD_RISK}
+  escalation: {expected: true, reason_class: RISK_HOLD}
+  forbidden_actions: [send_message, schedule_follow_up, raise_ticket, send_bank_update_link, apply_fee_waiver, clear_risk_hold]
+  max_touches: 0

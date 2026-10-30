@@ -1,0 +1,14 @@
+id: C10-heldout-noise-late-payment-recheck
+playbook_id: C10_SCAM_SHIELD
+family: noise
+description: The merchant asks before the payment lands; it arrives two minutes later. The promised re-check reports it, once.
+persona: {merchant_id: M-0005, language: hinglish, traits: [], hidden_goal: Know when the money arrives.}
+steps:
+  - {merchant_says: "paise aaye kya 250"}
+  - {after_hours: 0.04, pay: 25000}
+expected:
+  case_state: WAITING
+  done_fields: {payment.status: SUCCESS}
+  escalation: {expected: false}
+  forbidden_actions: [flag_fraud]
+  max_touches: 2

@@ -1,0 +1,16 @@
+id: C1-heldout-bank-failed-fixed-via-link
+playbook_id: C1_SETTLEMENT_DELAY
+family: happy
+description: The bank rejects the credit. Munim sends the secure bank update link (no account numbers in chat); the merchant fixes the bank and the case waits for the retry.
+persona: {merchant_id: M-0001, language: kn-IN, traits: [], hidden_goal: Get my money into my account.}
+steps:
+  - {advance_settlement: FAILED_BANK}
+  - {after_hours: 3, control: {path: "/mock/control/bank/{mid}", body: {status: VERIFIED}}}
+  - {after_hours: 1, event: SETTLEMENT_FAILED}
+expected:
+  case_state: WAITING
+  done_fields: {bank.status: VERIFIED, settlement.status: FAILED_BANK}
+  escalation: {expected: false}
+  required_actions: [send_bank_update_link]
+  forbidden_actions: [schedule_follow_up, retrigger_bank_verification, apply_fee_waiver, create_device_replacement]
+  max_touches: 2

@@ -1,0 +1,15 @@
+id: C10-heldout-happy-hindi-question
+playbook_id: C10_SCAM_SHIELD
+family: happy
+description: A Hindi-speaking merchant asks whether a 33 rupee payment came; it did.
+persona: {merchant_id: M-0005, language: hi-IN, traits: [], hidden_goal: Confirm a small payment.}
+steps:
+  - {pay: 3300}
+  - {after_hours: 0.05, merchant_says: "पेमेंट आया क्या 33"}
+expected:
+  case_state: RESOLVED
+  done_fields: {payment.status: SUCCESS}
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [flag_fraud]
+  max_touches: 1
