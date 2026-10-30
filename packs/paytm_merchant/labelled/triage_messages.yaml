@@ -1,0 +1,109 @@
+# 100 labelled merchant messages (25 per language) for the rule-based intent detector (ticket #18).
+# lang: hi = Devanagari Hindi, kn = Kannada script, en = English, hinglish = romanised Hindi.
+# `intent` is the label a human reader would give; `playbook` is derived through the pack's intent map.
+# Written by the engineer, so accuracy on this set is an optimistic bound, not a field estimate.
+messages:
+  # ---------------- English ----------------
+  - {lang: en, intent: REPORT_DEVICE_PROBLEM, text: "My soundbox is not working since morning"}
+  - {lang: en, intent: REPORT_DEVICE_PROBLEM, text: "The speaker has no sound from soundbox, please help"}
+  - {lang: en, intent: SETTLEMENT_MISSING, text: "My settlement not received for two days"}
+  - {lang: en, intent: SETTLEMENT_MISSING, text: "Where is my settlement? It was due yesterday."}
+  - {lang: en, intent: CUSTOMER_PAYMENT_FAILED, text: "A customer's payment failed but the money got deducted"}
+  - {lang: en, intent: CUSTOMER_PAYMENT_FAILED, text: "Transaction failed and amount debited from the customer"}
+  - {lang: en, intent: LOAN_INTEREST, text: "Can I get a business loan?"}
+  - {lang: en, intent: LOAN_INTEREST, text: "I need a loan to buy more stock"}
+  - {lang: en, intent: WANTS_HUMAN, text: "I want to talk to a person please"}
+  - {lang: en, intent: WANTS_HUMAN, text: "Can you call me back, I need to speak to someone"}
+  - {lang: en, intent: COMPLAINT, text: "I want to file a complaint about the service"}
+  - {lang: en, intent: COMPLAINT, text: "This is the worst service, I am fed up"}
+  - {lang: en, intent: VERIFY_PAYMENT, text: "Customer showed me a screenshot, is this payment genuine?"}
+  - {lang: en, intent: VERIFY_PAYMENT, text: "Did the payment come? He says he paid 500"}
+  - {lang: en, intent: ASK_WHICH_DOCS, text: "Which documents do I need for KYC?"}
+  - {lang: en, intent: STOP, text: "Please stop messaging me"}
+  - {lang: en, intent: STOP, text: "Don't call me again"}
+  - {lang: en, intent: UNDO_LAST, text: "Undo that, I did it by mistake"}
+  - {lang: en, intent: REPORT_DEVICE_PROBLEM, text: "My machine has gone silent since this morning"}
+  - {lang: en, intent: REFUND_REQUEST, text: "I need to refund the customer 250 rupees"}
+  - {lang: en, intent: CLOSURE_REQUEST, text: "I want to close my account"}
+  - {lang: en, intent: CLOSURE_REQUEST, text: "Please arrange to return the soundbox, I want to leave"}
+  - {lang: en, intent: SETTLEMENT_MISSING, text: "Yesterday's sales money has not hit my account yet"}
+  - {lang: en, intent: SWITCH_LANGUAGE, text: "Please speak in Kannada"}
+  - {lang: en, intent: SWITCH_LANGUAGE, text: "I would like replies in Hindi from now on"}
+  # ---------------- Hinglish ----------------
+  - {lang: hinglish, intent: REPORT_DEVICE_PROBLEM, text: "Mera soundbox band hai kal se"}
+  - {lang: hinglish, intent: REPORT_DEVICE_PROBLEM, text: "Speaker se koi sound hi nahi nikal raha"}
+  - {lang: hinglish, intent: SETTLEMENT_MISSING, text: "Settlement nahi aaya abhi tak"}
+  - {lang: hinglish, intent: SETTLEMENT_MISSING, text: "Paisa nahi aaya bank mein, 2 din ho gaye"}
+  - {lang: hinglish, intent: CUSTOMER_PAYMENT_FAILED, text: "Customer ka payment fail ho gaya par paise kat gaye"}
+  - {lang: hinglish, intent: CUSTOMER_PAYMENT_FAILED, text: "Transaction fail dikha raha hai lekin paisa kat gaya"}
+  - {lang: hinglish, intent: LOAN_INTEREST, text: "Mujhe loan chahiye dukaan ke liye"}
+  - {lang: hinglish, intent: LOAN_INTEREST, text: "Loan ke baare mein batao"}
+  - {lang: hinglish, intent: WANTS_HUMAN, text: "Mujhe call karo, kisi se baat karni hai"}
+  - {lang: hinglish, intent: WANTS_HUMAN, text: "Manager se baat karao"}
+  - {lang: hinglish, intent: COMPLAINT, text: "Meri shikayat hai, bahut kharab service hai"}
+  - {lang: hinglish, intent: COMPLAINT, text: "Shikayat karni hai mujhe"}
+  - {lang: hinglish, intent: VERIFY_PAYMENT, text: "Ye payment sahi hai kya? Customer screenshot dikha raha hai"}
+  - {lang: hinglish, intent: VERIFY_PAYMENT, text: "Payment aaya kya 300 ka?"}
+  - {lang: hinglish, intent: ASK_WHICH_DOCS, text: "Kaun se document chahiye KYC ke liye?"}
+  - {lang: hinglish, intent: ASK_WHICH_DOCS, text: "Kya kya document lagenge"}
+  - {lang: hinglish, intent: STOP, text: "Message mat bhejo please"}
+  - {lang: hinglish, intent: STOP, text: "Ab aur nahi chahiye ye sab, rehne do"}
+  - {lang: hinglish, intent: UNDO_LAST, text: "Galti se ho gaya, wo cancel kar do"}
+  - {lang: hinglish, intent: REFUND_REQUEST, text: "Customer ko paisa wapas karna hai"}
+  - {lang: hinglish, intent: CLOSURE_REQUEST, text: "Mujhe service nahi chahiye, account band karo"}
+  - {lang: hinglish, intent: CHANGE_BANK, text: "Dusra bank account lagana hai settlement ke liye"}
+  - {lang: hinglish, intent: SWITCH_LANGUAGE, text: "Kannada mein baat karo"}
+  - {lang: hinglish, intent: SWITCH_LANGUAGE, text: "Hindi mein bolo please"}
+  - {lang: hinglish, intent: SETTLEMENT_MISSING, text: "Kal ki sale ka paisa abhi tak nahi mila"}
+  # ---------------- Hindi (Devanagari) ----------------
+  - {lang: hi, intent: REPORT_DEVICE_PROBLEM, text: "मेरा साउंडबॉक्स बंद है"}
+  - {lang: hi, intent: REPORT_DEVICE_PROBLEM, text: "मेरा स्पीकर चुप हो गया है"}
+  - {lang: hi, intent: SETTLEMENT_MISSING, text: "सेटलमेंट नहीं आया अभी तक"}
+  - {lang: hi, intent: SETTLEMENT_MISSING, text: "कल की कमाई खाते में नहीं पहुंची"}
+  - {lang: hi, intent: CUSTOMER_PAYMENT_FAILED, text: "ग्राहक का पेमेंट फेल हो गया लेकिन पैसे कट गए"}
+  - {lang: hi, intent: CUSTOMER_PAYMENT_FAILED, text: "ट्रांजैक्शन फेल दिख रहा है"}
+  - {lang: hi, intent: LOAN_INTEREST, text: "मुझे लोन चाहिए"}
+  - {lang: hi, intent: LOAN_INTEREST, text: "दुकान के लिए कर्ज मिल सकता है क्या"}
+  - {lang: hi, intent: WANTS_HUMAN, text: "मुझे फोन करो, किसी इंसान से बात करनी है"}
+  - {lang: hi, intent: WANTS_HUMAN, text: "मैनेजर से बात कराइए"}
+  - {lang: hi, intent: COMPLAINT, text: "मुझे शिकायत करनी है"}
+  - {lang: hi, intent: COMPLAINT, text: "बहुत खराब सर्विस है आपकी"}
+  - {lang: hi, intent: VERIFY_PAYMENT, text: "यह पेमेंट सही है क्या? स्क्रीनशॉट आया है"}
+  - {lang: hi, intent: VERIFY_PAYMENT, text: "पेमेंट आया क्या ५०० रुपये का"}
+  - {lang: hi, intent: ASK_WHICH_DOCS, text: "केवाईसी के लिए कौन से दस्तावेज़ चाहिए"}
+  - {lang: hi, intent: ASK_WHICH_DOCS, text: "कौन से कागज लगेंगे"}
+  - {lang: hi, intent: STOP, text: "मैसेज मत भेजो"}
+  - {lang: hi, intent: STOP, text: "कॉल मत करो, बस करो"}
+  - {lang: hi, intent: UNDO_LAST, text: "गलती से हो गया, रद्द करो"}
+  - {lang: hi, intent: REFUND_REQUEST, text: "रिफंड करना है ग्राहक को"}
+  - {lang: hi, intent: CLOSURE_REQUEST, text: "मुझे अकाउंट बंद करना है"}
+  - {lang: hi, intent: CLOSURE_REQUEST, text: "साउंडबॉक्स वापस ले जाओ, सर्विस नहीं चाहिए"}
+  - {lang: hi, intent: CHANGE_BANK, text: "बैंक खाता बदलना है"}
+  - {lang: hi, intent: SWITCH_LANGUAGE, text: "कन्नड़ में बात करो"}
+  - {lang: hi, intent: SWITCH_LANGUAGE, text: "अब से जवाब हिंदी में देना"}
+  # ---------------- Kannada ----------------
+  - {lang: kn, intent: REPORT_DEVICE_PROBLEM, text: "ನನ್ನ ಸೌಂಡ್ ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡ್ತಿಲ್ಲ"}
+  - {lang: kn, intent: REPORT_DEVICE_PROBLEM, text: "ನನ್ನ ಯಂತ್ರ ಸದ್ದೇ ಮಾಡ್ತಿಲ್ಲ"}
+  - {lang: kn, intent: SETTLEMENT_MISSING, text: "ಸೆಟಲ್‌ಮೆಂಟ್ ಬಂದಿಲ್ಲ"}
+  - {lang: kn, intent: SETTLEMENT_MISSING, text: "ನಿನ್ನೆಯ ಹಣ ಖಾತೆಗೆ ಬಂದಿಲ್ಲ"}
+  - {lang: kn, intent: CUSTOMER_PAYMENT_FAILED, text: "ಗ್ರಾಹಕರ ಪೇಮೆಂಟ್ ಫೇಲ್ ಆಯ್ತು, ಹಣ ಕಟ್ ಆಗಿದೆ"}
+  - {lang: kn, intent: CUSTOMER_PAYMENT_FAILED, text: "ಟ್ರಾನ್ಸಾಕ್ಷನ್ ಫೇಲ್ ಆಗಿದೆ"}
+  - {lang: kn, intent: LOAN_INTEREST, text: "ನನಗೆ ಲೋನ್ ಬೇಕು"}
+  - {lang: kn, intent: LOAN_INTEREST, text: "ಅಂಗಡಿಗೆ ಸಾಲ ಸಿಗುತ್ತಾ?"}
+  - {lang: kn, intent: WANTS_HUMAN, text: "ನನಗೆ ಕರೆ ಮಾಡಿ"}
+  - {lang: kn, intent: WANTS_HUMAN, text: "ಮ್ಯಾನೇಜರ್ ಜೊತೆ ಮಾತಾಡಬೇಕು"}
+  - {lang: kn, intent: COMPLAINT, text: "ನನಗೆ ದೂರು ನೀಡಬೇಕು"}
+  - {lang: kn, intent: COMPLAINT, text: "ನಿಮ್ಮದು ಕೆಟ್ಟ ಸೇವೆ"}
+  - {lang: kn, intent: VERIFY_PAYMENT, text: "ಪೇಮೆಂಟ್ ಬಂದಿದೆಯಾ? ಗ್ರಾಹಕ ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ತೋರಿಸಿದ"}
+  - {lang: kn, intent: VERIFY_PAYMENT, text: "ಈ ಹಣ ಬಂದಿದೆಯಾ ನೋಡಿ"}
+  - {lang: kn, intent: ASK_WHICH_DOCS, text: "ಯಾವ ದಾಖಲೆ ಬೇಕು?"}
+  - {lang: kn, intent: ASK_WHICH_DOCS, text: "ಕೆವೈಸಿಗೆ ಯಾವ ಡಾಕ್ಯುಮೆಂಟ್ ಕೊಡಬೇಕು"}
+  - {lang: kn, intent: STOP, text: "ಮೆಸೇಜ್ ಮಾಡಬೇಡಿ"}
+  - {lang: kn, intent: STOP, text: "ಕರೆ ಮಾಡಬೇಡಿ, ನಿಲ್ಲಿಸಿ"}
+  - {lang: kn, intent: UNDO_LAST, text: "ತಪ್ಪಾಗಿ ಆಯಿತು, ರದ್ದು ಮಾಡಿ"}
+  - {lang: kn, intent: REFUND_REQUEST, text: "ಗ್ರಾಹಕರಿಗೆ ಹಣ ಮರಳಿ ಕೊಡಬೇಕು"}
+  - {lang: kn, intent: CLOSURE_REQUEST, text: "ನನ್ನ ಖಾತೆ ಮುಚ್ಚಬೇಕು"}
+  - {lang: kn, intent: CHANGE_BANK, text: "ಬೇರೆ ಬ್ಯಾಂಕ್ ಖಾತೆ ಹಾಕಬೇಕು"}
+  - {lang: kn, intent: SWITCH_LANGUAGE, text: "ಕನ್ನಡದಲ್ಲಿ ಮಾತಾಡಿ"}
+  - {lang: kn, intent: SWITCH_LANGUAGE, text: "ಇನ್ನು ಮುಂದೆ ಹಿಂದಿಯಲ್ಲಿ ಉತ್ತರಿಸಿ"}
+  - {lang: kn, intent: REPORT_DEVICE_PROBLEM, text: "ಸೌಂಡ್ ಬಾಕ್ಸ್ ಆಫ್ ಆಗಿದೆ"}
