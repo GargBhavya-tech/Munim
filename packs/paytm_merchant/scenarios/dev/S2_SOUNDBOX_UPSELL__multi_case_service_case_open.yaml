@@ -1,0 +1,13 @@
+id: S2-dev-multi-case-service-case-open
+playbook_id: S2_SOUNDBOX_UPSELL
+family: multi_case
+description: A Soundbox fault case is open for the merchant, and the merchant also asks for a Soundbox order. The offer is absent and the sales case is parked.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [], hidden_goal: "A Soundbox for the shop."}
+steps:
+  - {event: DEVICE_HEARTBEAT_LOST}
+  - {after_hours: 1, merchant_says: "soundbox lena hai, order kar do"}
+expected:
+  case_state: PARKED
+  escalation: {expected: false}
+  forbidden_actions: [create_device_order, apply_fee_waiver]
+  max_touches: 1

@@ -1,0 +1,22 @@
+id: S1-dev-noise-duplicate-events
+playbook_id: S1_ACTIVATION
+family: noise
+description: The signup funnel sends KYC_SUBMITTED twice and the device service delivers every webhook twice. Each fix still happens exactly once and the case reaches the first settlement.
+persona: {merchant_id: M-0006, language: kn-IN, traits: [], hidden_goal: Get the shop live.}
+steps:
+  - {event: SIGNUP_STALLED}
+  - {chaos: {system: device, mode: duplicate_webhook, rate: 1.0}}
+  - {after_hours: 2, control: {path: "/mock/control/kyc/{mid}", body: {status: APPROVED}}}
+  - {event: KYC_SUBMITTED}
+  - {event: KYC_SUBMITTED}
+  - {after_hours: 24, control: {path: "/mock/control/device/{mid}", body: {status: ONLINE}}}
+  - {event: DEVICE_DELIVERED}
+  - {after_hours: 1, pay: 31000}
+  - {after_hours: 23, advance_settlement: SETTLED}
+expected:
+  case_state: RESOLVED
+  done_fields: {kyc.status: APPROVED, bank.status: VERIFIED, device.status: ONLINE, payment.status: SUCCESS, settlement.status: SETTLED}
+  escalation: {expected: false}
+  required_actions: [send_kyc_resume_link, retrigger_bank_verification, create_device_replacement]
+  forbidden_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 4

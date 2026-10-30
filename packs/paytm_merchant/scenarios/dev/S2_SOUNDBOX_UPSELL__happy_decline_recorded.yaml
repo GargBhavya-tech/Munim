@@ -1,0 +1,13 @@
+id: S2-dev-happy-decline-recorded
+playbook_id: S2_SOUNDBOX_UPSELL
+family: happy
+description: The merchant says no. The refusal is recorded as a preference and nothing is ordered or waived.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [], hidden_goal: "Not interested."}
+steps:
+  - {merchant_says: "nahi chahiye soundbox"}
+expected:
+  case_state: WAITING
+  escalation: {expected: false}
+  required_actions: [save_preference]
+  forbidden_actions: [create_device_order, apply_fee_waiver, send_partner_application_link]
+  max_touches: 1

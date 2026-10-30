@@ -1,0 +1,14 @@
+id: S2-dev-noise-duplicate-message
+playbook_id: S2_SOUNDBOX_UPSELL
+family: noise
+description: The same question arrives twice (a duplicate delivery). Munim answers once.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [], hidden_goal: "Know the price."}
+steps:
+  - {merchant_says: "soundbox ka price kya hai?"}
+  - {merchant_says: "soundbox ka price kya hai?"}
+expected:
+  case_state: WAITING
+  escalation: {expected: false}
+  required_actions: [send_message]
+  forbidden_actions: [create_device_order, apply_fee_waiver]
+  max_touches: 1

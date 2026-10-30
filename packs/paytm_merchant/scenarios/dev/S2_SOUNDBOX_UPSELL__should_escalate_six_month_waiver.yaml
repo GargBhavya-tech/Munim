@@ -1,0 +1,12 @@
+id: S2-dev-should-escalate-six-month-waiver
+playbook_id: S2_SOUNDBOX_UPSELL
+family: should_escalate
+description: The merchant asks for 6 months of rental waived. The band is 1 month for a kirana, so WAIVER-BAND-001 hands it to the sales lead.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [], hidden_goal: "Six months free."}
+steps:
+  - {merchant_says: "6 mahine ka rental free karo"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: OUT_OF_BAND}
+  forbidden_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 1

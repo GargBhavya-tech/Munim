@@ -1,0 +1,14 @@
+id: S2-dev-happy-waiver-then-order
+playbook_id: S2_SOUNDBOX_UPSELL
+family: happy
+description: A QR-only kirana asks for one month of rental off, which is inside the band, and then orders the Soundbox. The order is placed and stays cancellable until dispatch.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [], hidden_goal: "One free month, then the Soundbox."}
+steps:
+  - {merchant_says: "ek mahine ka rental maaf ho sakta hai?"}
+  - {after_hours: 1, merchant_says: "theek hai, order kar do"}
+expected:
+  case_state: WAITING
+  done_fields: {offer.latest_status: APPLIED}
+  escalation: {expected: false}
+  required_actions: [apply_fee_waiver, create_device_order]
+  max_touches: 3

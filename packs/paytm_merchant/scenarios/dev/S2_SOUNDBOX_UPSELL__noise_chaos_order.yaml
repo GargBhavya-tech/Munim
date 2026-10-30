@@ -1,0 +1,15 @@
+id: S2-dev-noise-chaos-order
+playbook_id: S2_SOUNDBOX_UPSELL
+family: noise
+description: The device system times out after committing and sends duplicate webhooks while the order is placed. Exactly one order must exist.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [], hidden_goal: "A Soundbox."}
+steps:
+  - {chaos: {system: device, mode: timeout_after_commit, rate: 0.5}}
+  - {chaos: {system: "*", mode: duplicate_webhook, rate: 0.5}}
+  - {merchant_says: "soundbox lena hai, order kar do"}
+expected:
+  case_state: WAITING
+  escalation: {expected: false}
+  required_actions: [create_device_order]
+  forbidden_actions: [apply_fee_waiver]
+  max_touches: 2

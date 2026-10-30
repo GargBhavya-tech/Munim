@@ -1,0 +1,12 @@
+id: S2-dev-should-escalate-wants-human
+playbook_id: S2_SOUNDBOX_UPSELL
+family: should_escalate
+description: The merchant asks for a person. Munim hands over without pitching.
+persona: {merchant_id: M-0007, language: hi-IN, traits: [wants-a-human], hidden_goal: "Talk to someone about the Soundbox."}
+steps:
+  - {merchant_says: "mujhe insaan se baat karni hai"}
+expected:
+  case_state: ESCALATED
+  escalation: {expected: true, reason_class: WANTS_HUMAN}
+  forbidden_actions: [create_device_order, apply_fee_waiver]
+  max_touches: 0
