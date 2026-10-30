@@ -1,0 +1,24 @@
+{
+  "note": "Hindi, Kannada and Hinglish text was written by the set's author, not a native reviewer. Phrases the author was not sure of are NOT in the set (listed under excluded). Phrases in the set that still deserve a native read are listed under requested_review.",
+  "excluded": [
+    {"english": "reversal (of a failed payment)", "reason": "no everyday Kannada word the author is sure of; only a plain 'comes back' wording appears, in one unsupported claim"},
+    {"english": "Key Fact Statement", "reason": "official Hindi and Kannada terms not known; no hi/kn claim about it is written"},
+    {"english": "risk reviewer", "reason": "no natural hi/kn job-title wording the author is sure of; only 'risk team' and 'Support executive' in Latin script are used"},
+    {"english": "compensation (by the payments team)", "reason": "legal-sounding term, translation unsure"},
+    {"english": "ombudsman / consumer court", "reason": "unsure of natural hi/kn wording; the legal claim uses 'lawyer' and 'police' only"}
+  ],
+  "excluded_phrases_that_must_not_appear": ["ombudsman", "Key Fact Statement", "compensation"],
+  "requested_review": [
+    {"lang": "kn", "phrase": "ಮಸುಕಾಗಿತ್ತು", "meaning": "was blurry"},
+    {"lang": "kn", "phrase": "ತಡೆಹಿಡಿದ settlement", "meaning": "held settlement"},
+    {"lang": "kn", "phrase": "ಹೊಂದಾಣಿಕೆ ಆಗುತ್ತಿಲ್ಲ", "meaning": "does not match (name)"},
+    {"lang": "kn", "phrase": "ಪುರಾವೆ", "meaning": "proof"},
+    {"lang": "kn", "phrase": "ನಿಜವಾದ ವ್ಯಕ್ತಿ", "meaning": "a real person (human, not AI)"},
+    {"lang": "kn", "phrase": "ಹಿಂತೆಗೆದುಕೊಳ್ಳಬಹುದು", "meaning": "can be taken back (waiver)"},
+    {"lang": "hi", "phrase": "रोका गया settlement", "meaning": "held settlement"},
+    {"lang": "hi", "phrase": "approve करना मेरे हाथ में नहीं है", "meaning": "approving is not in my hands"},
+    {"lang": "hi", "phrase": "कामकाजी दिन", "meaning": "working days"},
+    {"lang": "hinglish", "phrase": "lagoo hota hai", "meaning": "comes into effect"}
+  ],
+  "script_mixing": "KYC, OTP, PIN, settlement, Soundbox, review, approve, reject, upload, app, chat and similar product words are kept in Latin script inside hi and kn sentences, as merchants write them."
+}

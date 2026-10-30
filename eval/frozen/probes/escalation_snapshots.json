@@ -1,0 +1,4765 @@
+{
+ "meta": {
+  "ticket": 139,
+  "version": 1,
+  "labels": "hand-written should/shouldn't; hard-trigger codes from the Bible section 32 list; soft decisions from hand arithmetic",
+  "kind": "hard => core.engine.escalation.HardTriggers over facts the triager/engine would supply (scripted, no live model); soft => soft_score + tier_for over scripted observable signals",
+  "lang_review": "hi, kn and hinglish wording needs native-speaker review; keyword snapshots use phrases from packs/paytm_merchant/escalation_keywords.yaml only"
+ },
+ "snapshots": [
+  {
+   "id": "ES-001",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "I will complain to the banking ombudsman if this is not fixed."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-002",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "I am filing an RBI complaint today."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-003",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "I will go to the police about this."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-004",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "My lawyer will send you a notice."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-005",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "I will take this to consumer court."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-006",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "Expect a legal notice from me."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-007",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "I will report this to cyber crime."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-008",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "See you in court."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-009",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "If you don't fix it I will sue you."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-010",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My issue is still open."
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "I wrote to the Reserve Bank about this."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-011",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Main ombudsman ko likhunga."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-012",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Lokpal ke paas jaunga."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-013",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Main RBI mein complaint karunga."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-014",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Police bulaunga main."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-015",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Thana jaa raha hoon abhi."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-016",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera vakil baat karega."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-017",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Consumer court mein milenge."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-018",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मैं लोकपाल के पास जाऊंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-019",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मैं पुलिस में शिकायत करूंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-020",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मैं थाने जा रहा हूं।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-021",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मैं वकील से बात करूंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-022",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "अदालत में मिलेंगे।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-023",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "कोर्ट में केस करूंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-024",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "आरबीआई में शिकायत करूंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-025",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "आपको कानूनी नोटिस भेजूंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-026",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मैं साइबर क्राइम में रिपोर्ट करूंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-027",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನಾನು ಲೋಕಪಾಲ ಗೆ ಬರೀತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-028",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನಾನು ಪೊಲೀಸರಿಗೆ ಹೇಳ್ತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-029",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ವಕೀಲರು ಮಾತಾಡ್ತಾರೆ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-030",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನ್ಯಾಯಾಲಯಕ್ಕೆ ಹೋಗ್ತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-031",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಕೋರ್ಟ್ ನಲ್ಲಿ ನೋಡ್ಕೊಳ್ತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-032",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಆರ್ಬಿಐ ಗೆ ದೂರು ಕೊಡ್ತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-033",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನಿಮ್ಮ ಮೇಲೆ ಕಾನೂನು ಕ್ರಮ ತಗೊಳ್ತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-034",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸೈಬರ್ ಕ್ರೈಮ್ ಗೆ ದೂರು ಕೊಡ್ತೀನಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-035",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "I will not go to the police, just fix my soundbox."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-036",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "I don't want a lawyer, I want my money."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-037",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Police nahi bulaunga, bas settlement karo."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-038",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Vakil nahi chahiye, paisa chahiye."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-039",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मैं पुलिस के पास नहीं जाऊंगा, बस पैसा भेज दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-040",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मुझे वकील नहीं चाहिए, समाधान चाहिए।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-041",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನಾನು ಪೊಲೀಸರ ಹತ್ತಿರ ಹೋಗುವುದಿಲ್ಲ, ಸರಿ ಮಾಡಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-042",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ವಕೀಲ ಬೇಡ, ನನ್ನ ಹಣ ಬೇಕು."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "a negated mention still goes to a human (Bible section 32)",
+   "facts": {}
+  },
+  {
+   "id": "ES-043",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "I have an issue with my settlement."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-044",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Your policy page is confusing, can you explain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-045",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Thanks for the courtesy, when will the money come?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-046",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "This is useless, fix it now!"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-047",
+   "lang": "en",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "My soundbox is not speaking."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-048",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera settlement kab aayega?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-049",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa nahi aaya, jaldi karo."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-050",
+   "lang": "hinglish",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Soundbox chup hai, kya karun?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-051",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा सेटलमेंट कब आएगा?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-052",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा साउंडबॉक्स बंद है।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-053",
+   "lang": "hi",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C3_PAYMENT_FAILED",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "पेमेंट फेल हो गया, क्या करूं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-054",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಸೆಟಲ್‌ಮೆಂಟ್ ಯಾವಾಗ ಬರುತ್ತದೆ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-055",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಸೌಂಡ್‌ಬಾಕ್ಸ್ ಕೆಟ್ಟಿದೆ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-056",
+   "lang": "kn",
+   "category": "regulatory",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಪೇಮೆಂಟ್ ಆಗಿಲ್ಲ, ಏನು ಮಾಡಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {}
+  },
+  {
+   "id": "ES-057",
+   "lang": "en",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "I want to talk to a person, not a bot."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "intent": "WANTS_HUMAN"
+   }
+  },
+  {
+   "id": "ES-058",
+   "lang": "en",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C8_HOWTO",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Can you explain how settlement works?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "intent": "HOWTO_QUESTION"
+   }
+  },
+  {
+   "id": "ES-059",
+   "lang": "en",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "I want to talk to a person, not a bot."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "wants_human": true
+   }
+  },
+  {
+   "id": "ES-060",
+   "lang": "hi",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मुझे किसी इंसान से बात करनी है।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "intent": "WANTS_HUMAN"
+   }
+  },
+  {
+   "id": "ES-061",
+   "lang": "hi",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C8_HOWTO",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "सेटलमेंट कैसे काम करता है, समझाओ।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "intent": "HOWTO_QUESTION"
+   }
+  },
+  {
+   "id": "ES-062",
+   "lang": "hi",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मुझे किसी इंसान से बात करनी है।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "wants_human": true
+   }
+  },
+  {
+   "id": "ES-063",
+   "lang": "kn",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನಗೆ ಒಬ್ಬ ವ್ಯಕ್ತಿಯ ಜೊತೆ ಮಾತಾಡಬೇಕು."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "intent": "WANTS_HUMAN"
+   }
+  },
+  {
+   "id": "ES-064",
+   "lang": "kn",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C8_HOWTO",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸೆಟಲ್‌ಮೆಂಟ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "intent": "HOWTO_QUESTION"
+   }
+  },
+  {
+   "id": "ES-065",
+   "lang": "kn",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನಗೆ ಒಬ್ಬ ವ್ಯಕ್ತಿಯ ಜೊತೆ ಮಾತಾಡಬೇಕು."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "wants_human": true
+   }
+  },
+  {
+   "id": "ES-066",
+   "lang": "hinglish",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mujhe kisi insaan se baat karni hai."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "intent": "WANTS_HUMAN"
+   }
+  },
+  {
+   "id": "ES-067",
+   "lang": "hinglish",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C8_HOWTO",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Settlement kaise kaam karta hai, samjhao."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "intent": "HOWTO_QUESTION"
+   }
+  },
+  {
+   "id": "ES-068",
+   "lang": "hinglish",
+   "category": "wants_human",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mujhe kisi insaan se baat karni hai."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "wants_human": true
+   }
+  },
+  {
+   "id": "ES-069",
+   "lang": "en",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my Rs 12,500?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 1250000
+   }
+  },
+  {
+   "id": "ES-070",
+   "lang": "en",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my Rs 10,000?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "exactly Rs 10,000 escalates",
+   "facts": {
+    "amount_paise": 1000000
+   }
+  },
+  {
+   "id": "ES-071",
+   "lang": "en",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my Rs 9,999.99?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 999999
+   }
+  },
+  {
+   "id": "ES-072",
+   "lang": "en",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my Rs 3,344?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 334400,
+    "settlement_status": "PENDING"
+   }
+  },
+  {
+   "id": "ES-073",
+   "lang": "hi",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरे Rs 12,500 कहां हैं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 1250000
+   }
+  },
+  {
+   "id": "ES-074",
+   "lang": "hi",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरे Rs 10,000 कहां हैं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "exactly Rs 10,000 escalates",
+   "facts": {
+    "amount_paise": 1000000
+   }
+  },
+  {
+   "id": "ES-075",
+   "lang": "hi",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरे Rs 9,999.99 कहां हैं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 999999
+   }
+  },
+  {
+   "id": "ES-076",
+   "lang": "hi",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरे Rs 3,344 कहां हैं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 334400,
+    "settlement_status": "PENDING"
+   }
+  },
+  {
+   "id": "ES-077",
+   "lang": "kn",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ Rs 12,500 ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 1250000
+   }
+  },
+  {
+   "id": "ES-078",
+   "lang": "kn",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ Rs 10,000 ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "exactly Rs 10,000 escalates",
+   "facts": {
+    "amount_paise": 1000000
+   }
+  },
+  {
+   "id": "ES-079",
+   "lang": "kn",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ Rs 9,999.99 ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 999999
+   }
+  },
+  {
+   "id": "ES-080",
+   "lang": "kn",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ Rs 3,344 ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 334400,
+    "settlement_status": "PENDING"
+   }
+  },
+  {
+   "id": "ES-081",
+   "lang": "hinglish",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mere Rs 12,500 kahan hain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 1250000
+   }
+  },
+  {
+   "id": "ES-082",
+   "lang": "hinglish",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mere Rs 10,000 kahan hain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT"
+    ]
+   },
+   "note": "exactly Rs 10,000 escalates",
+   "facts": {
+    "amount_paise": 1000000
+   }
+  },
+  {
+   "id": "ES-083",
+   "lang": "hinglish",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mere Rs 9,999.99 kahan hain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 999999
+   }
+  },
+  {
+   "id": "ES-084",
+   "lang": "hinglish",
+   "category": "money",
+   "kind": "hard",
+   "playbook": "C4_MERCHANT_REFUND",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mere Rs 3,344 kahan hain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 334400,
+    "settlement_status": "PENDING"
+   }
+  },
+  {
+   "id": "ES-085",
+   "lang": "en",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my Rs 4,000?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "SETTLEMENT_HELD_RISK"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "HELD_RISK",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-086",
+   "lang": "en",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my Rs 4,000?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "SETTLED",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-087",
+   "lang": "hi",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरे Rs 4,000 कहां हैं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "SETTLEMENT_HELD_RISK"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "HELD_RISK",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-088",
+   "lang": "hi",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरे Rs 4,000 कहां हैं?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "SETTLED",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-089",
+   "lang": "kn",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ Rs 4,000 ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "SETTLEMENT_HELD_RISK"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "HELD_RISK",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-090",
+   "lang": "kn",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ Rs 4,000 ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "SETTLED",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-091",
+   "lang": "hinglish",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mere Rs 4,000 kahan hain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "SETTLEMENT_HELD_RISK"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "HELD_RISK",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-092",
+   "lang": "hinglish",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mere Rs 4,000 kahan hain?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "settlement_status": "SETTLED",
+    "amount_paise": 400000
+   }
+  },
+  {
+   "id": "ES-093",
+   "lang": "en",
+   "category": "risk_hold",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "First settlement held and Rs 12,400 is big."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT",
+     "SETTLEMENT_HELD_RISK"
+    ]
+   },
+   "note": "two hard triggers; the packet lists both",
+   "facts": {
+    "settlement": {
+     "status": "HELD_RISK"
+    },
+    "amount_paise": 1240000
+   }
+  },
+  {
+   "id": "ES-094",
+   "lang": "en",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C10_SCAM_SHIELD",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Someone called me for my details."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FRAUD_SIGNAL"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": [
+     "SCAM_CALL_REPORTED"
+    ]
+   }
+  },
+  {
+   "id": "ES-095",
+   "lang": "en",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C5_DETAIL_UPDATE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Someone called me for my details."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": []
+   }
+  },
+  {
+   "id": "ES-096",
+   "lang": "en",
+   "category": "name_mismatch",
+   "kind": "hard",
+   "playbook": "S1_ACTIVATION",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Someone called me for my details."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "NAME_MISMATCH"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "name_mismatch": true
+   }
+  },
+  {
+   "id": "ES-097",
+   "lang": "hi",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C10_SCAM_SHIELD",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "किसी ने फोन करके मेरी जानकारी मांगी।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FRAUD_SIGNAL"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": [
+     "SCAM_CALL_REPORTED"
+    ]
+   }
+  },
+  {
+   "id": "ES-098",
+   "lang": "hi",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C5_DETAIL_UPDATE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "किसी ने फोन करके मेरी जानकारी मांगी।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": []
+   }
+  },
+  {
+   "id": "ES-099",
+   "lang": "hi",
+   "category": "name_mismatch",
+   "kind": "hard",
+   "playbook": "S1_ACTIVATION",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "किसी ने फोन करके मेरी जानकारी मांगी।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "NAME_MISMATCH"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "name_mismatch": true
+   }
+  },
+  {
+   "id": "ES-100",
+   "lang": "kn",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C10_SCAM_SHIELD",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಯಾರೋ ಫೋನ್ ಮಾಡಿ ನನ್ನ ವಿವರ ಕೇಳಿದರು."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FRAUD_SIGNAL"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": [
+     "SCAM_CALL_REPORTED"
+    ]
+   }
+  },
+  {
+   "id": "ES-101",
+   "lang": "kn",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C5_DETAIL_UPDATE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಯಾರೋ ಫೋನ್ ಮಾಡಿ ನನ್ನ ವಿವರ ಕೇಳಿದರು."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": []
+   }
+  },
+  {
+   "id": "ES-102",
+   "lang": "kn",
+   "category": "name_mismatch",
+   "kind": "hard",
+   "playbook": "S1_ACTIVATION",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಯಾರೋ ಫೋನ್ ಮಾಡಿ ನನ್ನ ವಿವರ ಕೇಳಿದರು."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "NAME_MISMATCH"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "name_mismatch": true
+   }
+  },
+  {
+   "id": "ES-103",
+   "lang": "hinglish",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C10_SCAM_SHIELD",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Kisi ne call karke meri details maangi."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FRAUD_SIGNAL"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": [
+     "SCAM_CALL_REPORTED"
+    ]
+   }
+  },
+  {
+   "id": "ES-104",
+   "lang": "hinglish",
+   "category": "fraud",
+   "kind": "hard",
+   "playbook": "C5_DETAIL_UPDATE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Kisi ne call karke meri details maangi."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": []
+   }
+  },
+  {
+   "id": "ES-105",
+   "lang": "hinglish",
+   "category": "name_mismatch",
+   "kind": "hard",
+   "playbook": "S1_ACTIVATION",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Kisi ne call karke meri details maangi."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "NAME_MISMATCH"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "name_mismatch": true
+   }
+  },
+  {
+   "id": "ES-106",
+   "lang": "en",
+   "category": "name_mismatch",
+   "kind": "hard",
+   "playbook": "S1_ACTIVATION",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Why is my bank not verified?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "NAME_MISMATCH"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "bank": {
+     "reason": "NAME_MISMATCH"
+    }
+   }
+  },
+  {
+   "id": "ES-107",
+   "lang": "en",
+   "category": "name_mismatch",
+   "kind": "hard",
+   "playbook": "S1_ACTIVATION",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Why is my bank not verified?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "bank": {
+     "reason": "PENDING"
+    }
+   }
+  },
+  {
+   "id": "ES-108",
+   "lang": "en",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Give me 6 months free."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "OUT_OF_BAND"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "violations": [
+     [
+      "WAIVER-BAND-001",
+      "ESCALATE"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-109",
+   "lang": "en",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Give me 6 months free."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "a BLOCK is refused in place, it is not a handoff",
+   "facts": {
+    "violations": [
+     [
+      "FIX-FIRST-001",
+      "BLOCK"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-110",
+   "lang": "en",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Give me 6 months free."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "violations": []
+   }
+  },
+  {
+   "id": "ES-111",
+   "lang": "hi",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 महीने फ्री दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "OUT_OF_BAND"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "violations": [
+     [
+      "WAIVER-BAND-001",
+      "ESCALATE"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-112",
+   "lang": "hi",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 महीने फ्री दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "a BLOCK is refused in place, it is not a handoff",
+   "facts": {
+    "violations": [
+     [
+      "FIX-FIRST-001",
+      "BLOCK"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-113",
+   "lang": "hi",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 महीने फ्री दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "violations": []
+   }
+  },
+  {
+   "id": "ES-114",
+   "lang": "kn",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 ತಿಂಗಳು ಉಚಿತ ಕೊಡಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "OUT_OF_BAND"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "violations": [
+     [
+      "WAIVER-BAND-001",
+      "ESCALATE"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-115",
+   "lang": "kn",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 ತಿಂಗಳು ಉಚಿತ ಕೊಡಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "a BLOCK is refused in place, it is not a handoff",
+   "facts": {
+    "violations": [
+     [
+      "FIX-FIRST-001",
+      "BLOCK"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-116",
+   "lang": "kn",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 ತಿಂಗಳು ಉಚಿತ ಕೊಡಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "violations": []
+   }
+  },
+  {
+   "id": "ES-117",
+   "lang": "hinglish",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 mahine free do."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "OUT_OF_BAND"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "violations": [
+     [
+      "WAIVER-BAND-001",
+      "ESCALATE"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-118",
+   "lang": "hinglish",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 mahine free do."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "a BLOCK is refused in place, it is not a handoff",
+   "facts": {
+    "violations": [
+     [
+      "FIX-FIRST-001",
+      "BLOCK"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-119",
+   "lang": "hinglish",
+   "category": "out_of_band",
+   "kind": "hard",
+   "playbook": "S4_PLAN_CHANGE",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "6 mahine free do."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "violations": []
+   }
+  },
+  {
+   "id": "ES-120",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "grounding_failures": 1
+   }
+  },
+  {
+   "id": "ES-121",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "GROUNDING_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "grounding_failures": 2
+   }
+  },
+  {
+   "id": "ES-122",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "faithfulness_failures": 1
+   }
+  },
+  {
+   "id": "ES-123",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FAITHFULNESS_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "faithfulness_failures": 2
+   }
+  },
+  {
+   "id": "ES-124",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "invalid_output_count": 1
+   }
+  },
+  {
+   "id": "ES-125",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "INVALID_OUTPUT_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "invalid_output_count": 2
+   }
+  },
+  {
+   "id": "ES-126",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "TOOL_FAILURE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "outcomes": [
+     "CIRCUIT_OPEN: settlement"
+    ]
+   }
+  },
+  {
+   "id": "ES-127",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "grounding_failures": 1
+   }
+  },
+  {
+   "id": "ES-128",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "GROUNDING_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "grounding_failures": 2
+   }
+  },
+  {
+   "id": "ES-129",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "faithfulness_failures": 1
+   }
+  },
+  {
+   "id": "ES-130",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FAITHFULNESS_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "faithfulness_failures": 2
+   }
+  },
+  {
+   "id": "ES-131",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "invalid_output_count": 1
+   }
+  },
+  {
+   "id": "ES-132",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "INVALID_OUTPUT_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "invalid_output_count": 2
+   }
+  },
+  {
+   "id": "ES-133",
+   "lang": "hi",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "TOOL_FAILURE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "outcomes": [
+     "CIRCUIT_OPEN: settlement"
+    ]
+   }
+  },
+  {
+   "id": "ES-134",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "grounding_failures": 1
+   }
+  },
+  {
+   "id": "ES-135",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "GROUNDING_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "grounding_failures": 2
+   }
+  },
+  {
+   "id": "ES-136",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "faithfulness_failures": 1
+   }
+  },
+  {
+   "id": "ES-137",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FAITHFULNESS_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "faithfulness_failures": 2
+   }
+  },
+  {
+   "id": "ES-138",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "invalid_output_count": 1
+   }
+  },
+  {
+   "id": "ES-139",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "INVALID_OUTPUT_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "invalid_output_count": 2
+   }
+  },
+  {
+   "id": "ES-140",
+   "lang": "kn",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "TOOL_FAILURE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "outcomes": [
+     "CIRCUIT_OPEN: settlement"
+    ]
+   }
+  },
+  {
+   "id": "ES-141",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "grounding_failures": 1
+   }
+  },
+  {
+   "id": "ES-142",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "GROUNDING_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "grounding_failures": 2
+   }
+  },
+  {
+   "id": "ES-143",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "faithfulness_failures": 1
+   }
+  },
+  {
+   "id": "ES-144",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FAITHFULNESS_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "faithfulness_failures": 2
+   }
+  },
+  {
+   "id": "ES-145",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "one failure is retried, not escalated",
+   "facts": {
+    "invalid_output_count": 1
+   }
+  },
+  {
+   "id": "ES-146",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "INVALID_OUTPUT_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "invalid_output_count": 2
+   }
+  },
+  {
+   "id": "ES-147",
+   "lang": "hinglish",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "TOOL_FAILURE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "outcomes": [
+     "CIRCUIT_OPEN: settlement"
+    ]
+   }
+  },
+  {
+   "id": "ES-148",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Any update?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "TOOL_FAILURE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "outcomes": [
+     "UPSTREAM_UNAVAILABLE: device"
+    ]
+   }
+  },
+  {
+   "id": "ES-149",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Any update?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "a bad request is not an outage",
+   "facts": {
+    "outcomes": [
+     "VALIDATION_ERROR: months"
+    ]
+   }
+  },
+  {
+   "id": "ES-150",
+   "lang": "en",
+   "category": "machinery",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Three failures."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FAITHFULNESS_FAILED_TWICE"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "faithfulness_failures": 3
+   }
+  },
+  {
+   "id": "ES-151",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "LOOP"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-152",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "Please just tell me the status."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "two turns is not yet a loop",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-153",
+   "lang": "hi",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "LOOP"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-154",
+   "lang": "hi",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "बस स्टेटस बता दो।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "two turns is not yet a loop",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-155",
+   "lang": "kn",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "LOOP"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-156",
+   "lang": "kn",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "ಸ್ಟೇಟಸ್ ಹೇಳಿ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "two turns is not yet a loop",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-157",
+   "lang": "hinglish",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "LOOP"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-158",
+   "lang": "hinglish",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    },
+    {
+     "role": "assistant",
+     "text": "..."
+    },
+    {
+     "role": "merchant",
+     "text": "Bas status bata do."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "two turns is not yet a loop",
+   "facts": {
+    "history": [
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ],
+     [
+      "SETTLEMENT_MISSING",
+      "diagnose"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-159",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "again"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "A",
+      "s"
+     ],
+     [
+      "B",
+      "s"
+     ],
+     [
+      "A",
+      "s"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-160",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "again"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "A",
+      "s"
+     ],
+     [
+      "B",
+      "s"
+     ],
+     [
+      "B",
+      "s"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-161",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "again"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "LOOP"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "B",
+      "s"
+     ],
+     [
+      "A",
+      "s"
+     ],
+     [
+      "A",
+      "s"
+     ],
+     [
+      "A",
+      "s"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-162",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "again"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "an unclassified intent three times is handled by the clarify path, not LOOP",
+   "facts": {
+    "history": [
+     [
+      null,
+      "s"
+     ],
+     [
+      null,
+      "s"
+     ],
+     [
+      null,
+      "s"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-163",
+   "lang": "en",
+   "category": "loop",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "again"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "history": [
+     [
+      "A",
+      "s1"
+     ],
+     [
+      "A",
+      "s2"
+     ],
+     [
+      "A",
+      "s1"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ES-164",
+   "lang": "en",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "The box broke again."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "PLAYBOOK_ESCALATE_WHEN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": [
+     "replacements_last_30d >= 1"
+    ]
+   }
+  },
+  {
+   "id": "ES-165",
+   "lang": "en",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "The box broke again."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": []
+   }
+  },
+  {
+   "id": "ES-166",
+   "lang": "hi",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बॉक्स फिर खराब हो गया।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "PLAYBOOK_ESCALATE_WHEN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": [
+     "replacements_last_30d >= 1"
+    ]
+   }
+  },
+  {
+   "id": "ES-167",
+   "lang": "hi",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "बॉक्स फिर खराब हो गया।"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": []
+   }
+  },
+  {
+   "id": "ES-168",
+   "lang": "kn",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಬಾಕ್ಸ್ ಮತ್ತೆ ಕೆಟ್ಟಿದೆ."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "PLAYBOOK_ESCALATE_WHEN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": [
+     "replacements_last_30d >= 1"
+    ]
+   }
+  },
+  {
+   "id": "ES-169",
+   "lang": "kn",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ಬಾಕ್ಸ್ ಮತ್ತೆ ಕೆಟ್ಟಿದೆ."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": []
+   }
+  },
+  {
+   "id": "ES-170",
+   "lang": "hinglish",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Box phir kharab ho gaya."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "PLAYBOOK_ESCALATE_WHEN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": [
+     "replacements_last_30d >= 1"
+    ]
+   }
+  },
+  {
+   "id": "ES-171",
+   "lang": "hinglish",
+   "category": "playbook",
+   "kind": "hard",
+   "playbook": "C2_SOUNDBOX_FAULT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Box phir kharab ho gaya."
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "triggers": []
+   },
+   "note": "",
+   "facts": {
+    "playbook_reasons": []
+   }
+  },
+  {
+   "id": "ES-172",
+   "lang": "en",
+   "category": "combo",
+   "kind": "hard",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "I will go to the police; also where is my Rs 12,400?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "AMOUNT_ABOVE_LIMIT",
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "amount_paise": 1240000
+   }
+  },
+  {
+   "id": "ES-173",
+   "lang": "hi",
+   "category": "combo",
+   "kind": "hard",
+   "playbook": "C9_COMPLAINT",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मुझे इंसान चाहिए, वरना पुलिस के पास जाऊंगा।"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "REGULATORY_MENTION",
+     "WANTS_HUMAN"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "intent": "WANTS_HUMAN"
+   }
+  },
+  {
+   "id": "ES-174",
+   "lang": "hinglish",
+   "category": "combo",
+   "kind": "hard",
+   "playbook": "C10_SCAM_SHIELD",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Fraud hua hai, vakil se baat karunga."
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "triggers": [
+     "FRAUD_SIGNAL",
+     "REGULATORY_MENTION"
+    ]
+   },
+   "note": "",
+   "facts": {
+    "fraud_flags": [
+     "UNAUTHORISED_DEBIT"
+    ]
+   }
+  },
+  {
+   "id": "ES-175",
+   "lang": "en",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "Bible worked example 1",
+   "signals": {
+    "frustration": 0.9,
+    "intent_uncertainty": 0.2,
+    "novelty": 0,
+    "speech_uncertainty": 0.1,
+    "value_at_risk": 0.4
+   }
+  },
+  {
+   "id": "ES-176",
+   "lang": "hi",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा पैसा कहां है?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "Bible worked example 1",
+   "signals": {
+    "frustration": 0.9,
+    "intent_uncertainty": 0.2,
+    "novelty": 0,
+    "speech_uncertainty": 0.1,
+    "value_at_risk": 0.4
+   }
+  },
+  {
+   "id": "ES-177",
+   "lang": "hi",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा पैसा कहां है?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "Bible worked example 2",
+   "signals": {
+    "frustration": 0.9,
+    "intent_uncertainty": 0.2,
+    "novelty": 1,
+    "speech_uncertainty": 0.6,
+    "value_at_risk": 0.4
+   }
+  },
+  {
+   "id": "ES-178",
+   "lang": "kn",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಹಣ ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "Bible worked example 2",
+   "signals": {
+    "frustration": 0.9,
+    "intent_uncertainty": 0.2,
+    "novelty": 1,
+    "speech_uncertainty": 0.6,
+    "value_at_risk": 0.4
+   }
+  },
+  {
+   "id": "ES-179",
+   "lang": "kn",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಹಣ ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "calm clear in-knowledge question",
+   "signals": {
+    "frustration": 0,
+    "intent_uncertainty": 0,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-180",
+   "lang": "hinglish",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa kahan hai?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "calm clear in-knowledge question",
+   "signals": {
+    "frustration": 0,
+    "intent_uncertainty": 0,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-181",
+   "lang": "hinglish",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa kahan hai?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "CLARIFY"
+   },
+   "note": "middle band asks one question",
+   "signals": {
+    "frustration": 0.5,
+    "intent_uncertainty": 0.6,
+    "novelty": 0.5,
+    "speech_uncertainty": 0.3,
+    "value_at_risk": 0.2
+   }
+  },
+  {
+   "id": "ES-182",
+   "lang": "en",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "CLARIFY"
+   },
+   "note": "middle band asks one question",
+   "signals": {
+    "frustration": 0.5,
+    "intent_uncertainty": 0.6,
+    "novelty": 0.5,
+    "speech_uncertainty": 0.3,
+    "value_at_risk": 0.2
+   }
+  },
+  {
+   "id": "ES-183",
+   "lang": "en",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "second ambiguous turn escalates",
+   "signals": {
+    "frustration": 0.5,
+    "intent_uncertainty": 0.6,
+    "novelty": 0.5,
+    "speech_uncertainty": 0.3,
+    "value_at_risk": 0.2,
+    "prior_blue_turns": 1
+   }
+  },
+  {
+   "id": "ES-184",
+   "lang": "hi",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा पैसा कहां है?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "second ambiguous turn escalates",
+   "signals": {
+    "frustration": 0.5,
+    "intent_uncertainty": 0.6,
+    "novelty": 0.5,
+    "speech_uncertainty": 0.3,
+    "value_at_risk": 0.2,
+    "prior_blue_turns": 1
+   }
+  },
+  {
+   "id": "ES-185",
+   "lang": "hi",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा पैसा कहां है?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "exactly 0.60 escalates",
+   "signals": {
+    "frustration": 1,
+    "intent_uncertainty": 1,
+    "novelty": 0.25,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-186",
+   "lang": "kn",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಹಣ ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "exactly 0.60 escalates",
+   "signals": {
+    "frustration": 1,
+    "intent_uncertainty": 1,
+    "novelty": 0.25,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-187",
+   "lang": "kn",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಹಣ ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "CLARIFY"
+   },
+   "note": "exactly 0.45 asks",
+   "signals": {
+    "frustration": 1,
+    "intent_uncertainty": 0.6,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-188",
+   "lang": "hinglish",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa kahan hai?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "CLARIFY"
+   },
+   "note": "exactly 0.45 asks",
+   "signals": {
+    "frustration": 1,
+    "intent_uncertainty": 0.6,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-189",
+   "lang": "hinglish",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa kahan hai?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "just under 0.45 answers",
+   "signals": {
+    "frustration": 1,
+    "intent_uncertainty": 0.5,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-190",
+   "lang": "en",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "just under 0.45 answers",
+   "signals": {
+    "frustration": 1,
+    "intent_uncertainty": 0.5,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-191",
+   "lang": "en",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "unverifiable claim goes red at low score",
+   "signals": {
+    "frustration": 0,
+    "intent_uncertainty": 0,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0,
+    "claim_unverifiable": true
+   }
+  },
+  {
+   "id": "ES-192",
+   "lang": "hi",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा पैसा कहां है?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "unverifiable claim goes red at low score",
+   "signals": {
+    "frustration": 0,
+    "intent_uncertainty": 0,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 0,
+    "claim_unverifiable": true
+   }
+  },
+  {
+   "id": "ES-193",
+   "lang": "hi",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "मेरा पैसा कहां है?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "outside approved knowledge goes red",
+   "signals": {
+    "frustration": 0.1,
+    "intent_uncertainty": 0.1,
+    "novelty": 0.1,
+    "speech_uncertainty": 0.1,
+    "value_at_risk": 0.1,
+    "outside_knowledge": true
+   }
+  },
+  {
+   "id": "ES-194",
+   "lang": "kn",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಹಣ ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": true,
+    "decision": "ESCALATE"
+   },
+   "note": "outside approved knowledge goes red",
+   "signals": {
+    "frustration": 0.1,
+    "intent_uncertainty": 0.1,
+    "novelty": 0.1,
+    "speech_uncertainty": 0.1,
+    "value_at_risk": 0.1,
+    "outside_knowledge": true
+   }
+  },
+  {
+   "id": "ES-195",
+   "lang": "kn",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "ನನ್ನ ಹಣ ಎಲ್ಲಿ?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "value at risk is capped at 1",
+   "signals": {
+    "frustration": 0,
+    "intent_uncertainty": 0,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 5
+   }
+  },
+  {
+   "id": "ES-196",
+   "lang": "hinglish",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa kahan hai?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "ANSWER"
+   },
+   "note": "value at risk is capped at 1",
+   "signals": {
+    "frustration": 0,
+    "intent_uncertainty": 0,
+    "novelty": 0,
+    "speech_uncertainty": 0,
+    "value_at_risk": 5
+   }
+  },
+  {
+   "id": "ES-197",
+   "lang": "hinglish",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Mera paisa kahan hai?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "CLARIFY"
+   },
+   "note": "noisy audio and unknown topic",
+   "signals": {
+    "frustration": 0.3,
+    "intent_uncertainty": 0.5,
+    "novelty": 1,
+    "speech_uncertainty": 1,
+    "value_at_risk": 0
+   }
+  },
+  {
+   "id": "ES-198",
+   "lang": "en",
+   "category": "soft_score",
+   "kind": "soft",
+   "playbook": "C1_SETTLEMENT_DELAY",
+   "turns": [
+    {
+     "role": "merchant",
+     "text": "Where is my money?"
+    }
+   ],
+   "expect": {
+    "should_escalate": false,
+    "decision": "CLARIFY"
+   },
+   "note": "noisy audio and unknown topic",
+   "signals": {
+    "frustration": 0.3,
+    "intent_uncertainty": 0.5,
+    "novelty": 1,
+    "speech_uncertainty": 1,
+    "value_at_risk": 0
+   }
+  }
+ ]
+}
