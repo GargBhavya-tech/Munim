@@ -1,0 +1,25 @@
+id: C8-dev-multi-case-howto-while-device-fault-open
+playbook_id: C8_HOWTO
+family: multi_case
+description: An open device fault does not stop a how-to answer.
+persona:
+  merchant_id: M-0003
+  language: hinglish
+  traits: []
+  hidden_goal: Ask about documents during a device problem.
+steps:
+- control:
+    path: /mock/control/device/{mid}
+    body:
+      status: OFFLINE
+- event: DEVICE_HEARTBEAT_LOST
+- merchant_says: What documents do I need to submit for KYC?
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - send_message
+  max_touches: 1

@@ -1,0 +1,21 @@
+id: C8-dev-should-escalate-question-outside-the-knowledge-base
+playbook_id: C8_HOWTO
+family: should_escalate
+description: A question the approved knowledge does not cover goes to a person with the question attached.
+persona:
+  merchant_id: M-0005
+  language: hi-IN
+  traits: []
+  hidden_goal: Get a GST ruling.
+steps:
+- merchant_says: Can you tell me the GST rate on my soundbox rental invoice?
+expected:
+  case_state: ESCALATED
+  done_fields: {}
+  escalation:
+    expected: true
+    reason_class: NO_KB_ANSWER
+  forbidden_actions:
+  - send_message
+  required_actions: []
+  max_touches: 0

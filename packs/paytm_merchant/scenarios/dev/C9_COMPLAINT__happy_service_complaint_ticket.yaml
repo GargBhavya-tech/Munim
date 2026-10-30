@@ -1,0 +1,22 @@
+id: C9-dev-happy-service-complaint-ticket
+playbook_id: C9_COMPLAINT
+family: happy
+description: A complaint gets a ticket and its number; no resolution time is promised.
+persona:
+  merchant_id: M-0010
+  language: hinglish
+  traits: []
+  hidden_goal: Be heard.
+steps:
+- merchant_says: I want to file a complaint. The service has been very bad.
+expected:
+  case_state: WAITING
+  done_fields:
+    ticket.open_count: 1
+    ticket.latest_status: OPEN
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - raise_ticket
+  max_touches: 1

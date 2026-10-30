@@ -1,0 +1,23 @@
+id: C8-dev-happy-which-documents-hinglish
+playbook_id: C8_HOWTO
+family: happy
+description: A how-to question answered from the KYC FAQ.
+persona:
+  merchant_id: M-0010
+  language: hinglish
+  traits: []
+  hidden_goal: Know the KYC documents.
+steps:
+- merchant_says: kaun se document chahiye KYC ke liye
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions:
+  - raise_ticket
+  - apply_fee_waiver
+  - create_closure_request
+  required_actions:
+  - send_message
+  max_touches: 1

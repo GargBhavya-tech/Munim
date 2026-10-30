@@ -1,0 +1,21 @@
+id: C9-dev-happy-hinglish-shikayat
+playbook_id: C9_COMPLAINT
+family: happy
+description: The same in Hinglish.
+persona:
+  merchant_id: M-0004
+  language: hinglish
+  traits: []
+  hidden_goal: Be heard.
+steps:
+- merchant_says: shikayat karni hai, bahut kharab service
+expected:
+  case_state: WAITING
+  done_fields:
+    ticket.open_count: 1
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - raise_ticket
+  max_touches: 1

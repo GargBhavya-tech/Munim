@@ -1,0 +1,20 @@
+id: C8-dev-happy-which-documents-english
+playbook_id: C8_HOWTO
+family: happy
+description: The same in English.
+persona:
+  merchant_id: M-0009
+  language: en-IN
+  traits: []
+  hidden_goal: Know the KYC documents.
+steps:
+- merchant_says: Which documents are needed for KYC?
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - send_message
+  max_touches: 1

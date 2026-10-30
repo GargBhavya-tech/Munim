@@ -1,0 +1,21 @@
+id: C8-dev-noise-docs-with-emoji
+playbook_id: C8_HOWTO
+family: noise
+description: Hinglish with emoji and repeated question marks.
+persona:
+  merchant_id: M-0013
+  language: kn-IN
+  traits:
+  - confused
+  hidden_goal: Know the KYC documents.
+steps:
+- merchant_says: docs?? kyc ke liye kaun se documents lagte hai 😕😕
+expected:
+  case_state: RESOLVED
+  done_fields: {}
+  escalation:
+    expected: false
+  forbidden_actions: []
+  required_actions:
+  - send_message
+  max_touches: 1
