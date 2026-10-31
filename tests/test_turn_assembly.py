@@ -231,6 +231,27 @@ def test_a_bare_greeting_never_asks_the_model_so_a_malformed_model_answer_cannot
     assert "tell me a little more" in t.sent()[0]["text"]
 
 
+def test_a_forced_reply_language_overrides_the_merchants_saved_language(db_path, clock, monkeypatch):
+    from core.voice import language as L
+    monkeypatch.setattr(L.LanguageManager, "current", lambda self, mid, case_language=None: "hi-IN")        # the merchant's saved language is Hindi
+    replies = [decision(FOLLOW_UP, [AMOUNT, STATUS]), render(AMOUNT, STATUS)]
+    free = Talk(db_path, clock, replies)                                                                     # control: no forced language
+    free.say("my settlement has not come")
+    assert free.sent()[0]["language"] == "hi-IN"
+    assert "Settlements amount is 3344 rupees." not in free.sent()[0]["text"]                                # an English render cannot pass as Hindi
+
+
+def test_forcing_english_replies_in_english_whatever_the_saved_language_is(db_path, clock, monkeypatch):
+    from core.voice import language as L
+    monkeypatch.setattr(L.LanguageManager, "current", lambda self, mid, case_language=None: "hi-IN")
+    t = Talk(db_path, clock, [decision(FOLLOW_UP, [AMOUNT, STATUS]), render(AMOUNT, STATUS)])
+    t.agent.force_language = "en-IN"
+    t.say("my settlement has not come")
+    sent = t.sent()[0]
+    assert sent["language"] == "en-IN" and "Settlements amount is 3344 rupees." in sent["text"]
+    assert t.executed("schedule_follow_up") == 1                                                             # the case ran normally, only the language changed
+
+
 # ------------------------------------------------------------------------------------------------------------- read-back
 def voice_consent(t):
     t.w.conn.execute("INSERT OR REPLACE INTO consent(subject_id, channel, status, source, ts) VALUES (?, 'voice', 'GRANTED', 'test', ?)",

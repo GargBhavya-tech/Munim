@@ -156,7 +156,7 @@ def decide(client: LLMClient, messages: list[dict], *, case_id: str | None = Non
         except InvalidDecision as e:
             res.invalid_outputs += 1
             res.errors = e.errors
-            _ledger(ledger, case_id, r, {"valid": False, "attempt": attempt, "errors": e.errors})
+            _ledger(ledger, case_id, r, {"valid": False, "attempt": attempt, "errors": e.errors, "raw": r.text[:500]})      # what the model wrote, so a failure can be diagnosed
             # the retry carries the error locations only; the invalid reply itself is not repeated back to the model
             msgs = list(messages) + [{"role": "user", "content": "INVALID_OUTPUT: " + "; ".join(e.errors) + ". Reply again with exactly one JSON object that follows the schema."}]
             continue

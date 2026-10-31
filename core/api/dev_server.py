@@ -255,7 +255,12 @@ def main() -> None:
     ap.add_argument("--llm", action="store_true", help="decide with the production turn agent (needs SARVAM_API_KEY and the ML models)")
     ap.add_argument("--offline", action="store_true", help="the production turn agent with a rule-based stand-in for Sarvam (no key, no network): see core/llm/offline.py")
     ap.add_argument("--no-warmup", action="store_true", help="with --llm: skip the start-up turn that loads the models and makes the first Sarvam call")
+    ap.add_argument("--english", action="store_true", help="reply in English to every merchant, whatever their saved language (for a demo while Hindi and Kannada are being reviewed)")
     a = ap.parse_args()
+    if a.english:
+        import os
+        os.environ["MUNIM_FORCE_LANGUAGE"] = "en-IN"      # read once by the turn agent when it is built, so set before build()
+        print("[dev_server] ENGLISH ONLY: every reply is written in English.", flush=True)
     app, _ = build(Path(a.db) if a.db else None, demo=not a.no_demo, llm=a.llm, offline=a.offline)
     if a.offline:
         print("[dev_server] OFFLINE MODE: a rule-based stand-in replaces Sarvam. Policy, executor, grounding gate and ledger are the real ones. English and Hinglish only.", flush=True)

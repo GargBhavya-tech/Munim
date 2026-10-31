@@ -23,6 +23,7 @@ fix-first, playbook limits and contact budget, and the executor still re-evaluat
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from dataclasses import dataclass, field
 from typing import Any, Callable, Mapping, Sequence
@@ -106,6 +107,7 @@ class TurnAgent:
                  context_builder: ContextBuilder | None = None, knowledge=None, readback=None, language=None, scorer: SoftScorer | None = None,
                  profile=None, policy_rules: Sequence[Any] = (), style_fn: Callable[[str], str | None] | None = None, executor=None,
                  handlers: Mapping[str, Callable[[DecisionContext, str], Decision]] | None = None):
+        self.force_language: str | None = normalise_code(os.environ.get("MUNIM_FORCE_LANGUAGE")) or None   # set by dev_server --english; None = the merchant's own
         self.handlers = dict(handlers or {})            # playbook id -> code decider (Scam Shield): no model on that playbook
         self.executor = executor                         # merchant undo runs the compensation through it (#65)
         self.conn, self.clock, self.ledger, self.registry, self.reader = conn, clock, ledger, registry, reader
@@ -309,6 +311,8 @@ class TurnAgent:
 
     def _language(self, ctx: DecisionContext, rec: TurnRecord, msg: str, payload: dict, mid: str) -> str | Decision:
         case, ev = ctx.case, ctx.event
+        if self.force_language:                          # an operator choice for a whole run (dev_server --english): it beats the saved language
+            return self.force_language
         if self.language is None:
             return normalise_code(case.language) or DEFAULT_LANGUAGE
         lang = self.language.current(mid, case.language)
