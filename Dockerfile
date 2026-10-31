@@ -3,6 +3,8 @@
 
 FROM node:22-slim AS web
 WORKDIR /app
+COPY dashboard/package.json dashboard/package-lock.json ./dashboard/
+RUN cd dashboard && npm ci
 COPY dashboard/src ./dashboard/src
 COPY web/package.json web/package-lock.json ./web/
 RUN cd web && npm ci
