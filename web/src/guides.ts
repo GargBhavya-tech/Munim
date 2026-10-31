@@ -12,6 +12,16 @@ export const GUIDES: Record<string, Guide> = {
     try: 'Open Judge Mode, send a message as a merchant, then come back and watch the case appear.',
     good: 'Cases move toward Resolved. A case marked as held by a person is waiting for a human, not stuck.',
   },
+  leads: {
+    see: 'Businesses that are not Paytm merchants yet: how many were found, how many were dropped and why, and the rest ranked best first, with a map and a brief for each.',
+    try: 'Click a lead on the map or in the list and read its brief. Open “Left out of the list” to see who was dropped.',
+    good: 'No existing merchant is ever in the ranked list, every number in a brief names its source, and a lead with no consent is marked “not yet”.',
+  },
+  ops: {
+    see: 'How a Soundbox fault is fixed: which rung of the ladder to start on and why, who does it, how the field day is planned, and a sandbox that checks a payment claim.',
+    try: 'Plan the fix for a merchant, report a shop as closed, mark a person as running late, or check a payment claim.',
+    good: 'A simple fault starts with a remote fix; a broken or repeat one skips up, and every number shows the assumption behind it.',
+  },
   judge: {
     see: 'A shopkeeper’s counter on the left, the guard-off twin on the right, and a scoreboard counted from the ledger.',
     try: 'Pick a merchant and type as they would, or use a card under “Try to break it”, for example sharing an OTP.',

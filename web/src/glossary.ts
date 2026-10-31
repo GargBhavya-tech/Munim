@@ -18,6 +18,11 @@ export const GLOSSARY: Record<string, string> = {
   SOUNDBOX: 'The small speaker on the counter that says out loud when a payment arrives.',
   HEARTBEAT: 'The device’s last check-in with Paytm. A recent one means it is switched on and connected.',
   WAIVER: 'A fee that is cancelled for a period of time.',
+  // finding new merchants
+  PRIORITY_SCORE: 'How worth reaching a lead is: the expected monthly volume, times the chance they switch, times the chance of a later loan, divided by what it costs to reach them. Higher means sooner. The rates are assumptions on synthetic data.',
+  DO_NOT_DISTURB: 'The national list of numbers that must not be contacted. A lead on it is never contacted, whatever else is true.',
+  CONSENT: 'Permission, on record, to contact this person on a given channel. Without it nothing is sent.',
+  CHANCE_OF_WORKING: 'How likely this fix is to clear the fault. These are assumptions on synthetic data, lowered when a device is clearly broken or the fault keeps coming back.',
   // how Munim works
   LEDGER: 'The permanent record. Every decision, action and sentence is written here, in order, and cannot be edited without it showing.',
   HASH_CHAIN: 'Each ledger entry carries a fingerprint of the one before it. Change any entry and every fingerprint after it stops matching.',

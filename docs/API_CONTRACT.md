@@ -116,3 +116,33 @@ Both are 404 until enabled: `app.state.arena`, or `app.state.twin_enabled = True
 - Twin: `GET /api/twin`, `POST /api/twin/start`, `POST /api/twin/reset`, `POST /api/twin/messages`
 - Arena: `GET /api/arena`, `GET /api/arena/leaderboard`, `POST /api/arena/players`, `GET /api/arena/players/{token}`, `POST /api/arena/players/{token}/attempts`, `POST /api/arena/admin/kill`, `POST /api/arena/admin/revive` (admin token header)
 - Arena levels are read-only SELECTs over ledger rows (`core/judge/levels/*.yaml`); a level is never decided from model text.
+
+## Service ops (2026-10-31, written, not run)
+
+Routes in `core/api/routes_ops.py`. Reads compute from the database and `field/`; the writes are the small ones a person does on the field day and booking a planned step through the executor. Travel times are the labelled SIMULATED provider (`field/simulated_travel.py`), and every response that depends on them says `simulated: true`.
+
+- `GET /api/ops/fix-plan/{merchant_id}` -> `{situation, plan, people, simulated}`. `plan`: `{start_rung, rungs: [{rung, name, cost_paise, hours, p_success, expected_if_start_here_paise}], loss_per_hour_paise, swap, reasons, assumptions}`; `start_rung` 0 means nothing to fix. `people.steps`: per rung the person (`helper | courier | certified_person | technician | munim`) and, where something is booked, `booking: {action: "book_visit_or_call", args}`. `404 MERCHANT_NOT_FOUND | NO_DEVICE`.
+- `POST /api/ops/fix-plan/{merchant_id}/book` `{rung: 2|3}` -> `{status, error, action_id, step}`; books that step through the executor (`REPLAYED` on a second press). `409 NOTHING_TO_BOOK` when the plan has no person for that rung.
+- `GET /api/ops/day?day=` -> `{day, routes: {person: [{job_id, merchant_id, name, arrive_min, leave_min, lat, lng, late_min}]}, unassigned: [{job_id, merchant_id, reason, rejected?}], rescheduled: [{booking_id, merchant_id, name, person_id, reason, proposed_slot_at}], delayed, starts, simulated}`. Read-only.
+- `POST /api/ops/day/exception` `{kind: SHOP_CLOSED, booking_id}` or `{kind: RUNNING_LONG, person_id, minutes (1..240)}` -> `{exception, plan}`; ledgered as `HUMAN_ACTION`, the day is re-planned and saved. `404 NOT_FOUND`, `422 BAD_EXCEPTION`.
+- `POST /api/ops/day/reschedule` `{booking_id}` -> `{status, error, action_id, proposal}`; books the proposed new visit through the executor. `409 NOTHING_TO_RESCHEDULE` unless that visit was reported as a closed shop.
+- `GET /api/ops/people` -> `{technicians, helpers, couriers, positions, sim_time}`. `positions` holds only the latest point per person, only if recent, and only what privacy rules allowed to be recorded.
+- `POST /api/ops/people/{person_id}/position` `{kind: tech | rep, lat, lng}` -> `{accepted: true, loc_id}` or `{accepted: false, reason: OUTSIDE_SHIFT | NO_ACTIVE_ROUTE}`. The privacy rules decide; a rejected point is not stored. `404 PERSON_NOT_FOUND`.
+- `GET | PUT /api/ops/shop-hours/{merchant_id}` -> `{open, close, closed_days, source: REPORTED | ASSUMED}`. `PUT` body `{open, close, closed_days}`; `422 BAD_HOURS`.
+- `POST /api/ops/scam-check` `{merchant_id, amount_paise, reference?, claimed_at?}` -> `{merchant_id, verdict: REAL | LIKELY_SCAM | CANNOT_TELL, signals: [{code, severity: hard | soft, text}], copied, discarded}`. Read-only: the claim goes into a throwaway in-memory copy.
+
+## New-merchant leads (N1, 2026-10-31)
+
+Read-only. Discovery, duplicate matching and scoring are jobs that run before; these routes report what they decided and never change a lead. The demo stack runs
+duplicate matching and scoring once at start (`core/api/dev_server.py` `seed_demo_leads`).
+
+- `GET /api/leads` -> `{funnel, bounds, leads, excluded}`.
+  - `funnel`: `{found, existing_merchant, needs_review, duplicate, cleared, not_checked}`; the six counts add up to `found`.
+  - `leads`: only leads that duplicate matching cleared, best `score` first; each has `{lead_id, name, category, pincode, lat, lng, source_id, confidence, gst_slab, state, score, channel, uncertain, monthly_rupees, low_rupees, high_rupees, do_not_contact}`. `channel` is `field_rep | ai_voice | self_serve` (from the score); `monthly_rupees` and its band are the scoring job's estimate, `uncertain` when it rests on one signal. An existing merchant is never in this list.
+  - `excluded`: up to 100 leads that were dropped, each with `state` (`EXISTING_MERCHANT | NEEDS_REVIEW | DUPLICATE`), `reason`, `matched_merchant_id` or `duplicate_of`.
+  - `bounds`: min and max latitude and longitude over all leads, for the map.
+- `GET /api/leads/{lead_id}` -> `{lead, provenance, contact, brief}`.
+  - `provenance`: `{fields: {name|address|gst_slab|phone_public: {source, confidence, fetched_at}}, dedupe}`.
+  - `contact`: `{segment, order, consented_channels, chosen_channel, do_not_contact, can_contact_now, why_not}`; read from `consent` and `dnd_registry`, the tables outreach reads. Nothing is sent.
+  - `brief`: the brief job's (`jobs/briefs.py`): `{passes_gate, who, uses_now, needs, pitch, objections, contact, contact_notes, gaps}`. Every claim is `{id, text, source}` with a `tool:`, `kb:` or `policy:` source that holds its numbers; objection answers are verbatim KB quotes.
+  - `404 LEAD_NOT_FOUND`; `409 {error: BRIEF_REFUSED, reason, state, name, matched_merchant_id}` for a lead that may not be briefed (an existing merchant, a duplicate, not cleared); `500 BRIEF_GATE_FAILED` if a brief ever fails its own numbers check (it is then not returned).

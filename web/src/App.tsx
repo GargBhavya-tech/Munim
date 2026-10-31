@@ -8,7 +8,9 @@ import { Floor } from './screens/Floor'
 import { Handoffs } from './screens/Handoffs'
 import { Judge } from './screens/Judge'
 import { Ladder } from './screens/Ladder'
+import { Leads } from './screens/Leads'
 import { Opening } from './screens/Opening'
+import { Ops } from './screens/Ops'
 import { Phone } from './screens/Phone'
 import { Proof } from './screens/Proof'
 import { Simple } from './screens/Simple'
@@ -22,6 +24,8 @@ const ROUTES: Record<string, Route> = {
   phone: { label: 'Merchant phone', group: 'Try it', surface: 'night', render: (arg) => <Phone arg={arg} /> },
   arena: { label: 'Arena', group: 'Try it', surface: 'night', render: () => <Arena /> },
   floor: { label: 'Case Floor', group: 'Watch it work', surface: 'night', render: () => <Floor /> },
+  leads: { label: 'New merchants', group: 'Watch it work', surface: 'night', render: () => <Leads /> },
+  ops: { label: 'Service ops', group: 'Watch it work', surface: 'night', render: () => <Ops /> },
   systems: { label: 'Systems', group: 'Watch it work', surface: 'night', render: () => <Systems /> },
   handoffs: { label: 'Handoffs', group: 'Watch it work', surface: 'night', render: () => <Handoffs /> },
   proof: { label: 'Proof Ledger', group: 'Check the proof', surface: 'night', render: () => <Proof /> },
