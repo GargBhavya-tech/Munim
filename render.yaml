@@ -1,18 +1,19 @@
 # Render Blueprint: one web service serving the frontend, /api and /ws.
-# Free plan (512 MB) cannot hold the grounding-gate models, so it runs MUNIM_MODE=scripted: every page loads, Judge Mode does not reply.
-# For live replies change: plan -> standard (2 GB), INSTALL_ML -> "1", MUNIM_MODE -> llm (and set SARVAM_API_KEY in the Render dashboard).
+# Live mode: the production turn agent on Sarvam with the grounding-gate models, so Judge Mode, the phone, Arena and the twin all reply.
+# The models need about 2 GB of RAM, hence the standard plan. SARVAM_API_KEY must be set in the Render dashboard (sync: false).
+# To fall back to the no-model demo on the free plan: plan -> free, INSTALL_ML -> "0", MUNIM_MODE -> scripted (pages load, Judge Mode does not reply).
 services:
   - type: web
     name: munim
     runtime: docker
-    plan: free
+    plan: standard
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/cases
     envVars:
       - key: MUNIM_MODE
-        value: scripted
+        value: llm
       - key: INSTALL_ML
-        value: "0"
+        value: "1"
       - key: SARVAM_API_KEY
         sync: false
       - key: FALLBACK_LLM_KEY
