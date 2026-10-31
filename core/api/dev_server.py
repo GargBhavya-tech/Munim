@@ -261,6 +261,10 @@ def build(db_path: Path | None = None, seed_seed: int = 42, demo: bool = True, l
     app = create_api(db_path, clock, stack.executor, stack.http, registry=stack.registry, after_write=stack.run, on_approve=stack.executor.submit)
     if not app.state.phone_secret:              # the demo stack: a judge's phone QR must work without setup; production still needs MUNIM_PHONE_SECRET
         app.state.phone_secret = secrets.token_hex(16)
+    if shared is not None and not offline:
+        from core.llm.sarvam_http import SarvamHTTP
+        from core.voice.pipeline import VoiceTurnProcessor
+        app.state.voice = VoiceTurnProcessor(SarvamHTTP(), stack.conn, clock)        # spoken replies (POST /api/voice/speak) need only the speech client
     if shared is not None:
         app.state.warm_attach = shared.attach          # main() warms the models with one real turn on a throwaway copy before serving
         enable_live_extras(app, Path(db_path), clock, Path(tempfile.mkdtemp(prefix="munim-live-")), attach_sandbox=shared.attach,
