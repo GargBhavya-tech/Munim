@@ -32,6 +32,7 @@ from core.engine.cases import TERMINAL
 from core.engine import merchant_undo
 from core.engine.escalation import INVALID_OUTPUT_TWICE, TOOL_FAILURE, SoftScorer
 from core.engine.intents import CONTROL_INTENTS, INTENT_TO_PLAYBOOK, top_intent
+from core.engine.dispatcher import GREETING_PLAYBOOK
 from core.engine.triage import triage_message
 from core.engine.workflow import MERCHANT_INITIATED, Decision, DecisionContext
 from core.gate.pipeline import CLARIFY, ESCALATE, NO_REPLY, REWRITE, SEND, GateOutcome, GroundingGate
@@ -186,12 +187,15 @@ class TurnAgent:
         first_contact = self._first_contact(mid)
         rewrite_used, messages = False, built.messages
         for _ in (1, 2):
-            dr = decide(self.client, messages, case_id=case.case_id, ledger=self.ledger)
-            if dr.outcome_error:
-                return self._handoff(rec, lang, case.case_id, [f"{TOOL_FAILURE}: {dr.outcome_error}"], msg, "ESCALATE_UPSTREAM")
-            if dr.decision is None:
-                return self._handoff(rec, lang, case.case_id, [f"{INVALID_OUTPUT_TWICE}: {'; '.join(dr.errors)}"], msg, "ESCALATE_INVALID")
-            td = rec.decision = dr.decision
+            if case.playbook_id == GREETING_PLAYBOOK:    # a bare greeting needs no model: the decision is "ask what they need", fixed here in code
+                td = rec.decision = TurnDecision(language=lang, ask_clarification=True)
+            else:
+                dr = decide(self.client, messages, case_id=case.case_id, ledger=self.ledger)
+                if dr.outcome_error:
+                    return self._handoff(rec, lang, case.case_id, [f"{TOOL_FAILURE}: {dr.outcome_error}"], msg, "ESCALATE_UPSTREAM")
+                if dr.decision is None:
+                    return self._handoff(rec, lang, case.case_id, [f"{INVALID_OUTPUT_TWICE}: {'; '.join(dr.errors)}"], msg, "ESCALATE_INVALID")
+                td = rec.decision = dr.decision
             gr = self.guard.check(ctx, td, msg, book.tool_results)
             self._new_cases(ctx, gr.new_cases, lang)
             if gr.escalate_reasons:
@@ -423,6 +427,8 @@ class TurnAgent:
         prior = prior_blue_turns(self.ledger.entries(ctx.case.case_id))
         if not msg:                                         # a system turn: there is no merchant to be unsure about
             return decide_tier(0.0, prior_blue_turns=0, ask_clarification=False)
+        if ctx.playbook.id == GREETING_PLAYBOOK:            # a bare greeting asks nothing to be answered: say who we are and ask what they need (the fixed
+            return TierResult("BLUE", None, 0.0)            # clarifying line), whatever the model proposed. It is never "outside knowledge" or a hand-over.
         rule = payload.get("intent") or top_intent(msg)
         uncertainty = triage_message(msg, [(i.intent, i.w) for i in td.intents], rule, INTENT_TO_PLAYBOOK).uncertainty if td.intents else 0.5
         pb = ctx.playbook

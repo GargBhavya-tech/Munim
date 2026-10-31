@@ -206,6 +206,31 @@ def test_a_clarifying_turn_carries_no_action_and_asks_the_fixed_question(db_path
     assert v["status"] == "CLARIFY" and v["tier"] == "BLUE" and v["claims"] == []
 
 
+def test_a_bare_greeting_is_asked_what_they_need_not_handed_to_a_person_even_when_the_model_writes_its_own_hello(db_path, clock, lang_en):
+    # what the live model did: it answered "hi" with a send_message carrying its own text (and no claims, no clarification flag)
+    hello = ("send_message", {"merchant_id": MID, "channel": "chat", "language": "en-IN", "body": "Hello! How can I help you today?"})
+    t = Talk(db_path, clock, [decision(hello, [])], handoffs=True)
+    t.say("hi")
+    v = t.kinds("VERIFY")[-1]
+    assert v["status"] == "CLARIFY" and v["tier"] == "BLUE" and v["reasons"] == []
+    assert t.kinds("ESCALATION") == []                                         # nobody is called in for a greeting
+    (sent,) = t.sent()
+    assert "Hello! How can I help you today?" not in sent["text"]               # the model's own words never reach the merchant
+    assert "tell me a little more" in sent["text"]                              # the approved clarifying question does
+    assert t.case("G0_GREETING").state == "RESOLVED"                            # one reply and it is done; the next message opens a case of its own
+
+
+def test_a_bare_greeting_never_asks_the_model_so_a_malformed_model_answer_cannot_hand_it_over(db_path, clock, lang_en):
+    # the live model answered "hi" with a claim whose source was not a real source id, twice: that used to escalate the greeting
+    junk = {"language": "en-IN", "intents": [], "focus_case": None, "new_case_requests": [], "next_action": None, "ask_clarification": False,
+            "claims_en": [{"id": "c1", "text": "The merchant said hello.", "source": "greeting"}]}
+    t = Talk(db_path, clock, [junk, junk], handoffs=True)
+    t.say("hi")
+    assert t.provider.seen == []                                                # the model was never called for a greeting
+    assert t.kinds("VERIFY")[-1]["status"] == "CLARIFY" and t.kinds("ESCALATION") == []
+    assert "tell me a little more" in t.sent()[0]["text"]
+
+
 # ------------------------------------------------------------------------------------------------------------- read-back
 def voice_consent(t):
     t.w.conn.execute("INSERT OR REPLACE INTO consent(subject_id, channel, status, source, ts) VALUES (?, 'voice', 'GRANTED', 'test', ?)",

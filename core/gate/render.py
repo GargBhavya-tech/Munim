@@ -30,7 +30,10 @@ Rules:
 2. Copy every number, amount and date exactly as the claims write them, as DIGITS (0-9) even in Hindi or Kannada, never as number words. Never change, round, convert or add one.
 3. Add nothing: no promises, no timelines, no reassurance, no apology, no advice, no questions, no facts that are not in the claims.
 4. Use a phrase id only from ALLOWED PHRASES, and at most the number allowed. You cannot write your own greeting or thanks; ask for the phrase id.
-5. If STYLE says to mirror the merchant's mix of Hindi and English, change only the wording style, never a fact."""
+5. If STYLE says to mirror the merchant's mix of Hindi and English, change only the wording style, never a fact.
+6. The requested language is the language of every "text". For Hindi write Devanagari, for Kannada write Kannada script. Never copy the English claim: translate it.
+   Example (Hindi): claim "The shop is open." -> {"claim_ids": ["c1"], "text": "दुकान खुली है।"}
+   Example (Kannada): claim "The shop is open." -> {"claim_ids": ["c1"], "text": "అಂಗడಿ ತೆರೆದಿದೆ."}"""
 
 
 class RenderError(ValueError):
