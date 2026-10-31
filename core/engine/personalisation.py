@@ -139,6 +139,8 @@ def build_contact_profile(conn: sqlite3.Connection, clock: SimClock, merchant_id
         channel = next((c for c in DEFAULT_CHANNEL_ORDER if c in consent), None)
         if channel is None:
             channel, how = "app", "default"
+    if consent and channel not in consent and how != "explicit":                    # a channel they use but have not consented to would be refused (and the case escalated): reply on one they have
+        channel, how = next((c for c in DEFAULT_CHANNEL_ORDER if c in consent), channel), "consented"
     prov["preferred_channel"] = how
 
     # digital comfort: stated or inferred voice/text preference, else the reply mix
