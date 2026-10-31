@@ -226,6 +226,19 @@ body {
   50% { transform: scaleY(1); }
 }
 
+/* the Soundbox's sound rings spread ONCE when it is online (state, not decoration), then rest as static arcs */
+@keyframes ring-out {
+  from { transform: scale(0.6); opacity: 0; }
+  35% { opacity: 1; }
+  to { transform: scale(1); opacity: 0.45; }
+}
+.soundbox-ring {
+  transform-box: fill-box;
+  transform-origin: left center;
+  opacity: 0.45;
+  animation: ring-out 800ms var(--ease-out) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 1ms !important;

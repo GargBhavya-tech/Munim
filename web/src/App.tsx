@@ -18,17 +18,17 @@ import { parseHash, Shell, type Route } from './shell'
 /** The judge-facing app (docs/FRONTEND_PLAN.md). A screen that is not built yet is not listed, so no navigation item goes nowhere; the original dashboard link in
  *  the header covers everything not rebuilt (handoffs, systems, arena, metrics). */
 const ROUTES: Record<string, Route> = {
-  floor: { label: 'Case Floor', surface: 'night', render: () => <Floor /> },
-  judge: { label: 'Judge Mode', surface: 'night', render: (arg) => <Judge personaArg={arg} /> },
-  phone: { label: 'Merchant phone', surface: 'night', render: (arg) => <Phone arg={arg} /> },
-  systems: { label: 'Systems', surface: 'night', render: () => <Systems /> },
-  handoffs: { label: 'Handoffs', surface: 'night', render: () => <Handoffs /> },
-  coverage: { label: 'Coverage', surface: 'night', render: () => <Coverage /> },
-  ladder: { label: 'Ladder', surface: 'night', render: () => <Ladder /> },
-  arena: { label: 'Arena', surface: 'night', render: () => <Arena /> },
-  control: { label: 'Control', surface: 'night', render: () => <Control /> },
-  proof: { label: 'Proof Ledger', surface: 'night', render: () => <Proof /> },
-  design: { label: 'Design system', surface: 'night', render: () => <Design /> },
+  judge: { label: 'Judge Mode', group: 'Try it', surface: 'night', render: (arg) => <Judge personaArg={arg} /> },
+  phone: { label: 'Merchant phone', group: 'Try it', surface: 'night', render: (arg) => <Phone arg={arg} /> },
+  arena: { label: 'Arena', group: 'Try it', surface: 'night', render: () => <Arena /> },
+  floor: { label: 'Case Floor', group: 'Watch it work', surface: 'night', render: () => <Floor /> },
+  systems: { label: 'Systems', group: 'Watch it work', surface: 'night', render: () => <Systems /> },
+  handoffs: { label: 'Handoffs', group: 'Watch it work', surface: 'night', render: () => <Handoffs /> },
+  proof: { label: 'Proof Ledger', group: 'Check the proof', surface: 'night', render: () => <Proof /> },
+  coverage: { label: 'Coverage', group: 'Check the proof', surface: 'night', render: () => <Coverage /> },
+  ladder: { label: 'Ladder', group: 'Check the proof', surface: 'night', render: () => <Ladder /> },
+  control: { label: 'Control', group: 'Operate', surface: 'night', render: () => <Control /> },
+  design: { label: 'Design system', group: 'Operate', surface: 'night', render: () => <Design /> },
 }
 
 const seen = () => {

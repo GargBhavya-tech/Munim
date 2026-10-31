@@ -3,6 +3,7 @@ import { useEffect, useState, type ReactNode } from 'react'
 import { ROLES, useLive, useResource } from '@old/hooks/live'
 import type { Role } from '@old/api/types'
 import type { ConnStatus } from '@old/lib/ws'
+import { ScreenGuide } from './guide'
 import { dur, ease, useMotion } from './motion'
 import { Stamp, SurfaceBox, type Surface } from './ui'
 
@@ -11,6 +12,7 @@ import { Stamp, SurfaceBox, type Surface } from './ui'
 
 export interface Route {
   label: string
+  group: string                         // the nav heading it sits under
   surface: Surface                      // night = Back Office, paper = the Counter
   render: (arg: string | null) => ReactNode
 }
@@ -91,24 +93,40 @@ export function Shell({ routes, fallback }: { routes: Record<string, Route>; fal
   const key = routes[screen] ? screen : fallback
   const route = routes[key]
   const suffix = window.location.search
+  const groups = Object.entries(routes).reduce<[string, [string, Route][]][]>((acc, entry) => {
+    const g = acc.find(([name]) => name === entry[1].group)
+    if (g) g[1].push(entry)
+    else acc.push([entry[1].group, [entry]])
+    return acc
+  }, [])
   return (
     <SurfaceBox surface="night" className="min-h-screen">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-surface focus:px-3 focus:py-2">Skip to content</a>
       <header className="rule-b px-6 py-4">
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <a href={`${suffix}#/${fallback}`} className="text-h2 leading-none no-underline" aria-label="Munim home">Munim</a>
-          <nav aria-label="Main" className="flex flex-wrap gap-1">
-            {Object.entries(routes).map(([id, r]) => (
-              <a
-                key={id}
-                href={`${suffix}#/${id}`}
-                aria-current={key === id ? 'page' : undefined}
-                className={`inline-flex min-h-10 items-center rounded-[2px] px-3 font-medium no-underline transition-colors duration-150 ${key === id ? 'bg-fg text-bg' : 'text-muted hover:text-fg'}`}
-              >
-                {r.label}
-              </a>
+          <nav aria-label="Main" className="flex flex-wrap gap-x-6 gap-y-3">
+            {groups.map(([group, items]) => (
+              <div key={group} role="group" aria-label={group}>
+                <div className="text-label px-3 text-[0.7rem] text-muted">{group}</div>
+                <div className="flex flex-wrap gap-1">
+                  {items.map(([id, r]) => (
+                    <a
+                      key={id}
+                      href={`${suffix}#/${id}`}
+                      aria-current={key === id ? 'page' : undefined}
+                      className={`inline-flex min-h-10 items-center rounded-[2px] px-3 font-medium no-underline transition-colors duration-150 ${key === id ? 'bg-fg text-bg' : 'text-muted hover:text-fg'}`}
+                    >
+                      {r.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
-            <a href="http://localhost:5173/" className="inline-flex min-h-10 items-center px-3 text-muted no-underline hover:text-fg">Original dashboard ↗</a>
+            <div>
+              <div className="text-label px-3 text-[0.7rem] text-muted">Elsewhere</div>
+              <a href="http://localhost:5173/" className="inline-flex min-h-10 items-center px-3 text-muted no-underline hover:text-fg">Original dashboard ↗</a>
+            </div>
           </nav>
         </div>
         <div className="mt-3"><StatusBar /></div>
@@ -122,7 +140,10 @@ export function Shell({ routes, fallback }: { routes: Record<string, Route>; fal
             exit={{ opacity: 0 }}
             transition={{ duration: m.d(dur.base), ease: ease.inOut }}
           >
-            <SurfaceBox surface={route.surface} className="min-h-[calc(100vh-9rem)]">{route.render(arg)}</SurfaceBox>
+            <SurfaceBox surface={route.surface} className="min-h-[calc(100vh-9rem)]">
+              <ScreenGuide id={key} />
+              {route.render(arg)}
+            </SurfaceBox>
           </motion.div>
         </AnimatePresence>
       </main>
