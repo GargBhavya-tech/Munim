@@ -7,7 +7,7 @@ intents:
   REPORT_DEVICE_PROBLEM:
     playbook: C2_SOUNDBOX_FAULT
     strong:
-      en: [soundbox not working, soundbox is not working, soundbox is off, soundbox stopped working, speaker not working, device is offline, device not working, soundbox no sound, soundbox is dead, soundbox is not turning on, soundbox not turning on, soundbox offline, my soundbox is down, no sound from soundbox]
+      en: [soundbox not working, soundbox is not working, soundbox is off, soundbox stopped working, speaker not working, device is offline, device not working, soundbox no sound, soundbox is dead, soundbox is not turning on, soundbox not turning on, soundbox offline, my soundbox is down, no sound from soundbox, why is soundbox offline, why is my soundbox offline, why is sandbox offline, sandbox offline, sandbox not working, sound box offline, sound box not working, soundbox is offline, device offline]
       hinglish: [soundbox band hai, soundbox band ho gaya, soundbox kaam nahi, soundbox chalu nahi, soundbox on nahi, soundbox kharab, speaker kaam nahi, awaaz nahi aa rahi, awaz nahi aa rahi, awaaz nahi aati, device band hai, soundbox nahi chal raha, soundbox bol nahi raha, soundbox bajta nahi, soundbox band pada hai]
       hi: [साउंडबॉक्स बंद, साउंडबॉक्स काम नहीं, साउंड बॉक्स बंद, साउंड बॉक्स काम नहीं, आवाज नहीं आ, स्पीकर काम नहीं, साउंडबॉक्स चालू नहीं, डिवाइस बंद, डिवाइस काम नहीं]
       kn: [ಸೌಂಡ್ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡ್ತಿಲ್ಲ, ಸೌಂಡ್ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ, ಸೌಂಡ್ ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡ್ತಿಲ್ಲ, ಸೌಂಡ್ ಬಾಕ್ಸ್ ಕೆಲಸ ಮಾಡುತ್ತಿಲ್ಲ, ಸೌಂಡ್ಬಾಕ್ಸ್ ಆಫ್, ಸೌಂಡ್ಬಾಕ್ಸ್ ಆನ್ ಆಗ್ತಿಲ್ಲ, ಶಬ್ದ ಬರುತ್ತಿಲ್ಲ, ಶಬ್ದ ಬರ್ತಿಲ್ಲ, ಧ್ವನಿ ಬರುತ್ತಿಲ್ಲ]

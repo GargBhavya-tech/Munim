@@ -182,3 +182,9 @@ def test_the_executor_still_refuses_what_the_guard_would_have_dropped(world, gua
     from core.actions.types import ActionIntent
     out = world.executor.submit(ActionIntent("apply_fee_waiver", {"merchant_id": MID, "months": 6}, case_id="CS-X", step_seq=1, allowlist=("apply_fee_waiver",)))
     assert out.status in ("ESCALATE", "REFUSED") and any(v.rule_id == "WAIVER-BAND-001" for v in out.violations)
+
+
+def test_model_written_text_with_a_stray_merchant_id_is_dropped_without_an_escalation(world, guard):
+    ctx = context(world, "S2_SOUNDBOX_UPSELL", allowlist=("send_message",))
+    r = guard.check(ctx, td(("send_message", {"merchant_id": "M-0004", "channel": "app", "body": "Our team is looking into it."})), "")
+    assert r.decision.action is None and [f.rule_id for f in r.findings] == ["MODEL-WRITTEN-TEXT"] and not r.escalate_reasons

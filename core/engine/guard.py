@@ -144,6 +144,8 @@ class DecisionGuard:
         found: list[GuardFinding] = []
         if spec.contact and any(isinstance(args.get(k), str) and args[k].strip() for k in TEXT_ARG_KEYS):
             found.append(GuardFinding("MODEL-WRITTEN-TEXT", f"{name} carries text written by the model; merchant-facing words come only from the renderer"))
+        if found:
+            return None, found           # the words are dropped anyway, so a stray id beside them is not worth an escalation: the writer sends the reply to this case's own merchant
         subject = case.subject_id
         fields = spec.args_model.model_fields
         for key, want in (("merchant_id", subject), ("case_id", case.case_id)):
