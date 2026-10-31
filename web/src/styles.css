@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* THE LEDGER design system (docs/FRONTEND_PLAN.md). Two surfaces, one idea:
+   night  = the Back Office (stage, judges, projector)    paper = the Counter (the merchant's side, daylight)
+   Tokens cascade: put data-surface="paper" on any element and everything inside re-skins itself. One accent only: the vermilion STAMP. */
+:root,
+[data-surface="night"] {
+  --bg: #0b0d12;
+  --surface: #12161d;
+  --line: #232a35;
+  --fg: #ece8dd;
+  --muted: #8f98a5;
+  --ink: #7fa8ff;
+  --stamp: #ff5a36;
+  --on-stamp: #0b0d12;
+  --ok: #38c58a;
+  --warn: #f2b84b;
+  --bad: #ff6b6b;
+  color-scheme: dark;
+}
+
+[data-surface="paper"] {
+  --bg: #f1ecdf;
+  --surface: #faf7ee;
+  --line: #d6cfbc;
+  --fg: #141821;
+  --muted: #565b66;
+  --ink: #1f3a93;
+  --stamp: #c2381c;
+  --on-stamp: #ffffff;
+  --ok: #17794f;
+  --warn: #8a5a00;
+  --bad: #b42318;
+  color-scheme: light;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-ink: var(--ink);
+  --color-stamp: var(--stamp);
+  --color-on-stamp: var(--on-stamp);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+
+  /* Latin first, then the Indic faces: the browser falls back per glyph, so Hindi and Kannada always render in a face we ship (offline-safe). */
+  --font-sans: "Archivo Variable", "Noto Sans Devanagari", "Noto Sans Kannada", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", "Noto Serif Devanagari", "Noto Serif Kannada", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius-stamp: 4px;
+  --radius-phone: 36px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root {
+  --dur-fast: 140ms;
+  --dur-base: 280ms;
+  --dur-slow: 600ms;
+  --dur-scene: 1200ms;
+}
+
+/* ---------- type scale (stage screens: body is never below 18px) ---------- */
+@utility text-display {
+  font-size: clamp(2.75rem, 8vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-wrap: balance;
+}
+@utility text-h1 {
+  font-size: clamp(2rem, 4.6vw, 3.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  font-weight: 750;
+  font-stretch: 112%;
+  text-wrap: balance;
+}
+@utility text-h2 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  font-weight: 650;
+  font-stretch: 105%;
+  text-wrap: balance;
+}
+@utility text-h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 600;
+  text-wrap: balance;
+}
+@utility text-body {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+@utility text-small {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+/* the readout: a mono label above a big number is how every metric is shown */
+@utility text-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+@utility text-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+/* Munim's own voice is serif; the system speaks in sans and mono */
+@utility text-voice {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+
+/* ---------- base ---------- */
+html {
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+::selection {
+  background: var(--stamp);
+  color: var(--on-stamp);
+}
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+/* in a layer, so Tailwind utilities (text-on-stamp and the like) can override it: unlayered rules would always win */
+@layer base {
+  button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+/* ---------- ledger rules: hairlines, never card shadows ---------- */
+.ruled {
+  /* faint, like ruled paper: the lines sit behind the writing and never read as a strikethrough */
+  --rule: color-mix(in srgb, var(--line) 45%, transparent);
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, var(--rule) 35px, var(--rule) 36px);
+}
+.rule-b {
+  border-bottom: 1px solid var(--line);
+}
+.rule-t {
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- the stamp ---------- */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.55rem;
+  border: 2px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+  border-radius: var(--radius-stamp);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  transform: rotate(-1.5deg);
+  white-space: nowrap;
+}
+
+/* ---------- verify sweep: one ink line passes down a block once (runs when .is-swept is added) ---------- */
+.sweep {
+  position: relative;
+  overflow: hidden;
+}
+.sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--ink);
+  box-shadow: 0 0 10px var(--ink);
+  opacity: 0;
+  pointer-events: none;
+}
+.sweep.is-swept::after {
+  animation: sweep var(--dur-scene) var(--ease-in-out) 1 forwards;
+}
+@keyframes sweep {
+  0% { transform: translateY(0); opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translateY(var(--sweep-h, 320px)); opacity: 0; }
+}
+
+/* the waveform moves only while the voice is live (state, not decoration) */
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+  .sweep::after { display: none; }
+}
