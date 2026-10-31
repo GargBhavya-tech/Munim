@@ -188,3 +188,9 @@ def test_model_written_text_with_a_stray_merchant_id_is_dropped_without_an_escal
     ctx = context(world, "S2_SOUNDBOX_UPSELL", allowlist=("send_message",))
     r = guard.check(ctx, td(("send_message", {"merchant_id": "M-0004", "channel": "app", "body": "Our team is looking into it."})), "")
     assert r.decision.action is None and [f.rule_id for f in r.findings] == ["MODEL-WRITTEN-TEXT"] and not r.escalate_reasons
+
+
+def test_a_value_the_playbook_fixes_is_the_playbooks_not_the_models(world, guard):
+    ctx = context(world, "C2_SOUNDBOX_FAULT", allowlist=("raise_ticket",))
+    r = guard.check(ctx, td(("raise_ticket", {"merchant_id": MID, "type": "C2_SOUNDBOX_FAULT", "summary": "Soundbox offline", "system_object": "device"})), "")
+    assert r.decision.action is not None and r.decision.action[1]["type"] == "DEVICE"            # the playbook fixes {type: DEVICE}; the model's guess is replaced

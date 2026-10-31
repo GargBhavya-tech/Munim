@@ -153,6 +153,11 @@ class DecisionGuard:
                 if key in args and args[key] != want:
                     found.append(GuardFinding("WRONG-SUBJECT", f"{key} {args[key]!r} is not this case's ({want!r})", ESCALATE))
                 args[key] = want                                         # system-controlled: always the case's own
+        pb = self.playbooks.get(case.playbook_id)
+        pinned = (pb.action(name).constraints if pb is not None and pb.action(name) is not None else {})
+        for key, want in pinned.items():                                 # a value the playbook fixes (for example a ticket's type) is the playbook's, not the model's
+            if key in fields:
+                args[key] = want
         try:
             args = spec.args_model(**args).model_dump(exclude_none=True)
         except ValidationError as e:
