@@ -1,0 +1,21 @@
+# Render Blueprint: one web service serving the frontend, /api and /ws.
+# Free plan (512 MB) cannot hold the grounding-gate models, so it runs MUNIM_MODE=scripted: every page loads, Judge Mode does not reply.
+# For live replies change: plan -> standard (2 GB), INSTALL_ML -> "1", MUNIM_MODE -> llm (and set SARVAM_API_KEY in the Render dashboard).
+services:
+  - type: web
+    name: munim
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/cases
+    envVars:
+      - key: MUNIM_MODE
+        value: scripted
+      - key: INSTALL_ML
+        value: "0"
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: FALLBACK_LLM_KEY
+        sync: false
+      - key: MUNIM_PHONE_SECRET
+        generateValue: true

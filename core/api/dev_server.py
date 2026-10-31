@@ -283,6 +283,7 @@ def main() -> None:
     ap.add_argument("--offline", action="store_true", help="the production turn agent with a rule-based stand-in for Sarvam (no key, no network): see core/llm/offline.py")
     ap.add_argument("--no-warmup", action="store_true", help="with --llm: skip the start-up turn that loads the models and makes the first Sarvam call")
     ap.add_argument("--english", action="store_true", help="reply in English to every merchant, whatever their saved language (for a demo while Hindi and Kannada are being reviewed)")
+    ap.add_argument("--static-dir", default=None, help="serve this built frontend (web/dist) at / from the same process, so one host serves the UI, /api and /ws")
     a = ap.parse_args()
     if a.english:
         import os
@@ -305,6 +306,9 @@ def main() -> None:
                 print(f"[dev_server] warm-up {'done' if r['ok'] else 'FAILED'} in {r['seconds']} s (HTTP {r['status']}, {r['replies']} reply). Ready.", flush=True)
         except Exception as e:                         # a warm-up problem must never stop the demo from starting
             print(f"[dev_server] warm-up failed ({type(e).__name__}: {str(e)[:200]}); serving anyway, the first turn will be slow.", flush=True)
+    if a.static_dir:
+        from fastapi.staticfiles import StaticFiles
+        app.mount("/", StaticFiles(directory=a.static_dir, html=True), name="web")       # mounted last: every /api, /approvals and /ws route above still wins
     uvicorn.run(app, host=a.host, port=a.port, log_level="info")
 
 
