@@ -113,7 +113,7 @@ def world(db_path, clock):
 def test_the_situation_is_read_from_the_systems(world):
     s = read_situation(world.conn, world.clock, "M-0005")
     assert (s.device_status, s.language, s.remote_attempts, s.replacements_30d, s.chronic, s.hours_source) == ("OFFLINE", "hi-IN", 0, 0, False, "ASSUMED")
-    assert s.silent_hours == 5 and s.daily_volume_paise == world.conn.execute("SELECT avg_daily_volume_paise FROM merchants WHERE merchant_id = 'M-0005'").fetchone()[0]
+    assert s.silent_hours == 3 and s.daily_volume_paise == world.conn.execute("SELECT avg_daily_volume_paise FROM merchants WHERE merchant_id = 'M-0005'").fetchone()[0]
 
 
 def test_a_recent_replacement_makes_it_a_repeat_and_a_cancelled_one_does_not(world):

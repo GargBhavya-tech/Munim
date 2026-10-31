@@ -34,7 +34,7 @@ def stops(p):
 
 def test_every_visit_goes_to_exactly_one_person_and_none_is_lost(world):
     p = plan(world)
-    ids = sorted(s.job_id for s in stops(p)) + sorted(u["job_id"] for u in p.unassigned)
+    ids = sorted([s.job_id for s in stops(p)] + [u["job_id"] for u in p.unassigned])
     assert ids == sorted(b for b, _, _ in VISITS)
 
 

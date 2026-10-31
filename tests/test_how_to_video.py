@@ -15,6 +15,7 @@ MID = "M-0009"                                           # an English-speaking B
 def world(db_path, clock):
     w = World(db_path, clock, SCRIPT)
     w.conn.executescript(_SCHEMA)
+    w.conn.execute("DELETE FROM consent WHERE subject_id = ?", (MID,))                  # the seed already grants this merchant some channels: start with none
     return w
 
 

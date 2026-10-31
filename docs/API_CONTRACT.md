@@ -117,6 +117,19 @@ Both are 404 until enabled: `app.state.arena`, or `app.state.twin_enabled = True
 - Arena: `GET /api/arena`, `GET /api/arena/leaderboard`, `POST /api/arena/players`, `GET /api/arena/players/{token}`, `POST /api/arena/players/{token}/attempts`, `POST /api/arena/admin/kill`, `POST /api/arena/admin/revive` (admin token header)
 - Arena levels are read-only SELECTs over ledger rows (`core/judge/levels/*.yaml`); a level is never decided from model text.
 
+## Sales (2026-10-31, written, not run)
+
+Routes in `core/api/routes_sales.py`. The health job is run on an in-memory COPY of the database, so reads never emit an event or store a row. The writes are the small human ones below.
+
+- `GET /api/sales/dips` -> `{as_of, findings: [{merchant_id, name, diagnosis, action, what, why, detail, quiet, retention}], checked, rules: {persist_days, drop_ratio, zero_days, actions}}`. `quiet` is true for a whole-area dip (Munim says nothing); `retention` is true for a lasting dip with no service explanation.
+- `GET /api/sales/work` -> `{items: [{kind: merchant_at_risk | new_lead, item_id, name, value, channel, why, monthly_paise, diagnosis, p}], counts, assumptions: {p_lose, p_save, cost_paise, days_per_month}}`: one list, best value first.
+- `GET /api/sales/save/{merchant_id}` -> `{merchant_id, name, diagnosis, monthly_paise, plan, attempt}`. `plan`: `{eligible, refusal, approach: rep_visit | offer, offer_months, band_months, signoff: NONE_NEEDED | SALES_LEAD, reasons, briefing: [{text, source}]}`.
+- `POST /api/sales/save/{merchant_id}/attempt` starts the ONE attempt (`409 NOT_AT_RISK | NO_SAVE_ATTEMPT`). `POST .../sign-off {role: sales_lead | ops_admin, who}` (`403 NOT_ALLOWED`, `409 CANNOT_SIGN_OFF`). `POST .../offer` applies the approved fee waiver through the executor (`{status, error, action_id}`; `409 CANNOT_APPLY_OFFER`). `POST .../close {outcome: SAVED | LET_GO}`.
+- `GET /api/sales/sightings` -> `{sightings, rivals, min_confidence}`; `POST /api/sales/sightings {rep_id, merchant_id, photo_ref, qr_visible, network, confidence}` records a reading (fields only; `422 BAD_READING`, `404 NOT_FOUND`); `POST /api/sales/sightings/{id}/review {role, who, accept}` (`403`, `409 CANNOT_REVIEW`).
+- `GET /api/sales/style/{lead_id}` -> `{lead_id, name, value, approach: {level, base_level, bumped, reasons, words}, style: {kind, owner, language, why, steps, voice_note, email, gaps}, voice_budget_words}`. `409 BRIEF_REFUSED` for an existing merchant. No audio bytes are ever returned.
+- `GET /api/sales/reps` -> `{reps: [{rep_id, name, languages, experience_months, win_rates, statement: {lines, earned_paise, pending_paise, assumptions}}], briefing: {new_months, senior_months}}`.
+- The sales desk (a rep working one lead): `GET /api/sales/leads/{lead_id}/desk` -> `{lead_id, name, state, matched_merchant_id, do_not_contact, consented_channels, can_send_first_contact, next_states, history, notes}` (`404 LEAD_NOT_FOUND`). `POST .../contact` sends the approved first contact through the executor and returns the outreach result `{status, channel, reasons, rule_ids, body, action_id}`; a refusal (consent, do-not-disturb, quiet hours, budget) is the answer, not an error. `POST .../move {to, reason?}` moves the lead along an allowed transition only (`409 CANNOT_MOVE`). `POST .../note {text, rep_id?}` stores a note after redaction (an OTP, PIN or card number never lands). Each write leaves a `HUMAN_ACTION` ledger entry.
+
 ## Service ops (2026-10-31, written, not run)
 
 Routes in `core/api/routes_ops.py`. Reads compute from the database and `field/`; the writes are the small ones a person does on the field day and booking a planned step through the executor. Travel times are the labelled SIMULATED provider (`field/simulated_travel.py`), and every response that depends on them says `simulated: true`.

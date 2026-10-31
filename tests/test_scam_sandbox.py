@@ -78,7 +78,7 @@ def test_a_payment_claimed_while_the_shop_was_shut_is_flagged(world):
 
 def test_a_payment_that_is_only_pending_says_so_and_does_not_count_as_real(world):
     now = world.clock.now()
-    world.conn.execute("INSERT INTO payments(payment_id, merchant_id, amount_paise, status, ts, reference) VALUES ('P-T-PEND', ?, 77700, 'PENDING', ?, NULL)",
+    world.conn.execute("INSERT INTO payments(payment_id, merchant_id, amount_paise, status, ts, reference) VALUES ('P-T-PEND', ?, 77700, 'PENDING', ?, 'UPI900000000099')",
                        (MID, (now - timedelta(minutes=5)).isoformat()))
     r = check_claim(world.conn, world.clock, MID, Claim(77700))
     assert r.verdict == CANNOT_TELL and "ONLY_PENDING" in codes(r)

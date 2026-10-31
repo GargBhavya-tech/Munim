@@ -97,6 +97,9 @@ class HowToVideoJob:
         m = self.conn.execute("SELECT language FROM merchants WHERE merchant_id = ?", (mid,)).fetchone()
         language = (m["language"] if m else None) or "en-IN"
         video = pick_video(self.videos, list(json.loads(task["issue_types_json"])))
+        phone = self.conn.execute("SELECT phone FROM merchants WHERE merchant_id = ?", (mid,)).fetchone()
+        if phone and phone["phone"] and self.conn.execute("SELECT 1 FROM dnd_registry WHERE phone = ?", (phone["phone"],)).fetchone():
+            return VideoResult(task["task_id"], mid, BLOCKED, video.video_id, reasons=["DND: the number is in the do-not-disturb registry"])
         channels = self._consented(mid)
         if not channels:
             return VideoResult(task["task_id"], mid, NO_CHANNEL, video.video_id, reasons=["the merchant has not consented to any channel for messages"])
