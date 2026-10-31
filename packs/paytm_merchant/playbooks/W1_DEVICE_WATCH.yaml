@@ -1,0 +1,21 @@
+# W1: Soundbox health watch. Bible section 20: act before the merchant calls.
+# Opened by DEVICE_DEGRADING (the health job saw a weakening battery or signal). The device is still ONLINE, so this is a heads-up, not a repair: one message that says what
+# the system sees (every figure is a system read), then it stops. If the device goes OFFLINE the Soundbox-fault playbook (C2) opens on its own event; this one never repairs,
+# never replaces and never visits, so there is no repair action here on purpose.
+id: W1_DEVICE_WATCH
+half: service
+priority_lane: P3
+triggers:
+  events: [DEVICE_DEGRADING]
+  intents: []
+required_reads: [get_device_status]
+steps:
+  - {name: heads_up, done: "touches >= 1"}
+allowed_actions:
+  - send_message
+  - schedule_follow_up
+done_check: "touches >= 1 or device.status == 'OFFLINE'"
+escalate_when: []
+kb_scope: [device_troubleshooting, safety_lines]
+max_touches: 1
+sla_sim_hours: 72

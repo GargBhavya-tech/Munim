@@ -1,0 +1,47 @@
+# Approved short how-to videos (SIMULATED: the links point at a reserved .invalid host and open nothing).
+# A video is sent to a merchant only by jobs/how_to_video.py, from this list, in a fixed message built by code. The model never writes a link and never picks a video.
+# review_status: DRAFT_UNREVIEWED. A native speaker must review the hi-IN, hinglish and kn-IN titles and the message wording before any real use.
+review_status: DRAFT_UNREVIEWED
+videos:
+  - id: soundbox_volume
+    topics: [volume, silent, no_sound, DEVICE]
+    seconds: 45
+    title:
+      en-IN: "How to turn the Soundbox volume up"
+      hi-IN: "साउंडबॉक्स की आवाज़ कैसे बढ़ाएँ"
+      hinglish: "Soundbox ki awaaz kaise badhayein"
+      kn-IN: "ಸೌಂಡ್‌ಬಾಕ್ಸ್ ಧ್ವನಿ ಹೇಗೆ ಹೆಚ್ಚಿಸುವುದು"
+    url: "https://videos.example.invalid/munim/soundbox_volume"
+  - id: soundbox_charging
+    topics: [charging, battery, power]
+    seconds: 40
+    title:
+      en-IN: "How to charge the Soundbox properly"
+      hi-IN: "साउंडबॉक्स को सही तरह से चार्ज कैसे करें"
+      hinglish: "Soundbox ko sahi tarah se charge kaise karein"
+      kn-IN: "ಸೌಂಡ್‌ಬಾಕ್ಸ್ ಅನ್ನು ಸರಿಯಾಗಿ ಚಾರ್ಜ್ ಮಾಡುವುದು ಹೇಗೆ"
+    url: "https://videos.example.invalid/munim/soundbox_charging"
+  - id: soundbox_network
+    topics: [wifi, network, signal, connectivity]
+    seconds: 55
+    title:
+      en-IN: "How to reconnect the Soundbox to Wi-Fi"
+      hi-IN: "साउंडबॉक्स को वाई-फ़ाई से दोबारा कैसे जोड़ें"
+      hinglish: "Soundbox ko Wi-Fi se dobara kaise jodein"
+      kn-IN: "ಸೌಂಡ್‌ಬಾಕ್ಸ್ ಅನ್ನು ವೈ-ಫೈಗೆ ಮತ್ತೆ ಹೇಗೆ ಸಂಪರ್ಕಿಸುವುದು"
+    url: "https://videos.example.invalid/munim/soundbox_network"
+  - id: soundbox_basics
+    topics: [general, how_to, MERCHANT_NEEDS_HELP]
+    seconds: 60
+    title:
+      en-IN: "Using your Soundbox: the basics"
+      hi-IN: "अपना साउंडबॉक्स इस्तेमाल करने की बुनियादी बातें"
+      hinglish: "Apna Soundbox istemaal karne ki basic baatein"
+      kn-IN: "ನಿಮ್ಮ ಸೌಂಡ್‌ಬಾಕ್ಸ್ ಬಳಕೆಯ ಮೂಲಭೂತ ಅಂಶಗಳು"
+    url: "https://videos.example.invalid/munim/soundbox_basics"
+message:
+  # {title} is the approved title above, {url} the approved link. No other text is ever added.
+  en-IN: "Here is a short video that shows how: {title}. {url}"
+  hi-IN: "यह छोटा वीडियो देखिए, इसमें दिखाया गया है कि कैसे करना है: {title}। {url}"
+  hinglish: "Ye chhota video dekhiye, isme dikhaya gaya hai kaise karna hai: {title}. {url}"
+  kn-IN: "ಈ ಚಿಕ್ಕ ವೀಡಿಯೊ ನೋಡಿ, ಇದರಲ್ಲಿ ಹೇಗೆ ಮಾಡಬೇಕು ಎಂದು ತೋರಿಸಲಾಗಿದೆ: {title}. {url}"

@@ -10,7 +10,7 @@ from fastapi import FastAPI
 from pathlib import Path
 
 from core.api import (routes_approvals, routes_arena, routes_cases, routes_control, routes_coverage, routes_export, routes_handoffs, routes_judge, routes_ladder, routes_ledger, routes_messages,
-                      routes_phone, routes_policy_compile, routes_questions, routes_systems, routes_twin, routes_voice, ws_events)
+                      routes_leads, routes_ops, routes_phone, routes_policy_compile, routes_questions, routes_systems, routes_twin, routes_voice, ws_events)
 from core.memory.store import connect
 
 
@@ -42,6 +42,8 @@ def create_api(db_path, clock, executor, mock_http, *, on_approve=None, registry
 
     app.include_router(routes_cases.router)
     app.include_router(routes_systems.router)
+    app.include_router(routes_leads.router)
+    app.include_router(routes_ops.router)
     app.include_router(routes_ledger.router)
     app.include_router(routes_coverage.router)
     app.include_router(routes_questions.router)

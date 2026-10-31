@@ -106,6 +106,27 @@ def seed_demo_cases(stack: Stack) -> None:
     stack.run()
 
 
+def seed_demo_leads(stack: Stack) -> None:
+    """The growth jobs have run before the demo opens: duplicate matching drops existing merchants and duplicates, then the cleared leads are scored. The
+    Leads screen only REPORTS this (core/api/routes_leads.py); it never runs it. Both jobs only touch leads that have not been checked, so a second call changes nothing."""
+    from jobs.dedupe import DedupeJob
+    from jobs.scoring import score_ready_leads
+    DedupeJob(stack.conn, stack.clock, stack.ledger).run()
+    score_ready_leads(stack.conn, stack.clock)
+
+
+def seed_demo_ops(stack: Stack) -> None:
+    """The service-ops side of the demo: the SYNTHETIC on-call helpers and couriers, and four visits booked for today so the field-day plan has something to plan.
+    Visits are booked through the mock scheduler with idempotency keys, so a second call books nothing new."""
+    from field.helpers import ensure_roster
+    from field.swap import ensure_couriers
+    ensure_roster(stack.conn)
+    ensure_couriers(stack.conn)
+    day = stack.clock.now().date().isoformat()
+    for mid, hhmm in (("M-0003", "13:00"), ("M-0009", "14:30"), ("M-0012", "15:30"), ("M-0015", "16:30")):
+        stack.http.post("/mock/bookings", json={"merchant_id": mid, "kind": "visit", "slot_at": f"{day}T{hhmm}:00+05:30"}, headers={"Idempotency-Key": f"demo-visit-{mid}-{day}"})
+
+
 def attach_llm(stack: Stack, *, client=None, nli=None, translator=None, knowledge=None, embedder=None, reranker=None):
     """Swap the scripted decider for the production turn agent. Providers default to the real ones (Sarvam, entailment model, KB)."""
     from core.engine.assembly import build_turn_agent, hard_escalation, wire
@@ -229,6 +250,8 @@ def build(db_path: Path | None = None, seed_seed: int = 42, demo: bool = True, l
     stack = Stack(db_path, clock)
     if demo:
         seed_demo_cases(stack)
+        seed_demo_leads(stack)
+        seed_demo_ops(stack)
     shared = None
     if llm or offline:
         from dotenv import load_dotenv
