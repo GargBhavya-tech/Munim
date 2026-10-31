@@ -59,7 +59,7 @@ export function Phone({ arg }: { arg: string | null }) {
     <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-6 py-10 md:flex-row md:items-start md:justify-center">
       <div className="max-w-xs md:pt-10">
         <div className="text-label text-muted">The Counter</div>
-        <h1 className="text-h1 mt-1">What the shopkeeper sees.</h1>
+        <h1 className="text-h1 mt-1 text-[2.4rem] leading-[1.05] [overflow-wrap:anywhere]">What the shopkeeper sees.</h1>
         <p className="text-body text-muted mt-4">Munim answers in the shopkeeper's own words. Under each answer, a stamp shows where every proven sentence came from. Talk to it, or type.</p>
         <label className="text-small mt-6 flex items-center gap-2 text-muted"><input type="checkbox" checked={spoken} onChange={(e) => setSpoken(e.target.checked)} /> Speak the replies aloud</label>
       </div>
