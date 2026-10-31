@@ -1,15 +1,15 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { useResource } from '@old/hooks/live'
-import { CHANNEL_LABEL, frame, getLead, getLeads, inr, nice, STATE_LABEL, type Bounds, type Channel, type Contact, type Funnel, type Lead, type LeadDetail, type LeadsView } from '../leads'
+import { CHANNEL_LABEL, getLead, getLeads, inr, nice, STATE_LABEL, type Channel, type Contact, type Funnel, type Lead, type LeadDetail, type LeadsView } from '../leads'
 import { Mark, Term } from '../plain'
 import { fieldSm, loading, Note, Page } from '../parts'
 import { Readout, Stamp, Tag } from '../ui'
+import { GeoMap } from './GeoMap'
 
 /** New merchants: how Munim narrows public data to the few businesses worth reaching, and why. It REPORTS what the jobs decided (found, dropped as existing merchants or
  *  duplicates, ranked) and shows each lead's brief, whose every number cites a source. Contact is shown, never started here. All data is synthetic. */
 
 const SHOWN = 25
-const MAP_W = 640
 const CHANNEL_TONE: Record<Channel, string> = { field_rep: 'var(--stamp)', ai_voice: 'var(--ink)', self_serve: 'var(--muted)' }
 
 // ---------------------------------------------------------------------------------------------------- the funnel
@@ -36,57 +36,24 @@ function Marker({ x, y, r, channel }: { x: number; y: number; r: number; channel
   return <circle cx={x} cy={y} r={r} fill={fill} />
 }
 
-/** The middle of the points, so a few far-off leads cannot squash everyone else into one corner: the frame covers the 5th to 95th percentile (with a margin) and the rest sit on the edge. */
-function coreBounds(pts: { lat: number; lng: number }[], all: Bounds): Bounds {
-  if (pts.length < 20) return all
-  const q = (v: number[], f: number) => v[Math.min(v.length - 1, Math.max(0, Math.round(f * (v.length - 1))))]
-  const lats = pts.map((p) => p.lat).sort((x, y) => x - y)
-  const lngs = pts.map((p) => p.lng).sort((x, y) => x - y)
-  const [la, lb, ga, gb] = [q(lats, 0.05), q(lats, 0.95), q(lngs, 0.05), q(lngs, 0.95)]
-  const pl = Math.max((lb - la) * 0.12, 1e-4)
-  const pg = Math.max((gb - ga) * 0.12, 1e-4)
-  return { min_lat: la - pl, max_lat: lb + pl, min_lng: ga - pg, max_lng: gb + pg }
-}
-
 const CITY_BY_PIN: Record<string, string> = { '560': 'Bengaluru', '562': 'Bengaluru', '411': 'Pune', '580': 'Hubballi-Dharwad', '570': 'Mysuru' }
 const cityOf = (pin: string | null): string => (pin ? CITY_BY_PIN[pin.slice(0, 3)] ?? `Pincodes ${pin.slice(0, 3)}` : 'Unplaced')
 
-function LeadMap({ leads, bounds, picked, onPick }: { leads: Lead[]; bounds: Bounds; picked: string | null; onPick: (id: string) => void }) {
-  const everyone = leads.filter((l) => l.lat !== null && l.lng !== null && l.channel)
+function LeadMap({ leads, picked, onPick }: { leads: Lead[]; picked: string | null; onPick: (id: string) => void }) {
+  const everyone = useMemo(() => leads.filter((l) => l.lat !== null && l.lng !== null && l.channel), [leads])
   const cities = useMemo(() => {
     const m = new Map<string, number>()
     for (const l of everyone) m.set(cityOf(l.pincode), (m.get(cityOf(l.pincode)) ?? 0) + 1)
     return [...m.entries()].sort((a, b) => b[1] - a[1])
   }, [everyone])
   const [city, setCity] = useState<string>('')
-  const chosenCity = cities.some(([c]) => c === city) ? city : cities.length > 1 ? cities[0][0] : ''          // a city fills the map; "All cities" is one click away
-  const placed = chosenCity === 'all' || !chosenCity ? everyone : everyone.filter((l) => cityOf(l.pincode) === chosenCity)
-  const view = useMemo(() => coreBounds(placed.map((l) => ({ lat: l.lat as number, lng: l.lng as number })), bounds), [placed, bounds])
-  const fr = useMemo(() => frame(view, MAP_W), [view])
-  const top = Math.max(1, ...leads.map((l) => l.score ?? 0))
-  const PAD = 10
-  const spot = (l: Lead): { x: number; y: number; off: boolean } => {
-    const [x, y] = fr.at(l.lat as number, l.lng as number)
-    const cx = Math.min(fr.w - PAD, Math.max(PAD, x))
-    const cy = Math.min(fr.h - PAD, Math.max(PAD, y))
-    return { x: cx, y: cy, off: cx !== x || cy !== y }
-  }
-  const spots = placed.map((l) => ({ l, ...spot(l) }))
-  const offMap = spots.filter((s) => s.off).length
-  const chosen = spots.find((s) => s.l.lead_id === picked)
-  // one label per pincode, at the middle of its own leads, so the map says WHERE as well as how many
-  const areas = new Map<string, { x: number; y: number; n: number }>()
-  for (const s of spots) {
-    if (s.off || !s.l.pincode) continue
-    const a = areas.get(s.l.pincode) ?? { x: 0, y: 0, n: 0 }
-    areas.set(s.l.pincode, { x: a.x + s.x, y: a.y + s.y, n: a.n + 1 })
-  }
-  const labels = [...areas.entries()].filter(([, a]) => a.n >= 3).map(([pin, a]) => ({ pin, x: a.x / a.n, y: a.y / a.n, n: a.n }))
+  const chosenCity = city === 'all' || cities.some(([c]) => c === city) ? city : cities[0]?.[0] ?? 'all'          // opens on the biggest city, so the markers are readable; "All cities" is one click away
+  const placed = useMemo(() => (chosenCity === 'all' ? everyone : everyone.filter((l) => cityOf(l.pincode) === chosenCity)), [everyone, chosenCity])
   return (
     <figure className="m-0">
       {cities.length > 1 && (
         <div role="group" aria-label="Choose a city" className="mb-2 flex flex-wrap gap-2">
-          {[...cities, ['all', everyone.length] as [string, number]].map(([c, n]) => (
+          {[['all', everyone.length] as [string, number], ...cities].map(([c, n]) => (
             <button key={c} type="button" onClick={() => setCity(c)} aria-pressed={chosenCity === c}
               className={`text-small min-h-9 border px-3 ${chosenCity === c ? 'border-fg text-fg' : 'border-line text-muted hover:text-fg'}`}>
               {c === 'all' ? 'All cities' : c} <span className="text-num text-muted">{n}</span>
@@ -94,34 +61,14 @@ function LeadMap({ leads, bounds, picked, onPick }: { leads: Lead[]; bounds: Bou
           ))}
         </div>
       )}
-      <svg viewBox={`0 0 ${fr.w} ${fr.h}`} role="img" aria-label={`Map of ${placed.length} leads by position, north up. The ranked list has the same leads.`}
-        className="block w-full border border-line bg-surface" preserveAspectRatio="xMidYMid meet">
-        {labels.map((a) => (
-          <g key={a.pin} aria-hidden="true">
-            <circle cx={a.x} cy={a.y} r={Math.min(70, 22 + a.n * 2.5)} fill="var(--line)" opacity="0.28" />
-            <text x={a.x} y={a.y - Math.min(70, 22 + a.n * 2.5) - 6} textAnchor="middle" fontSize="11" fill="var(--muted)" className="text-num">{a.pin}</text>
-          </g>
-        ))}
-        {spots.filter((s) => s.l.lead_id !== picked).map(({ l, x, y, off }) => (
-          <g key={l.lead_id} onClick={() => onPick(l.lead_id)} className="cursor-pointer" opacity={off ? 0.55 : 0.88}>
-            <title>{l.name}{off ? ' (further out than the map shows)' : ''}</title>
-            <Marker x={x} y={y} r={3.5 + 4.5 * ((l.score ?? 0) / top)} channel={l.channel as Channel} />
-          </g>
-        ))}
-        {chosen && (
-          <g>
-            <circle cx={chosen.x} cy={chosen.y} r={15} fill="none" stroke="var(--fg)" strokeWidth="2" />
-            <Marker x={chosen.x} y={chosen.y} r={6 + 4 * ((chosen.l.score ?? 0) / top)} channel={chosen.l.channel as Channel} />
-          </g>
-        )}
-      </svg>
+      <GeoMap leads={placed} picked={picked} onPick={onPick} label={chosenCity === 'all' ? 'all cities' : chosenCity} />
       <figcaption className="text-small mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 text-muted">
         {(['field_rep', 'ai_voice', 'self_serve'] as Channel[]).map((c) => (
           <span key={c} className="inline-flex items-center gap-2">
             <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><Marker x={7} y={7} r={5} channel={c} /></svg>{CHANNEL_LABEL[c]}
           </span>
         ))}
-        <span>Bigger means a higher <Term term="priority score">priority</Term>. North is up. Positions are synthetic.{offMap > 0 && ` ${offMap} lead${offMap === 1 ? ' is' : 's are'} further out than the map shows and sit${offMap === 1 ? 's' : ''} on its edge, faded.`}</span>
+        <span>Bigger means a higher <Term term="priority score">priority</Term>. Click a marker to open the brief. The map is real, the shop positions on it are synthetic.</span>
       </figcaption>
     </figure>
   )
@@ -284,7 +231,7 @@ export function Leads() {
           ) : (
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
               <div className="min-w-0">
-                {data.bounds && <LeadMap leads={shown} bounds={data.bounds} picked={current} onPick={setPicked} />}
+                {data.bounds && <LeadMap leads={shown} picked={current} onPick={setPicked} />}
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <label className="text-small inline-flex items-center gap-2 text-muted">Reached by
                     <select className={fieldSm} value={channel} onChange={(e) => setChannel(e.target.value)}>
