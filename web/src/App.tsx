@@ -13,6 +13,8 @@ import { Opening } from './screens/Opening'
 import { Ops } from './screens/Ops'
 import { Phone } from './screens/Phone'
 import { Proof } from './screens/Proof'
+import { Desk } from './screens/Desk'
+import { Sales } from './screens/Sales'
 import { Simple } from './screens/Simple'
 import { Systems } from './screens/Systems'
 import { parseHash, Shell, type Route } from './shell'
@@ -24,6 +26,8 @@ const ROUTES: Record<string, Route> = {
   phone: { label: 'Merchant phone', group: 'Try it', surface: 'night', render: (arg) => <Phone arg={arg} /> },
   arena: { label: 'Arena', group: 'Try it', surface: 'night', render: () => <Arena /> },
   floor: { label: 'Case Floor', group: 'Watch it work', surface: 'night', render: () => <Floor /> },
+  desk: { label: 'Sales desk', group: 'Watch it work', surface: 'night', render: () => <Desk /> },
+  sales: { label: 'Sales', group: 'Watch it work', surface: 'night', render: () => <Sales /> },
   leads: { label: 'New merchants', group: 'Watch it work', surface: 'night', render: () => <Leads /> },
   ops: { label: 'Service ops', group: 'Watch it work', surface: 'night', render: () => <Ops /> },
   systems: { label: 'Systems', group: 'Watch it work', surface: 'night', render: () => <Systems /> },

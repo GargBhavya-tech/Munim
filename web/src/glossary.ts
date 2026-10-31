@@ -22,6 +22,7 @@ export const GLOSSARY: Record<string, string> = {
   PRIORITY_SCORE: 'How worth reaching a lead is: the expected monthly volume, times the chance they switch, times the chance of a later loan, divided by what it costs to reach them. Higher means sooner. The rates are assumptions on synthetic data.',
   DO_NOT_DISTURB: 'The national list of numbers that must not be contacted. A lead on it is never contacted, whatever else is true.',
   CONSENT: 'Permission, on record, to contact this person on a given channel. Without it nothing is sent.',
+  SAVE_ATTEMPT: 'One try to keep a merchant who is leaving: a rep visit or an offer inside the approved limit. There is only ever one; after it, Munim lets them go.',
   CHANCE_OF_WORKING: 'How likely this fix is to clear the fault. These are assumptions on synthetic data, lowered when a device is clearly broken or the fault keeps coming back.',
   // how Munim works
   LEDGER: 'The permanent record. Every decision, action and sentence is written here, in order, and cannot be edited without it showing.',

@@ -59,7 +59,7 @@ export interface Hours { open: string; close: string; closed_days: string[]; sou
 export interface Signal { code: string; severity: string; text: string }
 export interface ScamReport { merchant_id: string; verdict: string; signals: Signal[]; copied: { payments: number; references: number }; discarded: boolean }
 
-async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
+export async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
   const r = await fetch(path, { method, headers: body === undefined ? undefined : { 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body) })
   if (r.ok) return r.json()
   let msg = `HTTP ${r.status}`

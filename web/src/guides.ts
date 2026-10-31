@@ -17,6 +17,11 @@ export const GUIDES: Record<string, Guide> = {
     try: 'Click a lead on the map or in the list and read its brief. Open “Left out of the list” to see who was dropped.',
     good: 'No existing merchant is ever in the ranked list, every number in a brief names its source, and a lead with no consent is marked “not yet”.',
   },
+  sales: {
+    see: 'How Munim decides who to talk to, why and how: whether a dip is real, what caused it, who deserves human time, the one save attempt, how a lead is approached, and what a rep earns.',
+    try: 'Read a flagged merchant, record a rival-QR sighting, click a merchant at risk to see their save plan, or click a lead to see its voice note or email.',
+    good: 'A merchant in a whole-area dip gets silence, a save is attempted once, and a signup earns nothing until its first settlement lands.',
+  },
   ops: {
     see: 'How a Soundbox fault is fixed: which rung of the ladder to start on and why, who does it, how the field day is planned, and a sandbox that checks a payment claim.',
     try: 'Plan the fix for a merchant, report a shop as closed, mark a person as running late, or check a payment claim.',
