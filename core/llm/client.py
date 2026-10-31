@@ -1,7 +1,7 @@
 """LLM client (#34): one entry point for every model call, so every call is attributable.
 
 * Two providers behind one interface: ``sarvam`` (model name from config/sarvam.yaml) and ``fallback`` (any OpenAI-compatible
-  endpoint, configured in config/llm.yaml and keyed by FALLBACK_LLM_KEY).
+  endpoint, configured in config/llm.yaml and keyed by GEMINI_API_KEY or FALLBACK_LLM_KEY).
 * Each provider gets the first try plus ONE retry for timeouts, network errors, 408/429 and 5xx. Other 4xx errors do not retry.
   When the primary is exhausted the call moves to the fallback, and the response says so (``on_fallback``), so the UI can show a banner.
 * Every call writes one CONTEXT_HASH ledger entry whose ``model_id`` column is the model that actually answered, whose ``prompt_hash``
@@ -169,13 +169,14 @@ class LLMClient:
 
 def build_client(ledger: Ledger | None = None, *, env: dict | None = None, sarvam_http: SarvamHTTP | None = None,
                  llm_config: dict | None = None, **kw) -> LLMClient:
-    """Production wiring. The fallback exists only if config/llm.yaml names an endpoint AND FALLBACK_LLM_KEY is set."""
+    """Production wiring. The fallback exists only if config/llm.yaml names an endpoint AND GEMINI_API_KEY (or FALLBACK_LLM_KEY) is set."""
     env = os.environ if env is None else env
     primary = SarvamProvider(sarvam_http or SarvamHTTP(api_key=env.get("SARVAM_API_KEY", "")))
     cfg = (llm_config if llm_config is not None else load_llm_config()).get("fallback") or {}
     fb = None
-    if cfg.get("base_url") and cfg.get("model") and env.get("FALLBACK_LLM_KEY"):
-        fb = OpenAICompatProvider(cfg["base_url"], cfg["model"], env["FALLBACK_LLM_KEY"], path=cfg.get("path", "/chat/completions"),
+    key = env.get("GEMINI_API_KEY") or env.get("FALLBACK_LLM_KEY")          # a Gemini key goes in GEMINI_API_KEY; FALLBACK_LLM_KEY works for any other compatible provider
+    if cfg.get("base_url") and cfg.get("model") and key:
+        fb = OpenAICompatProvider(cfg["base_url"], cfg["model"], key, path=cfg.get("path", "/chat/completions"),
                                   temperature=cfg.get("temperature", 0.2), max_tokens=cfg.get("max_tokens", 1024),
                                   timeout=cfg.get("timeout_seconds", 60.0))
     return LLMClient(primary, fb, ledger, **kw)

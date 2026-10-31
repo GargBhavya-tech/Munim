@@ -144,10 +144,13 @@ def test_real_providers_over_mock_transports_fall_back_with_the_right_credential
 
 def test_build_client_only_creates_a_fallback_when_it_is_fully_configured():
     sar_http = SarvamHTTP("k", load_config(), httpx.Client(base_url="https://api.sarvam.ai"))
-    assert load_llm_config()["fallback"]["base_url"] == ""                                       # shipped empty on purpose
+    assert "generativelanguage.googleapis.com" in load_llm_config()["fallback"]["base_url"]      # shipped pointing at Gemini's compatible endpoint
     assert build_client(sarvam_http=sar_http, env={}).fallback is None
     full = {"fallback": {"base_url": "https://fb.example", "model": "m"}}
     assert build_client(sarvam_http=sar_http, env={}, llm_config=full).fallback is None          # no key
     assert build_client(sarvam_http=sar_http, env={"FALLBACK_LLM_KEY": "k"}, llm_config={"fallback": {"base_url": "", "model": ""}}).fallback is None
     c = build_client(sarvam_http=sar_http, env={"FALLBACK_LLM_KEY": "k"}, llm_config=full)
     assert c.fallback.model_id == "m" and c.primary.model_id == load_config()["chat"]["model"]
+    g = build_client(sarvam_http=sar_http, env={"GEMINI_API_KEY": "g", "FALLBACK_LLM_KEY": "other"}, llm_config=full)
+    assert g.fallback.api_key == "g"                                                             # a Gemini key wins over the generic one
+    assert build_client(sarvam_http=sar_http, env={}).fallback is None                           # the shipped config still needs a key

@@ -1,9 +1,9 @@
-# Fallback chat model (Build Map #34). Any OpenAI-compatible /chat/completions endpoint. The key comes from FALLBACK_LLM_KEY.
-# Left empty on purpose: the team has not chosen a fallback provider yet, and nothing should call one by accident.
-# With base_url, model and FALLBACK_LLM_KEY all set, the client switches to it after Sarvam fails twice and shows a banner.
+# Fallback chat model (Build Map #34). Any OpenAI-compatible /chat/completions endpoint. The key comes from GEMINI_API_KEY (or FALLBACK_LLM_KEY for another provider).
+# Gemini's OpenAI-compatible endpoint is used. With base_url, model and a key all set, the client switches to it after Sarvam fails twice and shows a banner.
+# To use another provider, change base_url and model here and put its key in FALLBACK_LLM_KEY (and leave GEMINI_API_KEY empty).
 fallback:
-  base_url: ""          # e.g. https://api.example.com/v1
-  model: ""
+  base_url: https://generativelanguage.googleapis.com/v1beta/openai
+  model: gemini-flash-latest
   path: /chat/completions
   temperature: 0.2
   max_tokens: 1024
