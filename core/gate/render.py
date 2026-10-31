@@ -45,6 +45,20 @@ _BENIGN_KEYS = frozenset({"language", "lang", "id", "index", "type", "kind"})
 _TEXT_KEYS = ("text", "sentence")
 
 
+def _split(items: list) -> list:
+    """A claim sentence with a ``phrase`` in the same object is two things at once: a sentence and a fixed phrase. Split it; each part is then checked on its
+    own exactly as if the model had sent two objects, and the phrase's words are code's, never the model's. An empty phrase is dropped."""
+    out: list = []
+    for it in items:
+        if isinstance(it, dict) and "phrase" in it and ({"claim_ids", "claim_id"} & set(it)):
+            out.append({k: v for k, v in it.items() if k != "phrase"})
+            if it["phrase"] not in (None, ""):
+                out.append({"phrase": it["phrase"]})
+        else:
+            out.append(it)
+    return out
+
+
 def _normalise(it: dict) -> dict:
     """Map the few harmless shape variations a model produces onto the strict shape; everything else is left for ``_parse`` to reject.
     Only a claim sentence is touched: ``claim_id`` -> ``claim_ids``, ``claim_ids`` as one string -> a list, ``sentence`` -> ``text``, and
@@ -126,7 +140,7 @@ class Renderer:
         ids = {v.claim_id for v in claims}
         out: list[RenderedSentence] = []
         phrases = 0
-        for n, it in enumerate(items, 1):
+        for n, it in enumerate(_split(items), 1):
             if not isinstance(it, dict):
                 raise RenderError(f"sentence {n} is not an object")
             it = _normalise(it)

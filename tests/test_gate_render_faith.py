@@ -80,8 +80,19 @@ def test_a_slightly_different_claim_sentence_shape_is_normalised_not_rejected(se
     assert [(s.kind, s.text, s.claim_ids) for s in r.sentences] == [("claim", "Amount 8200.", ("c1",))]
 
 
+def test_a_claim_sentence_with_a_phrase_in_the_same_object_becomes_two_sentences():
+    r, _ = render([{"sentences": [{"claim_ids": ["c1"], "text": "Amount 8200.", "phrase": "thank_you"}]}], language="hinglish")
+    assert [(s.kind, s.text, s.claim_ids) for s in r.sentences] == [("claim", "Amount 8200.", ("c1",)), ("phrase", "Dhanyavaad.", ())]   # the phrase text is code's, not the model's
+
+
+def test_an_empty_phrase_next_to_a_claim_sentence_is_just_dropped():
+    r, _ = render([{"sentences": [{"claim_ids": ["c1"], "text": "Amount 8200.", "phrase": None}]}])
+    assert [(s.kind, s.claim_ids) for s in r.sentences] == [("claim", ("c1",))]
+
+
 @pytest.mark.parametrize("bad", [
-    {"claim_ids": ["c1"], "text": "Amount 8200.", "phrase": "thank_you"},        # a claim sentence AND a phrase in one object
+    {"claim_ids": ["c1"], "text": "Amount 8200.", "phrase": "made_up"},          # the phrase is still checked: an unknown id is rejected
+    {"claim_ids": ["c1"], "text": "Amount 8200.", "phrase": "identity"},         # and a compliance phrase is not the renderer's to use
     {"claim_ids": ["c1"], "text": "Amount 8200.", "extra": {"a": 1}},            # an unknown key holding structure
     {"claim_ids": ["c1"], "text": "Amount 8200.", "promise": "soon"},            # an unknown key is not a free text channel
     {"claim_id": "c9", "text": "Amount 8200."},                                  # normalising never skips the verified-claim check
