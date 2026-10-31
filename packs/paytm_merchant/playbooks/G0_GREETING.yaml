@@ -1,0 +1,19 @@
+# G0: a bare greeting ("hi", "hello", "namaste"). Not a request, so it is neither refused nor handed to a person: the merchant is greeted, told who
+# is speaking by the compliance lines the gate adds, and asked what they need. The case closes after that one reply, so what they say next opens a case of
+# its own (see core/engine/dispatcher.py). The only write is the reply itself (send_message); the words come from the gate's fixed phrases.
+id: G0_GREETING
+half: service
+priority_lane: P3
+triggers:
+  events: []
+  intents: []
+required_reads: []
+steps:
+  - {name: greet, done: "touches >= 1"}
+allowed_actions:
+  - send_message
+done_check: "touches >= 1"
+escalate_when: []
+kb_scope: [safety_lines]
+max_touches: 1
+sla_sim_hours: 24

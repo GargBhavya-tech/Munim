@@ -37,6 +37,34 @@ class RenderError(ValueError):
     pass
 
 
+# Labels a model may attach to a sentence. They carry no words for the merchant, so they are dropped, never read.
+_BENIGN_KEYS = frozenset({"language", "lang", "id", "index", "type", "kind"})
+_TEXT_KEYS = ("text", "sentence")
+
+
+def _normalise(it: dict) -> dict:
+    """Map the few harmless shape variations a model produces onto the strict shape; everything else is left for ``_parse`` to reject.
+    Only a claim sentence is touched: ``claim_id`` -> ``claim_ids``, ``claim_ids`` as one string -> a list, ``sentence`` -> ``text``, and
+    scalar labels (``language`` ...) dropped. A phrase object, an unknown key or a value that is not a scalar is never repaired, and the cited
+    ids and the text still go through every check in ``_parse`` and then the faithfulness gate."""
+    if "phrase" in it or not ({"claim_ids", "claim_id"} & set(it)):
+        return it
+    out = dict(it)
+    if "claim_id" in out and "claim_ids" not in out:
+        out["claim_ids"] = out.pop("claim_id")
+    if isinstance(out.get("claim_ids"), str):
+        out["claim_ids"] = [out["claim_ids"]]
+    if "text" not in out:
+        for k in _TEXT_KEYS[1:]:
+            if k in out:
+                out["text"] = out.pop(k)
+                break
+    for k in list(out):
+        if k in _BENIGN_KEYS and isinstance(out[k], (str, int, float, bool)):
+            del out[k]
+    return out
+
+
 @dataclass(frozen=True)
 class RenderedSentence:
     kind: str                         # claim | phrase
@@ -98,6 +126,7 @@ class Renderer:
         for n, it in enumerate(items, 1):
             if not isinstance(it, dict):
                 raise RenderError(f"sentence {n} is not an object")
+            it = _normalise(it)
             if set(it) == {"phrase"}:
                 pid = it["phrase"]
                 if not isinstance(pid, str) or not self.phrases.has(pid) or self.phrases.kind(pid) != "conversational":
@@ -112,7 +141,7 @@ class Renderer:
                     raise RenderError(f"sentence {n}: cites a claim that is not verified")
                 out.append(RenderedSentence("claim", txt.strip(), tuple(cids)))
             else:
-                raise RenderError(f"sentence {n}: must be a claim sentence or a phrase")
+                raise RenderError(f"sentence {n}: must be a claim sentence or a phrase (keys used: {', '.join(sorted(map(str, it))) or 'none'})")
         if phrases > self.max_phrases:
             raise RenderError(f"at most {self.max_phrases} phrases")
         if len([s for s in out if s.kind == "claim"]) > len(claims):

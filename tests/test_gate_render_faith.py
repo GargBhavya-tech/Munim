@@ -69,6 +69,34 @@ def test_anything_beyond_the_claims_is_rejected(bad):
         render([bad, bad])
 
 
+@pytest.mark.parametrize("sentence", [
+    {"claim_ids": ["c1"], "text": "Amount 8200.", "language": "hi-IN"},          # a harmless label the model added
+    {"claim_id": "c1", "text": "Amount 8200."},                                  # one id as a string, the singular key
+    {"claim_ids": "c1", "text": "Amount 8200."},                                 # the list written as a single string
+    {"claim_ids": ["c1"], "sentence": "Amount 8200."},                           # "sentence" for "text"
+])
+def test_a_slightly_different_claim_sentence_shape_is_normalised_not_rejected(sentence):
+    r, _ = render([{"sentences": [sentence]}])
+    assert [(s.kind, s.text, s.claim_ids) for s in r.sentences] == [("claim", "Amount 8200.", ("c1",))]
+
+
+@pytest.mark.parametrize("bad", [
+    {"claim_ids": ["c1"], "text": "Amount 8200.", "phrase": "thank_you"},        # a claim sentence AND a phrase in one object
+    {"claim_ids": ["c1"], "text": "Amount 8200.", "extra": {"a": 1}},            # an unknown key holding structure
+    {"claim_ids": ["c1"], "text": "Amount 8200.", "promise": "soon"},            # an unknown key is not a free text channel
+    {"claim_id": "c9", "text": "Amount 8200."},                                  # normalising never skips the verified-claim check
+])
+def test_normalising_the_shape_does_not_let_anything_extra_through(bad):
+    with pytest.raises(RenderError):
+        render([{"sentences": [bad]}, {"sentences": [bad]}])
+
+
+def test_the_render_error_names_the_keys_the_model_used_so_a_failure_can_be_diagnosed():
+    with pytest.raises(RenderError) as e:
+        render([{"sentences": [{"reply_text": "x", "ids": ["c1"]}]}] * 2)
+    assert "ids" in str(e.value) and "reply_text" in str(e.value)
+
+
 def test_one_invalid_reply_is_retried_with_the_error_and_a_second_is_final():
     r, prov = render([{"sentences": [{"text": "soon"}]}, {"sentences": [claim_s("Amount 8200.", "c1")]}])
     assert len(prov.seen) == 2 and prov.seen[1][2]["content"].startswith("INVALID_RENDER:") and r.sentences[0].claim_ids == ("c1",)

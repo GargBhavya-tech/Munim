@@ -11,11 +11,19 @@ import json
 import sqlite3
 from dataclasses import dataclass
 
-from core.engine.intents import INTENT_TO_PLAYBOOK, top_intent
+from core.engine.intents import INTENT_TO_PLAYBOOK, normalise_text, top_intent
 from core.engine.triage import UNSUPPORTED_PLAYBOOK, OpenCase, triage_event
 from core.engine.workflow import MERCHANT_INITIATED, Engine, Event, EventResult
 
 CURSOR_KEY = "dispatch_cursor"
+GREETING_PLAYBOOK = "G0_GREETING"
+# A message that is ONLY one of these is a greeting. Exact match on the normalised text, never a substring: "hi my settlement has not come" is a request.
+GREETINGS = frozenset({"hi", "hii", "hiii", "hello", "helo", "hey", "hey there", "hello there", "good morning", "good afternoon", "good evening",
+                       "namaste", "namaskar", "namaskara", "pranam", "नमस्ते", "नमस्कार", "ನಮಸ್ಕಾರ", "ನಮಸ್ತೆ"})
+
+
+def is_greeting(text: str) -> bool:
+    return normalise_text(text or "").strip() in GREETINGS
 
 
 @dataclass(frozen=True)
@@ -46,7 +54,21 @@ class Dispatcher:
         pid = INTENT_TO_PLAYBOOK.get(intent or "")
         if pid in self.playbooks:
             return pid
+        if not intent and is_greeting(text) and GREETING_PLAYBOOK in self.playbooks:
+            return GREETING_PLAYBOOK                   # a bare greeting is greeted, not refused and handed over
         return self.message_fallback if self.message_fallback in self.playbooks else None
+
+    def _new_topic_playbook(self, payload: dict, open_cases: list) -> str | None:
+        """The playbook for a message whose merchant has only cases a person owns (ESCALATED), when the message is about something none of
+        those cases is about. Otherwise None: the message stays with the case it belongs to. A greeting, an unsupported message or the topic a
+        person already holds never opens a case here, and neither does a merchant who still has a case the engine is working (the model
+        raises a second topic itself)."""
+        if not open_cases or any(c.state != "ESCALATED" for c in open_cases):
+            return None
+        pid = self._message_playbook(payload)
+        if pid is None or pid in (self.message_fallback, GREETING_PLAYBOOK) or any(c.playbook_id == pid for c in open_cases):
+            return None
+        return pid
 
     def _open_cases(self, merchant_id: str) -> list:
         return self.engine.repo.open_cases(merchant_id)
@@ -78,6 +100,10 @@ class Dispatcher:
             if pid is not None:
                 case = self.engine.open_case(merchant_id, pid, language=payload.get("language"))
                 targets.append((case.case_id, True))
+        elif r["type"] in MERCHANT_INITIATED and (pid := self._new_topic_playbook(payload, open_cases)) is not None:
+            case = self.engine.open_case(merchant_id, pid, language=payload.get("language"))
+            targets.append((case.case_id, True))
+            open_cases = []                            # the cases a person owns are not woken: they would only repeat the hand-over line
         for c in open_cases:
             if all(c.case_id != tid for tid, _ in targets):
                 targets.append((c.case_id, False))
